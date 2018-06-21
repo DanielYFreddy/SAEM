@@ -35,48 +35,50 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="mantenimiento" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Administración
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="mantenimiento">
-                              <a class="dropdown-item" href="#">Usuarios</a>
-                            </div>
-                      </li>
-                      <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="expedientes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Control de Expedientes
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="expedientes">
-                              <a class="dropdown-item" href="#">Pacientes</a>
-                              <a class="dropdown-item" href="#">Agregar historia clinica</a>
-                              <a class="dropdown-item" href="#">Consulta Medica</a>
-                            </div>
-                      </li>
-                      <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="citas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Citas
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="citas">
-                              <a class="dropdown-item" href="#">Asignar Citas</a>
-                              <a class="dropdown-item" href="#">Recodatorio de citas</a>
-                            </div>
-                      </li>
-                      <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="reportes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Reportes
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="reportes">
-                              <a class="dropdown-item" href="#">Reporte de seguimiento</a>
-                              <a class="dropdown-item" href="#">Reporte de historia clínica</a>
-                              <a class="dropdown-item" href="#">Reporte de test postural</a>
-                              <a class="dropdown-item" href="#">Reporte de valoración gonométrica</a>
-                              <a class="dropdown-item" href="#">Reporte de valoracón manual muscular</a>
-                              <a class="dropdown-item" href="#">Reporte de antropometria</a>
-                            </div>
-                      </li>
-                    </ul>
+                    @auth        
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="mantenimiento" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Administración
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="mantenimiento">
+                                  <a class="dropdown-item" href="#">Usuarios</a>
+                                </div>
+                          </li>
+                          <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="expedientes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Control de Expedientes
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="expedientes">
+                                  <a class="dropdown-item" href="#">Pacientes</a>
+                                  <a class="dropdown-item" href="#">Historiales Clinicos</a>
+                                  <a class="dropdown-item" href="#">Consulta Medica</a>
+                                </div>
+                          </li>
+                          <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="citas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Citas
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="citas">
+                                  <a class="dropdown-item" href="#">Asignar Citas</a>
+                                  <a class="dropdown-item" href="#">Recodatorio de citas</a>
+                                </div>
+                          </li>
+                          <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="reportes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Reportes
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="reportes">
+                                  <a class="dropdown-item" href="#">Reporte de seguimiento</a>
+                                  <a class="dropdown-item" href="#">Reporte de historia clínica</a>
+                                  <a class="dropdown-item" href="#">Reporte de test postural</a>
+                                  <a class="dropdown-item" href="#">Reporte de valoración gonométrica</a>
+                                  <a class="dropdown-item" href="#">Reporte de valoracón manual muscular</a>
+                                  <a class="dropdown-item" href="#">Reporte de antropometria</a>
+                                </div>
+                          </li>
+                        </ul>
+                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
