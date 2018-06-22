@@ -14,6 +14,7 @@
     <script src="{{ asset('jquery/jquery.js') }}" defer></script>
     <script src="{{ asset('popper/popper.min.js') }}" defer></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -42,7 +43,7 @@
                                   Administración
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="mantenimiento">
-                                  <a class="dropdown-item" href="#">Usuarios</a>
+                                  <a class="dropdown-item" href="{{ route('usuarios.index') }}">Usuarios</a>
                                 </div>
                           </li>
                           <li class="nav-item dropdown">
@@ -115,7 +116,11 @@
              @yield('content')
         </main>
 
-
+        @if (isset($titulo))
+          <script type="text/javascript">
+            swal({{ $titulo }}, {{ $mensaje }}, {{ $boton }});
+          </script>
+        @endif
     </div>
 </body>
 </html>

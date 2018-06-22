@@ -33,12 +33,6 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('/home', 'HomeController@index')->name('home');
 
 	//Usuarios
-Route::get('/usuarios', function () {
-    return view('usuarios.index');
-})->name('usuarios.index');
-Route::get('/usuarios/create', function () {
-    return view('usuarios.create');
-})->name('usuarios.create');;
-Route::post('/usuarios/store', function () {
-    return view('usuarios.index');
-})->name('usuarios.store');;
+Route::get('/usuarios', 'UsuarioController@index')->name('usuarios.index');
+Route::get('/usuarios/create', 'UsuarioController@create')->name('usuarios.create');;
+Route::post('/usuarios/store', 'UsuarioController@store')->name('usuarios.store');;

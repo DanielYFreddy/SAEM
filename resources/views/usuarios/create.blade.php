@@ -10,30 +10,59 @@
                 <div class="card-header">Nuevo usuario</div>
 
                 <div class="card-body">
-					{!! Form::open(['route' => ['usuarios.store']]) !!}
- 						
- 						<div class="form-group">
+        					{!! Form::open(['route' => ['usuarios.store']]) !!}
+         						
+         						<div class="form-group">
 
-						    {{ Form::label('name', 'Nombre') }}
-						    {{ Form::text('name',null,['id'=>'name','class'=>'form-control']) }}
+        						    {{ Form::label('name', 'Nombre') }}
+        						    {{ Form::text('name',null,['id'=>'name','class'=>'form-control']) }}
 
-  						</div>
+                        @if ($errors->count() > 0)
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ $errors->first('name') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endif
 
- 						<div class="form-group">
+          					</div>
 
-						    {{ Form::label('email', 'E-mail') }}
-						    {{ Form::email('email',null,['id'=>'email','class'=>'form-control']) }}
+         						<div class="form-group">
 
-  						</div>
+        						    {{ Form::label('email', 'E-mail') }}
+        						    {{ Form::email('email',null,['id'=>'email','class'=>'form-control']) }}
+                        
+                        @if ($errors->count() > 0)
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endif
 
- 						<div class="form-group">
+          					</div>
 
-						    {{ Form::label('password', 'Contraseña') }}
-						    {{ Form::password('password',['id'=>'password','class'=>'form-control']) }}
+         						<div class="form-group">
 
-  						</div>  						  						
+        						    {{ Form::label('password', 'Contraseña') }}
+        						    {{ Form::password('password',['id'=>'password','class'=>'form-control']) }}
 
-					{!! Form::close() !!}
+                        @if ($errors->count() > 0)
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endif
+
+          					</div>  		
+
+                    {{ Form::submit('Guardar', ['class'=>'btn btn-primary']) }}				  						
+
+        					{!! Form::close() !!}
                 </div>
             </div>
         </div>
