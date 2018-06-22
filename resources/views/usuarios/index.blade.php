@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <h1>Lista de usuarios</h1>
             <div class="card">
-                <div class="card-header"><a href="#" class="btn btn-primary float-right">+Nuevo Usuario</a></div>
+                <div class="card-header"><a href="{{ route('usuarios.create') }}" class="btn btn-primary float-right">+Nuevo Usuario</a></div>
 
                 <div class="card-body">
 
