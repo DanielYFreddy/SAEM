@@ -26,7 +26,7 @@
                             <th scope="row">{{ $user->id }}</th>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td><a href="#" class="btn btn-warning">Modificar</a></td>
+                            <td><a href="{{ route('usuarios.create') }}" class="btn btn-warning">Modificar</a></td>
                          </tr>
                         @endforeach                       
                       </tbody>

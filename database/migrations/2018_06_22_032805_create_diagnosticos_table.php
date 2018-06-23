@@ -15,6 +15,7 @@ class CreateDiagnosticosTable extends Migration
     {
         Schema::create('diagnosticos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('paciente_id')->unsigned();
             $table->string('diagnostico');
             $table->string('tratamientoFarmacologico');
             $table->string('evolucion');
@@ -22,6 +23,8 @@ class CreateDiagnosticosTable extends Migration
             $table->string('antecedentes');
             $table->string('cirugias');
             $table->string('traumaticos');
+            
+            $table->foreign('paciente_id')->references('id')->on('pacientes');
             $table->timestamps();
         });
     }

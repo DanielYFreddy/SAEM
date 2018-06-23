@@ -17,7 +17,7 @@
         						    {{ Form::label('name', 'Nombre') }}
         						    {{ Form::text('name',null,['id'=>'name','class'=>'form-control']) }}
 
-                        @if ($errors->count() > 0)
+                        @if ( !empty($errors->get('name')))
                           <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>{{ $errors->first('name') }}</strong>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -33,7 +33,7 @@
         						    {{ Form::label('email', 'E-mail') }}
         						    {{ Form::email('email',null,['id'=>'email','class'=>'form-control']) }}
                         
-                        @if ($errors->count() > 0)
+                        @if (!empty($errors->get('email')))
                           <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>{{ $errors->first('email') }}</strong>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -49,7 +49,7 @@
         						    {{ Form::label('password', 'Contraseña') }}
         						    {{ Form::password('password',['id'=>'password','class'=>'form-control']) }}
 
-                        @if ($errors->count() > 0)
+                        @if (!empty($errors->get('password')))
                           <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>{{ $errors->first('password') }}</strong>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
