@@ -34,5 +34,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 	//Usuarios
 Route::get('/usuarios', 'UsuarioController@index')->name('usuarios.index');
-Route::get('/usuarios/create', 'UsuarioController@create')->name('usuarios.create');;
-Route::post('/usuarios/store', 'UsuarioController@store')->name('usuarios.store');;
+Route::get('/usuarios/create', 'UsuarioController@create')->name('usuarios.create');
+Route::post('/usuarios', 'UsuarioController@store')->name('usuarios.store');
+Route::get('/usuarios/destroy/{id}','UsuarioController@destroy')->name('usuarios.destroy');
+Route::get('/usuarios/edit/{id}','UsuarioController@edit')->name('usuarios.edit');
+Route::put('/usuarios/update/{id}','UsuarioController@update')->name('usuarios.update');

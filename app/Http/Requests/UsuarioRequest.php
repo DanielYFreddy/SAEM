@@ -40,14 +40,13 @@ class UsuarioRequest extends FormRequest
                 ];
             }
             case 'PUT':
-            case 'PATCH':
             {
                 return [
                     'name' => 'required',
                     'email'      => 'required|email|unique:users,email,'.$this->get('id'),
-                    'password'   => 'required',
                 ];
             }
+            case 'PATCH':
             default:break;
         }
     }
@@ -75,7 +74,6 @@ class UsuarioRequest extends FormRequest
                 return [
                     'name.required' => 'El campo nombre es requerido',
                     'email.required' => 'El campo email es requerido',
-                    'password.required' => 'El campo password es requerido',
                 ];
             }
             case 'PATCH':

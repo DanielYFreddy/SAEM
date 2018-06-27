@@ -46,10 +46,8 @@ class UsuarioController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
-        $titulo="Registrado";
-        $mensaje="El usuario ha sido registrado exitosamente";
-        $boton="success";
-        return redirect()->route('usuarios.index')->with('titulo',$titulo)->with('mensaje',$mensaje)->with('boton',$boton);
+
+        return redirect()->route('usuarios.index');
 
     }
 
@@ -73,6 +71,9 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
+
+        return view('usuarios.edit')->with('user',$user);
     }
 
     /**
@@ -82,9 +83,17 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsuarioRequest $request, $id)
     {
         //
+        $user = User::find($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+        
+        return redirect()->route('usuarios.index');
+
     }
 
     /**
