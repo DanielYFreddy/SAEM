@@ -8,5 +8,5 @@ class Historial_Observacion extends Model
 {
     protected $table = 'historialesObservaciones';
 
-    protected $fillable = ['id','paciente_id','observaciones'];
+    protected $fillable = ['paciente_id','observaciones'];
 }

@@ -76,6 +76,101 @@
 
                     </div>
 
+                    <div class="form-group">
+
+                        {{ Form::label('fecha_nacimiento', 'Fecha Nacimiento') }}
+                        {{ Form::date('fecha_nacimiento',null,['id'=>'fecha_nacimiento','class'=>'form-control']) }}
+
+                        @if ( !empty($errors->get('fecha_nacimiento')))
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ $errors->first('fecha_nacimiento') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endif
+
+                    </div>
+
+                    <div class="form-group">
+                      {{ Form::label('', 'Genero') }}
+
+                      <div class="form-check">
+                        {{ Form::radio('genero', 'Masculino',true,['id'=>'Masculino','class'=>'form-check-input']) }}
+                        {{ Form::label('Masculino', 'Masculino',['class'=>'form-check-label']) }}
+
+                      </div>
+                      <div class="form-check">
+                        {{ Form::radio('genero', 'Femenino',null,['id'=>'Femenino','class'=>'form-check-input']) }}
+                        {{ Form::label('Femenino', 'Femenino',['class'=>'form-check-label']) }}
+
+                      </div>
+                    </div>
+     
+                  <div class="form-group">
+
+                        {{ Form::label('region', 'Región') }}
+                        {{ Form::text('region',null,['id'=>'region','class'=>'form-control']) }}
+
+                        @if ( !empty($errors->get('region')))
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ $errors->first('region') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endif
+
+                    </div>
+
+                  <div class="form-group">
+
+                        {{ Form::label('direccion', 'Dirección') }}
+                        {{ Form::text('direccion',null,['id'=>'direccion','class'=>'form-control']) }}
+
+                        @if ( !empty($errors->get('direccion')))
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ $errors->first('direccion') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endif
+
+                    </div>                                     
+
+                  <div class="form-group">
+
+                        {{ Form::label('movil', 'Movil') }}
+                        {{ Form::text('movil',null,['id'=>'movil','class'=>'form-control']) }}
+
+                        @if ( !empty($errors->get('movil')))
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ $errors->first('movil') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endif
+
+                    </div>
+
+                  <div class="form-group">
+
+                        {{ Form::label('telefono', 'Telefono') }}
+                        {{ Form::text('telefono',null,['id'=>'telefono','class'=>'form-control']) }}
+
+                        @if ( !empty($errors->get('telefono')))
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ $errors->first('telefono') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endif
+
+                    </div>  
+
          						<div class="form-group">
 
         						    {{ Form::label('email', 'E-mail') }}
@@ -92,21 +187,10 @@
 
           					</div>
 
-         						<div class="form-group">
-
-        						    {{ Form::label('password', 'Contraseña') }}
-        						    {{ Form::password('password',['id'=>'password','class'=>'form-control']) }}
-
-                        @if (!empty($errors->get('password')))
-                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>{{ $errors->first('password') }}</strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        @endif
-
-          					</div>  		
+                    <div class="form-group">
+                     {{ Form::label('estado_civil', 'Estado Civil') }}
+                     {{ Form::select('estado_civil', ['Soltero' => 'Soltero', 'Casado' => 'Casado', 'Separado' => 'Separado', 'Union Libre' => 'Union Libre', 'Viudo' => 'Viudo'], null, ['placeholder' => 'Seleccione una opción...','class'=>'form-control']) }}
+                    </div>
 
                     {{ Form::submit('Guardar', ['class'=>'btn btn-primary']) }}				  						
 

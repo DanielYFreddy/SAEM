@@ -8,5 +8,5 @@ class Ginecologico extends Model
 {
     protected $table = 'ginecologicos';
 
-    protected $fillable = ['id','paciente_id','embarazo','abortos','periodoMestrual','tratamiento','observacion'];
+    protected $fillable = ['paciente_id','embarazo','abortos','periodoMestrual','tratamiento','observacion'];
 }

@@ -8,5 +8,5 @@ class No_Patologico extends Model
 {
     protected $table = 'noPatologicos';
 
-    protected $fillable = ['id','paciente_id','alcohol','tabaco','medicacion'];
+    protected $fillable = ['paciente_id','alcohol','tabaco','medicacion'];
 }

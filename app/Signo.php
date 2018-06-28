@@ -8,5 +8,5 @@ class Signo extends Model
 {
     protected $table = 'signos';
 
-    protected $fillable = ['id','paciente_id','presionArterial','frecuenciaCardiaca','frecuenciaRespiratoria','peso','talla'];
+    protected $fillable = ['paciente_id','presionArterial','frecuenciaCardiaca','frecuenciaRespiratoria','peso','talla'];
 }

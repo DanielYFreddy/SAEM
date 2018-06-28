@@ -8,5 +8,5 @@ class Actividad_Fisica extends Model
 {
     protected $table = 'actividadesFisicas';
 
-    protected $fillable = ['id','paciente_id','nivelActividad','actividadFisica'];
+    protected $fillable = ['paciente_id','nivelActividad','actividadFisica'];
 }

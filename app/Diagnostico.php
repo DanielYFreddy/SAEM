@@ -8,5 +8,5 @@ class Diagnostico extends Model
 {
     protected $table = 'diagnosticos';
 
-    protected $fillable = ['id','paciente_id','diagnostico','tratamientoFarmacologico','evolucion','referenciaMedica','antecedentes','cirugias','traumaticos'];
+    protected $fillable = ['paciente_id','diagnostico','tratamientoFarmacologico','evolucion','referenciaMedica','antecedentes','cirugias','traumaticos'];
 }

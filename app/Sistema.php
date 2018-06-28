@@ -8,5 +8,5 @@ class Sistema extends Model
 {
     protected $table = 'sistemas';
 
-    protected $fillable = ['id','nombre'];
+    protected $fillable = ['nombre'];
 }

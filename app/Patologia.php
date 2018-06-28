@@ -8,5 +8,5 @@ class Patologia extends Model
 {
     protected $table = 'patologias';
 
-    protected $fillable = ['id','sistema_id','nombre'];
+    protected $fillable = ['sistema_id','nombre'];
 }
