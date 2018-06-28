@@ -52,7 +52,7 @@
                                   Control de Expedientes
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="expedientes">
-                                  <a class="dropdown-item" href="#">Pacientes</a>
+                                  <a class="dropdown-item" href="{{ route('pacientes.index') }}">Pacientes</a>
                                   <a class="dropdown-item" href="#">Historiales Clinicos</a>
                                   <a class="dropdown-item" href="#">Consulta Medica</a>
                                 </div>

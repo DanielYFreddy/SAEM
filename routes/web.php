@@ -43,3 +43,6 @@ Route::put('/usuarios/update/{id}','UsuarioController@update')->name('usuarios.u
 	//Pacientes
 Route::get('/pacientes', 'PacienteController@index')->name('pacientes.index');
 Route::get('/pacientes/create', 'PacienteController@create')->name('pacientes.create');
+Route::post('/pacientes', 'PacienteController@store')->name('pacientes.store');
+Route::get('/pacientes/edit/{id}','PacienteController@edit')->name('pacientes.edit');
+Route::put('/pacientes/update/{id}','PacienteController@update')->name('pacientes.update');
