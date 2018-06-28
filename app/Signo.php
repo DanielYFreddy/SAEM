@@ -9,4 +9,9 @@ class Signo extends Model
     protected $table = 'signos';
 
     protected $fillable = ['paciente_id','presionArterial','frecuenciaCardiaca','frecuenciaRespiratoria','peso','talla'];
+
+    public function paciente()
+    {
+        return $this->belongsTo('App\Paciente');
+    }
 }
