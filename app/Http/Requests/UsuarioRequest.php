@@ -36,7 +36,7 @@ class UsuarioRequest extends FormRequest
                 return [
                     'name' => 'required',
                     'email'      => 'required|email|unique:users,email',
-                    'password'   => 'required',
+                    'password'   => 'required|alpha_num|min:6',
                 ];
             }
             case 'PUT':
@@ -66,7 +66,9 @@ class UsuarioRequest extends FormRequest
                     'name.required' => 'El campo nombre es requerido',
                     'email.required' => 'El campo email es requerido',
                     'email.unique' => 'Este correo ya existe en el sistema',
-                    'password.required' => 'El campo password es requerido',
+                    'password.required' => 'El campo contraseña es requerido',
+                    'password.min' => 'El campo contraseña necesita mínimo 6 caracteres',
+                    'password.alpha_num' => 'El campo contraseña necesita ser alfanumérico',
                 ];
             }
             case 'PUT':

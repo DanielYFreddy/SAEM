@@ -10,7 +10,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+       
 
         <!-- Styles -->
         <style>

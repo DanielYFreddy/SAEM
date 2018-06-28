@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <h1>Crear usuario</h1>
             <div class="card">
-                <div class="card-header">Nuevo usuario</div>
+                <div class="card-header">Nuevo usuario<a href="{{ route('usuarios.index') }}" class="btn btn-danger float-right">Atrás</a></div>
 
                 <div class="card-body">
         					{!! Form::open(['route' => ['usuarios.store']]) !!}

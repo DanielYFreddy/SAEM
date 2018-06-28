@@ -7,7 +7,15 @@
         <div class="col-md-12">
             <h1>Lista de usuarios</h1>
             <div class="card">
-                <div class="card-header"><a href="{{ route('usuarios.create') }}" class="btn btn-primary float-right">+Nuevo Usuario</a></div>
+                <div class="card-header">
+                  <a href="{{ route('usuarios.create') }}" class="btn btn-primary float-left">+Nuevo Usuario</a>
+                  <form method="GET" action="{{route('usuarios.index')}}" class="form-inline float-right">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Buscar usuario" name="name">
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Buscar</button>
+                  </form>
+                </div>
 
                 <div class="card-body">
                   <div class="col-md-12">
@@ -31,6 +39,7 @@
                         @endforeach                       
                       </tbody>
                     </table>
+                    {{ $users->links() }}
                   </div>
                 </div>
             </div>

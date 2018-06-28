@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <h1>Editar usuario</h1>
             <div class="card">
-                <div class="card-header">Editar usuario</div>
+                <div class="card-header">Editar usuario<a href="{{ route('usuarios.index') }}" class="btn btn-danger float-right">Atrás</a></div>
 
                 <div class="card-body">
                   {!! Form::open(['route' => ['usuarios.update', $user->id], 'method' => 'put']) !!}

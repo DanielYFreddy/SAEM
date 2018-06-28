@@ -5,18 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\UsuarioRequest;
+use Alert;
 
 class UsuarioController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $users = User::orderBy('id','ASC')->paginate(10);
+        $users = User::searchUsuario($request->name)->orderBy('id','ASC')->paginate(15);
         return view('usuarios.index')->with('users',$users);
         
     }
@@ -46,6 +48,8 @@ class UsuarioController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();
+
+        alert()->success('El usuario ha sido registrado', 'Usuario registrado')->persistent('Close');
 
         return redirect()->route('usuarios.index');
 
@@ -91,7 +95,9 @@ class UsuarioController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
-        
+
+        alert()->success('El usuario ha sido modificado', 'Usuario modificado')->persistent('Close');
+
         return redirect()->route('usuarios.index');
 
     }
