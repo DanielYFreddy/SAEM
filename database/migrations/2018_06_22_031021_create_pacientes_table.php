@@ -28,7 +28,6 @@ class CreatePacientesTable extends Migration
             $table->string('movil');
             $table->string('email');
             $table->enum('estado_civil',['Soltero','Casado','Separado','Union Libre','Viudo'])->default('Soltero');
-            $table->enum('estado',['activo','inactivo'])->default('inactivo');
             $table->timestamps();
         });
     }
