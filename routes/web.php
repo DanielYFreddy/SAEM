@@ -46,3 +46,6 @@ Route::get('/pacientes/create', 'PacienteController@create')->name('pacientes.cr
 Route::post('/pacientes', 'PacienteController@store')->name('pacientes.store');
 Route::get('/pacientes/edit/{id}','PacienteController@edit')->name('pacientes.edit');
 Route::put('/pacientes/update/{id}','PacienteController@update')->name('pacientes.update');
+
+	//historiales
+Route::get('/historiales', 'HistorialController@index')->name('historiales.index');

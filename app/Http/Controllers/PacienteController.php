@@ -12,10 +12,10 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $pacientes = Paciente::orderBy('nombre','ASC')->paginate(15);
+        $pacientes = Paciente::searchPaciente($request->nombre)->orderBy('nombre','ASC')->paginate(15);
         return view('pacientes.index')->with('pacientes', $pacientes);
     }
 
@@ -39,6 +39,25 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
         //
+        $paciente = new Paciente();
+        $paciente->nombre = $request->nombre;
+        $paciente->cedula = $request->cedula;
+        $paciente->ocupacion = $request->ocupacion;
+        $paciente->nacionalidad = $request->nacionalidad;
+        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->genero = $request->genero;
+        $paciente->region = $request->region;
+        $paciente->direccion = $request->direccion;
+        $paciente->movil = $request->movil;  
+        $paciente->telefono = $request->telefono; 
+        $paciente->email = $request->email; 
+        $paciente->estado_civil = $request->estado_civil;  
+
+        $paciente->save();     
+
+        alert()->success('El paciente ha sido registrado', 'Paciente registrado')->persistent('Close');
+
+        return redirect()->route('pacientes.index');
     }
 
     /**
@@ -61,6 +80,9 @@ class PacienteController extends Controller
     public function edit($id)
     {
         //
+        $paciente = Paciente::find($id);
+
+        return view('pacientes.edit')->with('paciente',$paciente);
     }
 
     /**
@@ -73,6 +95,26 @@ class PacienteController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $paciente = Paciente::find($id);
+
+        $paciente->nombre = $request->nombre;
+        $paciente->cedula = $request->cedula;
+        $paciente->ocupacion = $request->ocupacion;
+        $paciente->nacionalidad = $request->nacionalidad;
+        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->genero = $request->genero;
+        $paciente->region = $request->region;
+        $paciente->direccion = $request->direccion;
+        $paciente->movil = $request->movil;  
+        $paciente->telefono = $request->telefono; 
+        $paciente->email = $request->email; 
+        $paciente->estado_civil = $request->estado_civil;  
+
+        $paciente->save();     
+
+        alert()->success('El paciente ha sido modificado', 'Paciente modificado')->persistent('Close');
+
+        return redirect()->route('pacientes.index');
     }
 
     /**

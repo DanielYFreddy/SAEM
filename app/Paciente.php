@@ -11,6 +11,11 @@ class Paciente extends Model
 
     protected $fillable = ['nombre','cedula','ocupacion','nacionalidad','fecha_nacimiento','genero','region','direccion','telefono','movil','email','estado_civil'];
 
+    public function scopeSearchPaciente($query, $nombre)
+    { 
+        return $query->where('nombre', 'like', '%'.$nombre.'%' );
+    }
+
     public function signos()
     {
         return $this->hasMany('App\Signo');

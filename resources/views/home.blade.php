@@ -8,7 +8,7 @@
               <div class="container">
                 <h1 class="display-4">Bienvenido {{ Auth::user()->name }}</h1>
                 <p class="lead">Desde aquí podrá visualizar la información más importante de sus pacientes y conssultas para este día.</p>
-                 <a class="btn btn-primary" href="#" role="button">+Registrar Paciente</a>
+                 <a class="btn btn-primary" href="{{ route('pacientes.create') }}" role="button">+Registrar Paciente</a>
               </div>
             </div>
         </div>
