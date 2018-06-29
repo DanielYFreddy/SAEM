@@ -14,4 +14,9 @@ class Patologia extends Model
     {
         return $this->belongsTo('App\Sistema');
     }
+
+    public function pacientes()
+    {
+        return $this->belongsToMany('App\Paciente');
+    }
 }

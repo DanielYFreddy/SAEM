@@ -45,4 +45,10 @@ class Paciente extends Model
     {
         return $this->hasMany('App\Actividad_Fisica');
     }
+
+
+    public function patologias()
+    {
+        return $this->belongsToMany('App\Patologia');
+    }
 }
