@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">
                   <a href="{{ route('pacientes.create') }}" class="btn btn-primary float-left">+Nuevo Paciente</a>
-                  <form method="GET" action="{{route('pacientes.index')}}" class="form-inline float-right">
+                  <form method="GET" action="{{route('pacientes.buscar')}}" class="form-inline float-right">
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Buscar pacientes" name="nombre">
                     </div>

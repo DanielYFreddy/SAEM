@@ -34,6 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 	//Usuarios
 Route::get('/usuarios', 'UsuarioController@index')->name('usuarios.index');
+Route::get('/usuarios/usuarios', 'UsuarioController@buscar')->name('usuarios.buscar');
 Route::get('/usuarios/create', 'UsuarioController@create')->name('usuarios.create');
 Route::post('/usuarios', 'UsuarioController@store')->name('usuarios.store');
 Route::get('/usuarios/destroy/{id}','UsuarioController@destroy')->name('usuarios.destroy');
@@ -42,6 +43,7 @@ Route::put('/usuarios/update/{id}','UsuarioController@update')->name('usuarios.u
 
 	//Pacientes
 Route::get('/pacientes', 'PacienteController@index')->name('pacientes.index');
+Route::get('/pacientes/pacientes', 'PacienteController@buscar')->name('pacientes.buscar');
 Route::get('/pacientes/create', 'PacienteController@create')->name('pacientes.create');
 Route::post('/pacientes', 'PacienteController@store')->name('pacientes.store');
 Route::get('/pacientes/edit/{id}','PacienteController@edit')->name('pacientes.edit');
@@ -49,3 +51,8 @@ Route::put('/pacientes/update/{id}','PacienteController@update')->name('paciente
 
 	//historiales
 Route::get('/historiales', 'HistorialController@index')->name('historiales.index');
+
+	//citas
+Route::get('/agenda', function () {
+    return view('citas.agenda');
+})->name('citas.agenda');

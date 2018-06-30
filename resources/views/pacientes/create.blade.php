@@ -190,6 +190,15 @@
                     <div class="form-group">
                      {{ Form::label('estado_civil', 'Estado Civil') }}
                      {{ Form::select('estado_civil', ['Soltero' => 'Soltero', 'Casado' => 'Casado', 'Separado' => 'Separado', 'Union Libre' => 'Union Libre', 'Viudo' => 'Viudo'], null, ['placeholder' => 'Seleccione una opción...','class'=>'form-control']) }}
+
+                        @if (!empty($errors->get('estado_civil')))
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ $errors->first('estado_civil') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endif
                     </div>
 
                     {{ Form::submit('Guardar', ['class'=>'btn btn-primary']) }}				  						

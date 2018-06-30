@@ -10,19 +10,31 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('jquery/jquery.js') }}" defer></script>
-    <script src="{{ asset('popper/popper.min.js') }}" defer></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+
+
+    <!-- Styles -->
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link href="{{ asset('fullcalendar/css/fullcalendar.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 
-    <!-- Styles -->
-    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="{{ asset('jquery/jquery.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+    <script src="{{ asset('fullcalendar/js/moment.min.js') }}"></script>
+    <script src="{{ asset('fullcalendar/js/fullcalendar.js') }}"></script>
+    <script src="{{ asset('fullcalendar/js/es.js') }}"></script>
+    
+
+
 </head>
 <body>
     <div id="app">
@@ -62,7 +74,7 @@
                                   Citas
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="citas">
-                                  <a class="dropdown-item" href="#">Asignar Citas</a>
+                                  <a class="dropdown-item" href="{{ route('citas.agenda') }}">Asignar Citas</a>
                                   <a class="dropdown-item" href="#">Recodatorio de citas</a>
                                 </div>
                           </li>
@@ -116,6 +128,8 @@
         <main class="py-4">
              @yield('content')
         </main>
+
+        @yield('js')
 
         @include('sweet::alert')
     </div>

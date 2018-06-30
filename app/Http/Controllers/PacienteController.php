@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\PacienteRequest;
 use App\Paciente;
+use Alert;
 
 class PacienteController extends Controller
 {
@@ -12,11 +15,19 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        $pacientes = Paciente::searchPaciente($request->nombre)->orderBy('nombre','ASC')->paginate(15);
+        $pacientes = DB::table('pacientes')->orderBy('nombre','ASC')->paginate(15);
         return view('pacientes.index')->with('pacientes', $pacientes);
+    }
+
+    public function buscar(Request $request)
+    {
+
+        $pacientes = DB::table('pacientes')->where('nombre', 'like', '%'.$request->nombre.'%' )->orderBy('nombre','ASC')->paginate(15);
+        return view('pacientes.index')->with('pacientes', $pacientes);
+        
     }
 
     /**
@@ -36,9 +47,10 @@ class PacienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PacienteRequest $request)
     {
         //
+        /*
         $paciente = new Paciente();
         $paciente->nombre = $request->nombre;
         $paciente->cedula = $request->cedula;
@@ -53,7 +65,25 @@ class PacienteController extends Controller
         $paciente->email = $request->email; 
         $paciente->estado_civil = $request->estado_civil;  
 
-        $paciente->save();     
+        $paciente->save();*/ 
+
+        DB::table('pacientes')->insert(
+            [
+                'nombre' => $request->nombre,
+                'cedula' => $request->cedula,
+                'ocupacion' => $request->ocupacion,
+                'nacionalidad' => $request->nacionalidad,
+                'fecha_nacimiento' => $request->fecha_nacimiento,
+                'genero' => $request->genero,
+                'region' => $request->region,
+                'direccion' => $request->direccion,
+                'movil' => $request->movil,  
+                'telefono' => $request->telefono, 
+                'email' => $request->email, 
+                'estado_civil'=> $request->estado_civil,  
+
+            ]
+        );
 
         alert()->success('El paciente ha sido registrado', 'Paciente registrado')->persistent('Close');
 
@@ -80,7 +110,8 @@ class PacienteController extends Controller
     public function edit($id)
     {
         //
-        $paciente = Paciente::find($id);
+        //$paciente = Paciente::find($id);
+        $paciente = DB::table('pacientes')->where('id', $id)->first();
 
         return view('pacientes.edit')->with('paciente',$paciente);
     }
@@ -92,9 +123,10 @@ class PacienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PacienteRequest $request, $id)
     {
         //
+        /*
         $paciente = Paciente::find($id);
 
         $paciente->nombre = $request->nombre;
@@ -110,7 +142,24 @@ class PacienteController extends Controller
         $paciente->email = $request->email; 
         $paciente->estado_civil = $request->estado_civil;  
 
-        $paciente->save();     
+        $paciente->save();*/
+
+        DB::table('pacientes')->where('id', $id)->update(
+            [
+                'nombre' => $request->nombre,
+                'cedula' => $request->cedula,
+                'ocupacion' => $request->ocupacion,
+                'nacionalidad' => $request->nacionalidad,
+                'fecha_nacimiento' => $request->fecha_nacimiento,
+                'genero' => $request->genero,
+                'region' => $request->region,
+                'direccion' => $request->direccion,
+                'movil' => $request->movil,  
+                'telefono' => $request->telefono, 
+                'email' => $request->email, 
+                'estado_civil'=> $request->estado_civil, 
+
+            ]);     
 
         alert()->success('El paciente ha sido modificado', 'Paciente modificado')->persistent('Close');
 
