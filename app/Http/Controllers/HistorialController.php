@@ -3,18 +3,37 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HistorialController extends Controller
 {
+
+    public function pacientes()
+    {
+        //
+        $pacientes = DB::table('pacientes')->orderBy('nombre','ASC')->paginate(15);
+        return view('historiales.pacientes')->with('pacientes', $pacientes);
+    }
+
+    public function buscar(Request $request)
+    {
+
+        $pacientes = DB::table('pacientes')->where('nombre', 'like', '%'.$request->nombre.'%' )->orderBy('nombre','ASC')->paginate(15);
+        return view('historiales.pacientes')->with('pacientes', $pacientes);
+        
+    }    
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
-        return view('historiales.paciente');
+        $paciente = DB::table('pacientes')->where('id', $id)->first();
+
+        return view('historiales.index')->with('paciente',$paciente);
     }
 
     /**
