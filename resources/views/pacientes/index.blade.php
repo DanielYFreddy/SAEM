@@ -5,7 +5,7 @@
   
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Lista de pacientes</h1>
+            <h1>Listado de Pacientes</h1>
             <div class="card">
                 <div class="card-header">
                   <a href="{{ route('pacientes.create') }}" class="btn btn-primary float-left">+Nuevo Paciente</a>
@@ -22,7 +22,7 @@
                     <table class="table table-responsive-sm">
                       <thead>
                         <tr>
-                          <th scope="col">Cedúla</th>
+                          <th scope="col">Cedula</th>
                           <th scope="col">Nombre</th>
                           <th scope="col">Movil</th>
                           <th scope="col">Acciones</th>
