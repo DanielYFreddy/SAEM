@@ -32,7 +32,7 @@
                           <tr>
                             <th scope="row">{{ $diagnostico->created_at }}</th>
                             <td>{{ $diagnostico->diagnostico }}</td>
-                            <td><a href="" class="btn btn-warning">Modificar</a></td>
+                            <td><a href="{{ route('diagnosticos.edit', $diagnostico->id) }}" class="btn btn-warning">Modificar</a></td>
                          </tr>
                         @endforeach                      
                       </tbody>

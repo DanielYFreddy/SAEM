@@ -44,33 +44,23 @@ class DiagnosticoController extends Controller
         //
          DB::table('diagnostico')->insert(
             [
-                'nombre' => $request->nombre,
-                'nombre' => $request->nombre,
-                'nombre' => $request->nombre,
-                'nombre' => $request->nombre,
-                'nombre' => $request->nombre,
-                'nombre' => $request->nombre,
-                'nombre' => $request->nombre,
-                'nombre' => $request->nombre,
-                'nombre' => $request->nombre,
+                'paciente_id' => $request->paciente_id,
+                'diagnostico' => $request->diagnostico,
+                'tratamientoFarmacologico' => $request->tratamientoFarmacologico,
+                'evolucion' => $request->evolucion,
+                'referenciaMedica' => $request->referenciaMedica,
+                'antecedentes' => $request->antecedentes,
+                'cirugias' => $request->cirugias,
+                'traumaticos' => $request->traumaticos,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),  
 
             ]
         );
 
-                     $table->integer('paciente_id')->unsigned();
-            $table->string('diagnostico');
-            $table->string('tratamientoFarmacologico');
-            $table->string('evolucion');
-            $table->string('referenciaMedica');
-            $table->string('antecedentes');
-            $table->string('cirugias');
-            $table->string('traumaticos');
-
         alert()->success('El diagnostico del paciente ha sido registrado', 'Diagnostico registrado')->persistent('Close');
 
-        return redirect()->route('diagnosticos.index');
+        return redirect()->route('diagnosticos.index', $request->paciente_id);
     }
 
     /**
@@ -82,6 +72,7 @@ class DiagnosticoController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -93,6 +84,10 @@ class DiagnosticoController extends Controller
     public function edit($id)
     {
         //
+        $diagnostico = DB::table('diagnostico')->where('id', $id)->first();
+        $paciente = DB::table('paciente')->where('id', $diagnostico->paciente_id)->first();
+
+        return view('historiales.diagnosticos.edit')->with('diagnostico',$diagnostico)->with('paciente',$paciente);
     }
 
     /**

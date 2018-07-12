@@ -13,22 +13,22 @@ class SistemasTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('sistemas')->insert([
+        DB::table('sistema')->insert([
             'nombre' => 'Cardiovascular/pulmonar',
         ]);
-        DB::table('sistemas')->insert([
+        DB::table('sistema')->insert([
             'nombre' => 'Renal/hepaticas',
         ]);
-        DB::table('sistemas')->insert([
+        DB::table('sistema')->insert([
             'nombre' => 'Inmunologicas/hematologicas',
         ]);
-        DB::table('sistemas')->insert([
+        DB::table('sistema')->insert([
             'nombre' => 'Gastrointestinal',
         ]);
-        DB::table('sistemas')->insert([
+        DB::table('sistema')->insert([
             'nombre' => 'Ortopedia',
         ]);
-        DB::table('sistemas')->insert([
+        DB::table('sistema')->insert([
             'nombre' => 'Otros',
         ]);
     }
