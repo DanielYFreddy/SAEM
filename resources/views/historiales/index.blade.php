@@ -24,7 +24,7 @@
         <div class="card-body">
           <h5 class="card-title">Patologías</h5>
           <p class="card-text text-center"><i class="fas fa-file-medical-alt fa-5x"></i></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="{{ route('patologias.index', $paciente->id) }}" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     </div>
