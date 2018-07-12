@@ -58,6 +58,7 @@ Route::get('/historiales/paciente/historial/{id}', 'HistorialController@index')-
 Route::get('/diagnosticos/paciente/{paciente_id}', 'DiagnosticoController@index')->name('diagnosticos.index');
 Route::get('/diagnosticos/create/{paciente_id}', 'DiagnosticoController@create')->name('diagnosticos.create');
 Route::post('/diagnosticos/store', 'DiagnosticoController@store')->name('diagnosticos.store');
+Route::get('/diagnosticos/edit/{id}','DiagnosticoController@edit')->name('diagnosticos.edit');
 
     //patologias
 Route::get('/patologias/paciente/{paciente_id}', 'PatologiaController@index')->name('patologias.index');

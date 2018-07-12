@@ -351,6 +351,7 @@ class ComposerStaticInitf3c64e7535bc39b8119adde7561e687a
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DiagnosticoController' => __DIR__ . '/../..' . '/app/Http/Controllers/DiagnosticoController.php',
         'App\\Http\\Controllers\\HistorialController' => __DIR__ . '/../..' . '/app/Http/Controllers/HistorialController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PacienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/PacienteController.php',
