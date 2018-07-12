@@ -100,6 +100,23 @@ class DiagnosticoController extends Controller
     public function update(Request $request, $id)
     {
         //
+            DB::table('diagnostico')->where('id', $id)->update(
+            [
+                'diagnostico' => $request->diagnostico,
+                'tratamientoFarmacologico' => $request->tratamientoFarmacologico,
+                'evolucion' => $request->evolucion,
+                'referenciaMedica' => $request->referenciaMedica,
+                'antecedentes' => $request->antecedentes,
+                'cirugias' => $request->cirugias,
+                'traumaticos' => $request->traumaticos,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),  
+
+            ]);     
+
+         alert()->success('El diagnostico del paciente ha sido modificado', 'Diagnostico modificado')->persistent('Close');
+
+        return redirect()->route('diagnosticos.index', $request->paciente_id);
     }
 
     /**

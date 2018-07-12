@@ -13,7 +13,7 @@
 
                 <div class="card-body">
                   <div class="col-md-12">
-                    {!! Form::open(['route' => ['diagnosticos.store']]) !!}
+                    {!! Form::open(['route' => ['diagnosticos.update', $diagnostico->id], 'method' => 'put']) !!}
                       <input type="hidden" name="paciente_id" value="{{$paciente->id}}">
                       <div class="form-group">
                         {{ Form::label('diagnostico', 'Diagnóstico Médico') }}

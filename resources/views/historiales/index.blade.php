@@ -33,7 +33,7 @@
         <div class="card-body">
           <h5 class="card-title">No Patologicos</h5>
           <p class="card-text text-center"><i class="fas fa-notes-medical fa-5x"></i></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="{{ route('nopatologicos.index', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
       </div>
     </div>

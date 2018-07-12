@@ -59,6 +59,11 @@ Route::get('/diagnosticos/paciente/{paciente_id}', 'DiagnosticoController@index'
 Route::get('/diagnosticos/create/{paciente_id}', 'DiagnosticoController@create')->name('diagnosticos.create');
 Route::post('/diagnosticos/store', 'DiagnosticoController@store')->name('diagnosticos.store');
 Route::get('/diagnosticos/edit/{id}','DiagnosticoController@edit')->name('diagnosticos.edit');
+Route::put('/diagnosticos/update/{id}','DiagnosticoController@update')->name('diagnosticos.update');
+
+    //diagnosticos
+Route::get('/nopatologicos/paciente/{paciente_id}', 'NoPatologico@index')->name('nopatologicos.index');
+Route::get('/nopatologicos/create/{paciente_id}', 'NoPatologico@create')->name('nopatologicos.create');
 
 	//citas
 Route::get('/agenda', function () {
