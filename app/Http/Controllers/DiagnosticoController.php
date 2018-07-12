@@ -12,12 +12,12 @@ class DiagnosticoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($paciente_id)
     {
         //
-        $diagnosticos = DB::table('diagnostico')->where('id', $id)->orderBy('created_at','ASC')->paginate(10);
-        $nombrePaciente = DB::table('paciente')->where('id', $id)->value('nombre');
-        return view('historiales.diagnosticos.index')->with('diagnosticos', $diagnosticos)->with('nombrePaciente',$nombrePaciente);
+        $diagnosticos = DB::table('diagnostico')->where('paciente_id', $paciente_id)->orderBy('created_at','ASC')->paginate(10);
+        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+        return view('historiales.diagnosticos.index')->with('diagnosticos', $diagnosticos)->with('paciente',$paciente);
     }
 
     /**
@@ -25,9 +25,12 @@ class DiagnosticoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($paciente_id)
     {
         //
+        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+        return view('historiales.diagnosticos.create')->with('paciente',$paciente);
+        
     }
 
     /**
@@ -39,6 +42,35 @@ class DiagnosticoController extends Controller
     public function store(Request $request)
     {
         //
+         DB::table('diagnostico')->insert(
+            [
+                'nombre' => $request->nombre,
+                'nombre' => $request->nombre,
+                'nombre' => $request->nombre,
+                'nombre' => $request->nombre,
+                'nombre' => $request->nombre,
+                'nombre' => $request->nombre,
+                'nombre' => $request->nombre,
+                'nombre' => $request->nombre,
+                'nombre' => $request->nombre,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),  
+
+            ]
+        );
+
+                     $table->integer('paciente_id')->unsigned();
+            $table->string('diagnostico');
+            $table->string('tratamientoFarmacologico');
+            $table->string('evolucion');
+            $table->string('referenciaMedica');
+            $table->string('antecedentes');
+            $table->string('cirugias');
+            $table->string('traumaticos');
+
+        alert()->success('El diagnostico del paciente ha sido registrado', 'Diagnostico registrado')->persistent('Close');
+
+        return redirect()->route('diagnosticos.index');
     }
 
     /**

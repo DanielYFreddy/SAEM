@@ -55,7 +55,9 @@ Route::get('/historiales/pacientes/pacientes', 'HistorialController@buscar')->na
 Route::get('/historiales/paciente/historial/{id}', 'HistorialController@index')->name('historiales.index');
     
     //diagnosticos
-Route::get('/diagnosticos/{id}', 'DiagnosticoController@index')->name('diagnosticos.index');
+Route::get('/diagnosticos/paciente/{paciente_id}', 'DiagnosticoController@index')->name('diagnosticos.index');
+Route::get('/diagnosticos/create/{paciente_id}', 'DiagnosticoController@create')->name('diagnosticos.create');
+Route::post('/diagnosticos/store', 'DiagnosticoController@store')->name('diagnosticos.store');
 
 	//citas
 Route::get('/agenda', function () {

@@ -5,15 +5,16 @@
   
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Historiales Clinicos</h1>
+            <h1>Agregar Diagnostico</h1>
             <div class="card">
                 <div class="card-header">
-                  Agregar Diagnostico
+                  {{ $paciente->nombre }}
                 </div>
 
                 <div class="card-body">
                   <div class="col-md-12">
                     {!! Form::open(['route' => ['historiales.pacientes']]) !!}
+                      <input type="hidden" name="id" value="{{$paciente->id}}">
                       <div class="form-group">
                         {{ Form::label('diagnostico', 'Diagnóstico Médico') }}
                         {{ Form::text('diagnostico',null,['id'=>'diagnostico','class'=>'form-control']) }}

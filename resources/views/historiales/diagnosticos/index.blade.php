@@ -5,10 +5,10 @@
   
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Listado de diagnosticos {{ $nombrePaciente }}</h1>
+            <h1>Listado de diagnosticos: {{ $paciente->nombre }}</h1>
             <div class="card">
                 <div class="card-header">
-                  <a href="" class="btn btn-primary float-left">+Nuevo Diagnostico</a>
+                  <a href="{{ route('diagnosticos.create', $paciente->id) }}" class="btn btn-primary float-left">+Nuevo Diagnostico</a>
                   <form method="GET" action="" class="form-inline float-right">
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Buscar diagnosticos" name="">
