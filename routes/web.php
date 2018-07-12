@@ -61,7 +61,7 @@ Route::post('/diagnosticos/store', 'DiagnosticoController@store')->name('diagnos
 Route::get('/diagnosticos/edit/{id}','DiagnosticoController@edit')->name('diagnosticos.edit');
 Route::put('/diagnosticos/update/{id}','DiagnosticoController@update')->name('diagnosticos.update');
 
-    //diagnosticos
+    //no patologicos
 Route::get('/nopatologicos/paciente/{paciente_id}', 'NoPatologico@index')->name('nopatologicos.index');
 Route::get('/nopatologicos/create/{paciente_id}', 'NoPatologico@create')->name('nopatologicos.create');
 
