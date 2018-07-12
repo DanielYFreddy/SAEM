@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSignosTable extends Migration
+class CreateNoPatologicoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateSignosTable extends Migration
      */
     public function up()
     {
-        Schema::create('signos', function (Blueprint $table) {
+        Schema::create('no_patologico', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('paciente_id')->unsigned();
-            $table->float('presionArterial');
-            $table->float('frecuenciaCardiaca');
-            $table->float('frecuenciaRespiratoria');
-            $table->float('peso');
-            $table->float('talla');
+            $table->enum('alcohol',['Mucho','Poco','Nunca'])->default('Nunca');
+            $table->enum('tabaco',['Mucho','Poco','Nunca'])->default('Nunca');
+            $table->enum('medicacion',['Mucho','Poco','Nunca'])->default('Nunca');
 
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
+            $table->foreign('paciente_id')->references('id')->on('paciente');
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ class CreateSignosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('signos');
+        Schema::dropIfExists('no_patologico');
     }
 }

@@ -35,7 +35,7 @@ class PacienteRequest extends FormRequest
             {
                 return [
                     'nombre' => 'required',
-                    'cedula'      => 'required|unique:pacientes,cedula',
+                    'cedula'      => 'required|unique:paciente,cedula',
                     'ocupacion'   => 'required',
                     'nacionalidad'   => 'required',
                     'fecha_nacimiento'   => 'required',
@@ -52,7 +52,7 @@ class PacienteRequest extends FormRequest
             {
                 return [
                     'nombre' => 'required',
-                    'cedula'      => 'required|unique:pacientes,cedula,'.$this->get('id'),
+                    'cedula'      => 'required|unique:paciente,cedula,'.$this->get('id'),
                     'ocupacion'   => 'required',
                     'nacionalidad'   => 'required',
                     'fecha_nacimiento'   => 'required',

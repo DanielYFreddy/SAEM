@@ -15,8 +15,7 @@
         <div class="card-body">
           <h5 class="card-title">Diagnostico</h5>
           <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
-          <a href="{{ route('historiales.diagnostico') }}" class="btn btn-primary">+Agregar</a>
-          <a href="" class="btn btn-success">Ver</a>
+          <a href="{{ route('diagnosticos.index', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
       </div>
     </div>
@@ -48,11 +47,12 @@
       </div>
     </div>
   </div>
+  <div class="row"><div class="col-md-12"><br></div></div>
   <div class="row">
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Signos</h5>
+          <h5 class="card-title">Signos Vitales</h5>
           <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>

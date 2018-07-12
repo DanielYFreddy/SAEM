@@ -53,9 +53,9 @@ Route::put('/pacientes/update/{id}','PacienteController@update')->name('paciente
 Route::get('/historiales/pacientes', 'HistorialController@pacientes')->name('historiales.pacientes');
 Route::get('/historiales/pacientes/pacientes', 'HistorialController@buscar')->name('historiales.buscar');
 Route::get('/historiales/paciente/historial/{id}', 'HistorialController@index')->name('historiales.index');
-Route::get('/diagnostico', function () {
-    return view('historiales.diagnostico');
-})->name('historiales.diagnostico');
+    
+    //diagnosticos
+Route::get('/diagnosticos/{id}', 'DiagnosticoController@index')->name('diagnosticos.index');
 
 	//citas
 Route::get('/agenda', function () {

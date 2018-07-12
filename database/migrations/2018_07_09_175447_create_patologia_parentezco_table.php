@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActividadesFisicasTable extends Migration
+class CreatePatologiaParentezcoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateActividadesFisicasTable extends Migration
      */
     public function up()
     {
-        Schema::create('actividadesFisicas', function (Blueprint $table) {
+        Schema::create('patologia_parentezco', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('paciente_id')->unsigned();
-            $table->float('nivelActividad');
-            $table->float('actividadFisica');
+            $table->integer('patologia_id')->unsigned();
 
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
+            $table->foreign('paciente_id')->references('id')->on('paciente');
+            $table->foreign('patologia_id')->references('id')->on('patologia');            
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateActividadesFisicasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actividadesFisicas');
+        Schema::dropIfExists('patologia_parentezco');
     }
 }

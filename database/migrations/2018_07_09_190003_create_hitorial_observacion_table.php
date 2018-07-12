@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNoPatologicosTable extends Migration
+class CreateHitorialObservacionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateNoPatologicosTable extends Migration
      */
     public function up()
     {
-        Schema::create('noPatologicos', function (Blueprint $table) {
+        Schema::create('hitorial_observacion', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('paciente_id')->unsigned();
-            $table->enum('alcohol',['Mucho','Poco','Nunca'])->default('Nunca');
-            $table->enum('tabaco',['Mucho','Poco','Nunca'])->default('Nunca');
-            $table->enum('medicacion',['Mucho','Poco','Nunca'])->default('Nunca');
+            $table->string('observaciones');
 
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
+            $table->foreign('paciente_id')->references('id')->on('paciente');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateNoPatologicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('noPatologicos');
+        Schema::dropIfExists('hitorial_observacion');
     }
 }

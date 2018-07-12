@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGinecologicosTable extends Migration
+class CreateGinecologicoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateGinecologicosTable extends Migration
      */
     public function up()
     {
-        Schema::create('ginecologicos', function (Blueprint $table) {
+        Schema::create('ginecologico', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('paciente_id')->unsigned();
             $table->enum('embarazo',['Si','No'])->default('No');
@@ -22,7 +22,7 @@ class CreateGinecologicosTable extends Migration
             $table->enum('tratamiento',['Si','No'])->default('No');
             $table->string('observacion');
 
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
+            $table->foreign('paciente_id')->references('id')->on('paciente');
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ class CreateGinecologicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ginecologicos');
+        Schema::dropIfExists('ginecologico');
     }
 }

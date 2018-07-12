@@ -5,24 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class HistorialController extends Controller
+class DiagnosticoController extends Controller
 {
-
-    public function pacientes()
-    {
-        //
-        $pacientes = DB::table('paciente')->orderBy('nombre','ASC')->paginate(15);
-        return view('historiales.pacientes')->with('pacientes', $pacientes);
-    }
-
-    public function buscar(Request $request)
-    {
-
-        $pacientes = DB::table('paciente')->where('nombre', 'like', '%'.$request->nombre.'%' )->orderBy('nombre','ASC')->paginate(15);
-        return view('historiales.pacientes')->with('pacientes', $pacientes);
-        
-    }    
-
     /**
      * Display a listing of the resource.
      *
@@ -31,9 +15,9 @@ class HistorialController extends Controller
     public function index($id)
     {
         //
-        $paciente = DB::table('paciente')->where('id', $id)->first();
-
-        return view('historiales.index')->with('paciente',$paciente);
+        $diagnosticos = DB::table('diagnostico')->where('id', $id)->orderBy('created_at','ASC')->paginate(10);
+        $nombrePaciente = DB::table('paciente')->where('id', $id)->value('nombre');
+        return view('historiales.diagnosticos.index')->with('diagnosticos', $diagnosticos)->with('nombrePaciente',$nombrePaciente);
     }
 
     /**

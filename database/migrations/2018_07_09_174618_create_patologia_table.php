@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePatologiasTable extends Migration
+class CreatePatologiaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePatologiasTable extends Migration
      */
     public function up()
     {
-        Schema::create('patologias', function (Blueprint $table) {
+        Schema::create('patologia', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sistema_id')->unsigned();
             $table->string('nombre');
 
-            $table->foreign('sistema_id')->references('id')->on('sistemas');
+            $table->foreign('sistema_id')->references('id')->on('sistema');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePatologiasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('patologias');
+        Schema::dropIfExists('patologia');
     }
 }

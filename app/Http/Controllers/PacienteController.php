@@ -18,14 +18,14 @@ class PacienteController extends Controller
     public function index()
     {
         //
-        $pacientes = DB::table('pacientes')->orderBy('nombre','ASC')->paginate(15);
+        $pacientes = DB::table('paciente')->orderBy('nombre','ASC')->paginate(15);
         return view('pacientes.index')->with('pacientes', $pacientes);
     }
 
     public function buscar(Request $request)
     {
 
-        $pacientes = DB::table('pacientes')->where('nombre', 'like', '%'.$request->nombre.'%' )->orderBy('nombre','ASC')->paginate(15);
+        $pacientes = DB::table('paciente')->where('nombre', 'like', '%'.$request->nombre.'%' )->orderBy('nombre','ASC')->paginate(15);
         return view('pacientes.index')->with('pacientes', $pacientes);
         
     }
@@ -67,7 +67,7 @@ class PacienteController extends Controller
 
         $paciente->save();*/ 
 
-        DB::table('pacientes')->insert(
+        DB::table('paciente')->insert(
             [
                 'nombre' => $request->nombre,
                 'cedula' => $request->cedula,
@@ -80,7 +80,9 @@ class PacienteController extends Controller
                 'movil' => $request->movil,  
                 'telefono' => $request->telefono, 
                 'email' => $request->email, 
-                'estado_civil'=> $request->estado_civil,  
+                'estado_civil'=> $request->estado_civil,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),  
 
             ]
         );
@@ -111,7 +113,7 @@ class PacienteController extends Controller
     {
         //
         //$paciente = Paciente::find($id);
-        $paciente = DB::table('pacientes')->where('id', $id)->first();
+        $paciente = DB::table('paciente')->where('id', $id)->first();
 
         return view('pacientes.edit')->with('paciente',$paciente);
     }
@@ -144,7 +146,7 @@ class PacienteController extends Controller
 
         $paciente->save();*/
 
-        DB::table('pacientes')->where('id', $id)->update(
+        DB::table('paciente')->where('id', $id)->update(
             [
                 'nombre' => $request->nombre,
                 'cedula' => $request->cedula,
@@ -158,6 +160,7 @@ class PacienteController extends Controller
                 'telefono' => $request->telefono, 
                 'email' => $request->email, 
                 'estado_civil'=> $request->estado_civil, 
+                'updated_at' => date('Y-m-d H:i:s'),
 
             ]);     
 

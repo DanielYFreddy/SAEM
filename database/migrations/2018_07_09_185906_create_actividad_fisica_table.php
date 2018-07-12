@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHistorialesObservacionesTable extends Migration
+class CreateActividadFisicaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateHistorialesObservacionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('historialesObservaciones', function (Blueprint $table) {
+        Schema::create('actividad_fisica', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('paciente_id')->unsigned();
-            $table->string('observaciones');
+            $table->float('nivelActividad');
+            $table->float('actividadFisica');
 
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
+            $table->foreign('paciente_id')->references('id')->on('paciente');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateHistorialesObservacionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('historialesObservaciones');
+        Schema::dropIfExists('actividad_fisica');
     }
 }

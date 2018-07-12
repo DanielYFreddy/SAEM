@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePatologiasPersonalesTable extends Migration
+class CreatePatologiaHeredofalimiliarTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreatePatologiasPersonalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('patologiasPersonales', function (Blueprint $table) {
+        Schema::create('patologia_heredofalimiliar', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('paciente_id')->unsigned();
             $table->integer('patologia_id')->unsigned();
 
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
-            $table->foreign('patologia_id')->references('id')->on('patologias');
+            $table->foreign('paciente_id')->references('id')->on('paciente');
+            $table->foreign('patologia_id')->references('id')->on('patologia');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreatePatologiasPersonalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('patologiasPersonales');
+        Schema::dropIfExists('patologia_heredofalimiliar');
     }
 }
