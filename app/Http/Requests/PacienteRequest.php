@@ -35,15 +35,15 @@ class PacienteRequest extends FormRequest
             {
                 return [
                     'nombre' => 'required',
-                    'cedula'      => 'required|unique:paciente,cedula',
+                    'cedula'      => 'required|numeric|unique:paciente,cedula',
                     'ocupacion'   => 'required',
                     'nacionalidad'   => 'required',
                     'fecha_nacimiento'   => 'required',
                     'region'   => 'required',
                     'direccion'   => 'required',
-                    'movil'   => 'required',
-                    'telefono'   => 'required',
-                    'email'   => 'required',
+                    'movil'   => 'required|numeric|digits_between:8,11',
+                    'telefono'   => 'required|numeric|digits_between:8,11',
+                    'email'   => 'required|email|unique:paciente,email',
                     'estado_civil'   => 'required',
 
                 ];
@@ -82,13 +82,16 @@ class PacienteRequest extends FormRequest
             {
                 return [
                     'nombre.required' => 'El campo nombre es requerido',
-                    
+                    'email.unique' => 'Este correo ya existe en el sistema',
+                    'cedula.numeric' => 'El campo cédula debe ser numérico',
                 ];
             }
             case 'PUT':
             {
                 return [
                     'nombre.required' => 'El campo nombre es requerido',
+                    'email.unique' => 'Este correo ya existe en el sistema',
+                    'cedula.numeric' => 'El campo cédula debe ser numérico',
                 ];
             }
             case 'PATCH':
