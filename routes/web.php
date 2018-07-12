@@ -59,6 +59,11 @@ Route::get('/diagnosticos/paciente/{paciente_id}', 'DiagnosticoController@index'
 Route::get('/diagnosticos/create/{paciente_id}', 'DiagnosticoController@create')->name('diagnosticos.create');
 Route::post('/diagnosticos/store', 'DiagnosticoController@store')->name('diagnosticos.store');
 
+    //patologias
+Route::get('/patologias/paciente/{paciente_id}', 'PatologiaController@index')->name('patologias.index');
+Route::get('/patologias/create/{paciente_id}', 'PatologiaController@create')->name('patologias.create');
+Route::post('/patologias/store', 'PatologiaController@store')->name('patologias.store');
+
 	//citas
 Route::get('/agenda', function () {
     return view('citas.agenda');
