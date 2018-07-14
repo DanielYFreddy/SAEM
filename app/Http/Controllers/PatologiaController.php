@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class PatologiaController extends Controller
 {
@@ -14,9 +14,14 @@ class PatologiaController extends Controller
      */
     public function index($paciente_id)
     {
-        $patologias = DB::table('patologia')->where('sistema_id', $sistema_id)->orderBy('created_at','ASC')->paginate(10);
+        
+        $patologia_personal = DB::table('patologia_personal')
+            ->join('patologia', 'patologia_personal.id', '=', 'patologia.id')
+            ->select('patologia_personal.*', 'patologia.nombre')->where('patologia_personal.paciente_id', '=', $paciente_id)
+            ->get();
+
         $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
-        return view('historiales.patologias.index')->with('patologias', $patologias)->with('paciente',$paciente);
+        return view('historiales.patologias.index')->with('patologia_personal', $patologia_personal)->with('paciente',$paciente);
     }
 
     /**

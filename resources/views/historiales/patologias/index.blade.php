@@ -5,33 +5,44 @@
   
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Listado de patologias: {{ $paciente->nombre }}</h1>
+            <h1>Listado de Patologias: {{ $paciente->nombre }}</h1>
             <div class="card">
                 <div class="card-header">
                   <a href="{{ route('patologias.create', $paciente->id) }}" class="btn btn-primary float-left">+Nueva Patologia</a>
                 </div>
 
                 <div class="card-body">
-                  <div class="col-md-12">
-                    <table class="table table-responsive-sm">
-                      <thead>
-                        <tr>
-                          <th scope="col">Fecha de visita</th>
-                          <th scope="col">Patologia</th>
-                          <th scope="col">Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>                       
-                        @foreach ($patologias as $patologia)
-                          <tr>
-                            <th scope="row">{{ $patologia->created_at }}</th>
-                            <td>{{ $patologia->patologia }}</td>
-                            <td><a href="" class="btn btn-warning">Modificar</a></td>
-                         </tr>
-                        @endforeach                      
-                      </tbody>
-                    </table>
-                    {{ $patologias->links() }}
+                  <div class="row">
+                      <div class="col-4">
+                          <ul class="list-group">
+
+                            @foreach ($patologia_personal as $patologia_personal)
+                            <li class="list-group-item active">Patologia Personal</li>
+                              <li class="list-group-item">{{ $patologia_personal->nombre }}</li>
+                            @endforeach
+                            
+                          </ul>
+                      </div>
+
+                      <div class="col-4">
+                          <ul class="list-group">
+                            <li class="list-group-item active">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                          </ul>
+                      </div>
+
+                      <div class="col-4">
+                          <ul class="list-group">
+                            <li class="list-group-item active">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                          </ul>
+                      </div>
                   </div>
                 </div>
             </div>
