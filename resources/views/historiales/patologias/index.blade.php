@@ -26,23 +26,27 @@
 
                       <div class="col-4">
                           <ul class="list-group">
-                            <li class="list-group-item active">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Morbi leo risus</li>
-                            <li class="list-group-item">Porta ac consectetur ac</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+
+                            @foreach ($patologia_parentezco as $patologia_parentezco)
+                            <li class="list-group-item active">Patologia Parentezco</li>
+                              <li class="list-group-item">{{ $patologia_parentezco->nombre }}</li>
+                            @endforeach
+                            
                           </ul>
                       </div>
 
                       <div class="col-4">
                           <ul class="list-group">
-                            <li class="list-group-item active">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Morbi leo risus</li>
-                            <li class="list-group-item">Porta ac consectetur ac</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+
+                            @foreach ($patologia_heredofalimiliar as $patologia_heredofalimiliar)
+                            <li class="list-group-item active">Patologia Heredofamiliar</li>
+                              <li class="list-group-item">{{ $patologia_heredofalimiliar->nombre }}</li>
+                            @endforeach
+                            
                           </ul>
                       </div>
+
+                      
                   </div>
                 </div>
             </div>
