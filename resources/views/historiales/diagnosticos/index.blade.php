@@ -5,39 +5,32 @@
   
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Listado de diagnosticos: {{ $paciente->nombre }}</h1>
+            <h1>Diagnostico Medico</h1>
             <div class="card">
                 <div class="card-header">
-                  <a href="{{ route('diagnosticos.create', $paciente->id) }}" class="btn btn-primary float-left">+Nuevo Diagnostico</a>
-                  <form method="GET" action="" class="form-inline float-right">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Buscar diagnosticos" name="">
-                    </div>
-                    <button type="submit" class="btn btn-secondary">Buscar</button>
-                  </form>
+                  Paciente: {{ $paciente->nombre }}
                 </div>
 
                 <div class="card-body">
                   <div class="col-md-12">
-                    <table class="table table-responsive-sm">
-                      <thead>
-                        <tr>
-                          <th scope="col">Fecha de visita</th>
-                          <th scope="col">Diagnostico</th>
-                          <th scope="col">Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>                       
-                        @foreach ($diagnosticos as $diagnostico)
-                          <tr>
-                            <th scope="row">{{ $diagnostico->created_at }}</th>
-                            <td>{{ $diagnostico->diagnostico }}</td>
-                            <td><a href="{{ route('diagnosticos.edit', $diagnostico->id) }}" class="btn btn-warning">Modificar</a></td>
-                         </tr>
-                        @endforeach                      
-                      </tbody>
-                    </table>
-                    {{ $diagnosticos->links() }}
+                    @if ($diagnostico !== null)
+                      <h4>Diagnostico: {{ $diagnostico->diagnostico }}</h4>
+                      <h5>Tratamiento Farmacologico:</h5>
+                      <p>{{ $diagnostico->tratamientoFarmacologico}}</p>
+                      <h5>Evolución:</h5>
+                      <p>{{ $diagnostico->evolucion}}</p>
+                      <h5>Referencia Médica:</h5>
+                      <p>{{ $diagnostico->referenciaMedica}}</p>
+                      <h5>Antecedentes:</h5>
+                      <p>{{ $diagnostico->antecedentes}}</p>
+                      <h5>Antecedentes QX:</h5>
+                      <p>{{ $diagnostico->cirugias}}</p>
+                      <h5>Traumáticos:</h5>
+                      <p>{{ $diagnostico->traumaticos}}</p>
+                    @else
+                      <p>No hay registro de un diagnostico para este paciente</p>
+                      <a href="{{ route('diagnosticos.create', $paciente->id) }}" class="btn btn-primary float-left">+Agregar Diagnostico</a>
+                    @endif
                   </div>
                 </div>
             </div>

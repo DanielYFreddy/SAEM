@@ -8,7 +8,7 @@
             <h1>Agregar Diagnostico</h1>
             <div class="card">
                 <div class="card-header">
-                  {{ $paciente->nombre }}
+                  Paciente: {{ $paciente->nombre }}
                 </div>
 
                 <div class="card-body">

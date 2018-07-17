@@ -52,15 +52,6 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Signos Vitales</h5>
-          <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card border-primary">
-        <div class="card-body">
           <h5 class="card-title">Actividad Fisica</h5>
           <p class="card-text text-center"><i class="fas fa-file-medical-alt fa-5x"></i></p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -72,15 +63,6 @@
         <div class="card-body">
           <h5 class="card-title">Observaciones</h5>
           <p class="card-text text-center"><i class="fas fa-notes-medical fa-5x"></i></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card border-primary">
-        <div class="card-body">
-          <h5 class="card-title">Masaje</h5>
-          <p class="card-text text-center"><i class="fas fa-user-md fa-5x"></i></p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>

@@ -10,7 +10,7 @@
                 <div class="card-header">Nuevo usuario<a href="{{ route('usuarios.index') }}" class="btn btn-danger float-right">Atrás</a></div>
 
                 <div class="card-body">
-        					{!! Form::open(['route' => ['usuarios.store']]) !!}
+        					{!! Form::open(['route' => ['usuarios.store'], 'id' => 'form']) !!}
          						
          						<div class="form-group">
 
@@ -60,7 +60,10 @@
 
           					</div>  		
 
-                    {{ Form::submit('Guardar', ['class'=>'btn btn-primary']) }}				  						
+                    {{ Form::submit('Guardar', ['class'=>'btn btn-primary', 'onclick' => 
+                      'confirmar()'
+                      ]) 
+                    }}				  						
 
         					{!! Form::close() !!}
                 </div>
@@ -68,5 +71,41 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script type="text/javascript">
+  
+  function confirmar()
+  {
+    document.querySelector('#form').addEventListener('submit', function(e) {
+      var form = this;
+
+      e.preventDefault(); // <--- prevent form from submitting
+     
+      swal({
+          title: "Estas seguro de guardar la informacion?",
+          text: "La informacion se guardara en la base de datos!",
+          type: "warning",
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Si",
+          cancelButtonText: "No",
+          showCancelButton:true,
+        },
+          function(isConfirm) {
+            if (isConfirm) {
+                form.submit(); // <--- submit form programmatically
+                e.preventDefault();
+            } else {
+                e.preventDefault();
+          }
+        }
+        );
+
+
+    });
+  }
+
+</script>
 @endsection
 

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class NoPatologico extends Controller
+class NoPatologicoController extends Controller
 {
-    /**
+       /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,9 +15,9 @@ class NoPatologico extends Controller
     public function index($paciente_id)
     {
         //
-        $nopatologicos = DB::table('no_patologico')->where('paciente_id', $paciente_id)->get();
+        $nopatologico = DB::table('no_patologico')->where('paciente_id', $paciente_id)->first();//->get();
         $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
-        return view('historiales.nopatologicos.index')->with('nopatologicos', $nopatologicos)->with('paciente',$paciente);
+        return view('historiales.nopatologicos.index')->with('nopatologico', $nopatologico)->with('paciente',$paciente);
     }
 
     /**
@@ -41,6 +41,21 @@ class NoPatologico extends Controller
     public function store(Request $request)
     {
         //
+        DB::table('no_patologico')->insert(
+            [
+                'paciente_id' => $request->paciente_id,
+                'alcohol' => $request->alcohol,
+                'tabaco' => $request->tabaco,
+                'medicacion' => $request->medicacion,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),  
+
+            ]
+        );
+
+        alert()->success('Lo no patologico del paciente ha sido registrado', 'No patologico registrado')->persistent('Close');
+
+        return redirect()->route('nopatologicos.index', $request->paciente_id);
     }
 
     /**

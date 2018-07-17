@@ -65,8 +65,6 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="expedientes">
                                   <a class="dropdown-item" href="{{ route('pacientes.index') }}">Pacientes</a>
-                                  <a class="dropdown-item" href="{{ route('historiales.pacientes') }}">Historiales Clinicos</a>
-                                  <a class="dropdown-item" href="">Consulta Medica</a>
                                 </div>
                           </li>
                           <li class="nav-item dropdown">
