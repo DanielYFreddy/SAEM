@@ -16,9 +16,9 @@ class CreateActividadFisicaTable extends Migration
         Schema::create('actividad_fisica', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('paciente_id')->unsigned();
-            $table->float('nivelActividad');
-            $table->float('actividadFisica');
-
+            $table->enum('nivelActividad',['Activo','Poco Activo','Sedentario'])->default('Sedentario');
+            $table->enum('practicaDeporte',['Si','No'])->default('No');
+            
             $table->foreign('paciente_id')->references('id')->on('paciente');
             $table->timestamps();
         });

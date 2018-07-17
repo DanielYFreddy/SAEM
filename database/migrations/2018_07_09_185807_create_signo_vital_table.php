@@ -19,9 +19,8 @@ class CreateSignoVitalTable extends Migration
             $table->float('presionArterial');
             $table->float('frecuenciaCardiaca');
             $table->float('frecuenciaRespiratoria');
-            $table->float('peso');
-            $table->float('talla');
-
+            $table->float('pesoTalla');
+            
             $table->foreign('paciente_id')->references('id')->on('paciente');
             $table->timestamps();
         });

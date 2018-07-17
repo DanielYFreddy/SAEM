@@ -9,6 +9,7 @@
             <div class="card">
                 <div class="card-header">
                   Paciente: {{ $paciente->nombre }}
+                  <a href="{{ route('historiales.index', $paciente->id) }}" class="btn btn-danger float-right">Atras</a>
                 </div>
 
                 <div class="card-body">

@@ -58,8 +58,8 @@ Route::get('/historiales/paciente/historial/{id}', 'HistorialController@index')-
 Route::get('/diagnosticos/paciente/{paciente_id}', 'DiagnosticoController@index')->name('diagnosticos.index');
 Route::get('/diagnosticos/create/{paciente_id}', 'DiagnosticoController@create')->name('diagnosticos.create');
 Route::post('/diagnosticos/store', 'DiagnosticoController@store')->name('diagnosticos.store');
-Route::get('/diagnosticos/edit/{id}','DiagnosticoController@edit')->name('diagnosticos.edit');
-Route::put('/diagnosticos/update/{id}','DiagnosticoController@update')->name('diagnosticos.update');
+//Route::get('/diagnosticos/edit/{id}','DiagnosticoController@edit')->name('diagnosticos.edit');
+//Route::put('/diagnosticos/update/{id}','DiagnosticoController@update')->name('diagnosticos.update');
 
     //no patologicos
 Route::get('/nopatologicos/paciente/{paciente_id}', 'NoPatologicoController@index')->name('nopatologicos.index');
@@ -70,6 +70,15 @@ Route::post('/nopatologicos/store', 'NoPatologicoController@store')->name('nopat
 Route::get('/patologias/paciente/{paciente_id}', 'PatologiaController@index')->name('patologias.index');
 Route::get('/patologias/create/{paciente_id}', 'PatologiaController@create')->name('patologias.create');
 Route::post('/patologias/store', 'PatologiaController@store')->name('patologias.store');
+
+    //actividadfisica
+Route::get('/actividadfisica/paciente/{paciente_id}', 'ActividadFisicaController@index')->name('actividadfisica.index');
+Route::get('/actividadfisica/create/{paciente_id}', 'ActividadFisicaController@create')->name('actividadfisica.create');
+Route::post('/actividadfisica/store', 'ActividadFisicaController@store')->name('actividadfisica.store');
+
+
+
+
 
 	//citas
 Route::get('/agenda', function () {

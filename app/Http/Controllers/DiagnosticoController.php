@@ -15,7 +15,7 @@ class DiagnosticoController extends Controller
     public function index($paciente_id)
     {
         //
-        $diagnostico = DB::table('diagnostico')->where('paciente_id', $paciente_id)->first();//->orderBy('created_at','ASC')->paginate(10);
+        $diagnostico = DB::table('diagnostico')->where('paciente_id', $paciente_id)->first();
         $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
         return view('historiales.diagnosticos.index')->with('diagnostico', $diagnostico)->with('paciente',$paciente);
     }
