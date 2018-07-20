@@ -73,6 +73,12 @@ Route::get('/patologias/createPersonales/{paciente_id}', 'PatologiaController@cr
 Route::get('/patologias/createParentezco/{paciente_id}', 'PatologiaController@createParentezco')->name('patologias.createParentezco');
 Route::get('/patologias/createHeredofamiliar/{paciente_id}', 'PatologiaController@createHeredofamiliar')->name('patologias.createHeredofamiliar');
 Route::post('/patologias/store', 'PatologiaController@store')->name('patologias.store');
+Route::post('/patologias/storePersonal', 'PatologiaController@storePersonal')->name('patologias.storePersonal');
+
+    //ginecologicos
+Route::get('/ginecologicos/paciente/{paciente_id}', 'GinecologicoController@index')->name('ginecologicos.index');
+Route::get('/ginecologicos/create/{paciente_id}', 'GinecologicoController@create')->name('ginecologicos.create');
+Route::post('/ginecologicos/store', 'GinecologicoController@store')->name('ginecologicos.store');
 
     //actividadfisica
 Route::get('/actividadfisica/paciente/{paciente_id}', 'ActividadFisicaController@index')->name('actividadfisica.index');

@@ -79,6 +79,24 @@ class PatologiaController extends Controller
         //
     }
 
+    public function storePersonal(Request $request)
+    {
+        //
+        DB::table('patologia_personal')->insert(
+            [
+                'paciente_id' => $request->paciente_id,
+                'patologia_id' => $request->Flebitis_trombosis,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'), 
+
+            ]
+        );
+
+        alert()->success('Lo no patologico del paciente ha sido registrado', 'No patologico registrado')->persistent('Close');
+
+        return redirect()->route('nopatologicos.index', $request->paciente_id);
+    }
+
     /**
      * Display the specified resource.
      *

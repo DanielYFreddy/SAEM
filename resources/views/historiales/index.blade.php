@@ -42,7 +42,7 @@
         <div class="card-body">
           <h5 class="card-title">Ginecologico</h5>
           <p class="card-text text-center"><i class="fas fa-user-md fa-5x"></i></p>
-          <a href="#" class="btn btn-primary">Ingresar</a>
+          <a href="{{ route('ginecologicos.index', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
       </div>
     </div>
