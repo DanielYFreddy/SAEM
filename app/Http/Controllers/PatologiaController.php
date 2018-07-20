@@ -31,6 +31,7 @@ class PatologiaController extends Controller
             ->get();
 
         $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+
         return view('historiales.patologias.index')->with('patologia_personal', $patologia_personal)->with('patologia_parentezco', $patologia_parentezco)->with('patologia_heredofalimiliar', $patologia_heredofalimiliar)->with('paciente',$paciente);
     }
 
@@ -39,9 +40,32 @@ class PatologiaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($paciente_id)
     {
         //
+        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+        return view('historiales.patologias.create')->with('paciente',$paciente);
+    }
+
+    public function createPersonales($paciente_id)
+    {
+        //
+        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+        return view('historiales.patologias.create')->with('paciente',$paciente);
+    }
+
+    public function createParentezco($paciente_id)
+    {
+        //
+        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+        return view('historiales.patologias.create')->with('paciente',$paciente);
+    }
+
+    public function createHeredofamiliar($paciente_id)
+    {
+        //
+        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+        return view('historiales.patologias.create')->with('paciente',$paciente);
     }
 
     /**
