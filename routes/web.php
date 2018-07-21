@@ -80,6 +80,11 @@ Route::get('/ginecologicos/paciente/{paciente_id}', 'GinecologicoController@inde
 Route::get('/ginecologicos/create/{paciente_id}', 'GinecologicoController@create')->name('ginecologicos.create');
 Route::post('/ginecologicos/store', 'GinecologicoController@store')->name('ginecologicos.store');
 
+    //Historial Observaciones
+Route::get('/historialObservaciones/paciente/{paciente_id}', 'HitorialObservacionController@index')->name('historialObservaciones.index');
+Route::get('/historialObservaciones/create/{paciente_id}', 'HitorialObservacionController@create')->name('historialObservaciones.create');
+Route::post('/historialObservaciones/store', 'HitorialObservacionController@store')->name('historialObservaciones.store');
+
     //actividadfisica
 Route::get('/actividadfisica/paciente/{paciente_id}', 'ActividadFisicaController@index')->name('actividadfisica.index');
 Route::get('/actividadfisica/create/{paciente_id}', 'ActividadFisicaController@create')->name('actividadfisica.create');

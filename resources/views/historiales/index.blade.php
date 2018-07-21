@@ -63,7 +63,7 @@
         <div class="card-body">
           <h5 class="card-title">Observaciones</h5>
           <p class="card-text text-center"><i class="fas fa-notes-medical fa-5x"></i></p>
-          <a href="#" class="btn btn-primary">Ingresar</a>
+          <a href="{{ route('historialObservaciones.index', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
       </div>
     </div>
