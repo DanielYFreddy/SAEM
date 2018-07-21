@@ -21,7 +21,7 @@
                         {{ Form::label('', 'Nivel de actividad fisica') }}
 
                         <div class="form-check">
-                          {{ Form::radio('nivelActividad', 'ActivoActivo',true,['class'=>'form-check-input']) }}
+                          {{ Form::radio('nivelActividad', 'Activo',true,['class'=>'form-check-input']) }}
                           {{ Form::label('Activo', 'Activo',['class'=>'form-check-label']) }}
 
                         </div>
