@@ -50,8 +50,8 @@ Route::get('/pacientes/edit/{id}','PacienteController@edit')->name('pacientes.ed
 Route::put('/pacientes/update/{id}','PacienteController@update')->name('pacientes.update');
 
 	//historiales
-Route::get('/historiales/pacientes', 'HistorialController@pacientes')->name('historiales.pacientes');
-Route::get('/historiales/pacientes/pacientes', 'HistorialController@buscar')->name('historiales.buscar');
+//Route::get('/historiales/pacientes', 'HistorialController@pacientes')->name('historiales.pacientes');
+//Route::get('/historiales/pacientes/pacientes', 'HistorialController@buscar')->name('historiales.buscar');
 Route::get('/historiales/paciente/historial/{id}', 'HistorialController@index')->name('historiales.index');
     
     //diagnosticos
@@ -90,7 +90,8 @@ Route::get('/actividadfisica/paciente/{paciente_id}', 'ActividadFisicaController
 Route::get('/actividadfisica/create/{paciente_id}', 'ActividadFisicaController@create')->name('actividadfisica.create');
 Route::post('/actividadfisica/store', 'ActividadFisicaController@store')->name('actividadfisica.store');
 
-
+    //consultamedica
+Route::get('/consultamedica/paciente/{paciente_id}', 'ConsultaMedicaController@index')->name('consultamedica.index');
 
 
 

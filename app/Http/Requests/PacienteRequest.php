@@ -42,8 +42,8 @@ class PacienteRequest extends FormRequest
                     'region'   => 'required',
                     'direccion'   => 'required',
                     'movil'   => 'required|numeric|digits_between:8,11',
-                    'telefono'   => 'required|numeric|digits_between:8,11',
-                    'email'   => 'required|email|unique:paciente,email',
+                    'telefono'   => 'nullable|numeric|digits_between:8,11',
+                    'email'   => 'nullable|email|unique:paciente,email',
                     'estado_civil'   => 'required',
 
                 ];

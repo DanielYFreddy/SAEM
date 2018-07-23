@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class HitorialObservacionController extends Controller
+class ConsultaMedicaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class HitorialObservacionController extends Controller
     public function index($paciente_id)
     {
         //
-        $historialObservacion = DB::table('hitorial_observacion')->where('paciente_id', $paciente_id)->get();
         $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
-        return view('historiales.historialObservaciones.index')->with('historialObservacion', $historialObservacion)->with('paciente',$paciente);
+
+        return view('consultamedica.index')->with('paciente',$paciente);
     }
 
     /**
@@ -25,11 +25,9 @@ class HitorialObservacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($paciente_id)
+    public function create()
     {
         //
-        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
-        return view('historiales.historialObservaciones.create')->with('paciente',$paciente);
     }
 
     /**
@@ -41,19 +39,6 @@ class HitorialObservacionController extends Controller
     public function store(Request $request)
     {
         //
-        DB::table('hitorial_observacion')->insert(
-            [
-                'paciente_id' => $request->paciente_id,
-                'observaciones' => $request->observaciones,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),  
-
-            ]
-        );
-
-        alert()->success('La observacion del paciente ha sido registrado', 'Observacion registrado')->persistent('Cerrar');
-
-        return redirect()->route('historialObservaciones.index', $request->paciente_id);
     }
 
     /**

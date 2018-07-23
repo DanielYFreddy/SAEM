@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class HistorialController extends Controller
 {
-
+    /*
     public function pacientes()
     {
         //
@@ -21,7 +21,7 @@ class HistorialController extends Controller
         $pacientes = DB::table('paciente')->where('nombre', 'like', '%'.$request->nombre.'%' )->orderBy('nombre','ASC')->paginate(15);
         return view('historiales.pacientes')->with('pacientes', $pacientes);
         
-    }    
+    }*/    
 
     /**
      * Display a listing of the resource.

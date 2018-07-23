@@ -24,9 +24,9 @@ class CreatePacienteTable extends Migration
             $table->enum('genero',['Masculino','Femenino'])->default('Masculino');
             $table->string('region');
             $table->string('direccion');
-            $table->string('telefono');
+            $table->string('telefono')->nullable($value = true);
             $table->string('movil');
-            $table->string('email');
+            $table->string('email')->nullable($value = true);
             $table->enum('estado_civil',['Soltero','Casado','Separado','Union Libre','Viudo'])->default('Soltero');
             $table->timestamps();
         });
