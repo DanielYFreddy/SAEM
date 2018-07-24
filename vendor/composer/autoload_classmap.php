@@ -1672,6 +1672,7 @@ return array(
     'Monolog\\Processor\\UidProcessor' => $vendorDir . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
     'Monolog\\Processor\\WebProcessor' => $vendorDir . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
     'Monolog\\Registry' => $vendorDir . '/monolog/monolog/src/Monolog/Registry.php',
+    'MovimientoTableSeeder' => $baseDir . '/database/seeds/MovimientoTableSeeder.php',
     'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider' => $vendorDir . '/nunomaduro/collision/src/Adapters/Laravel/CollisionServiceProvider.php',
     'NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler' => $vendorDir . '/nunomaduro/collision/src/Adapters/Laravel/ExceptionHandler.php',
     'NunoMaduro\\Collision\\Adapters\\Laravel\\Inspector' => $vendorDir . '/nunomaduro/collision/src/Adapters/Laravel/Inspector.php',

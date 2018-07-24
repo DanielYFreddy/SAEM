@@ -92,7 +92,9 @@ Route::post('/actividadfisica/store', 'ActividadFisicaController@store')->name('
 
     //consultamedica
 Route::get('/consultamedica/paciente/{paciente_id}', 'ConsultaMedicaController@index')->name('consultamedica.index');
-
+Route::get('/consultamedica/paciente/testpostural/bipedoposterior/', function () {
+    return view('consultamedica.testpostural.bipedoposterior');
+})->name('bipedoposterior.create');
 
 
 	//citas

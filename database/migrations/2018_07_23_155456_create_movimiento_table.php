@@ -15,8 +15,11 @@ class CreateMovimientoTable extends Migration
     {
         Schema::create('movimiento', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('posicion_id')->unsigned();
             $table->string('nombre');
             $table->enum('estado',['Activo','Inactivo'])->default('Activo');
+
+            $table->foreign('posicion_id')->references('id')->on('posicion');
             $table->timestamps();
         });
     }
