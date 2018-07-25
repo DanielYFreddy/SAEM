@@ -3,17 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestPosturalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+
+    public function createBipedoPosterior($paciente_id)
     {
         //
+        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+        $posicion = DB::table('posicion')->where('nombre', 'like', '%Bipedo Posterior%' )->first();
+        $movimientos = DB::table('movimiento')->where('posicion_id', $posicion->id)->get(); 
+
+        return view('consultamedica.testpostural.bipedoposterior')->with('movimientos', $movimientos)->with('paciente',$paciente);
+    }
+
+    public function storeBipedoPosterior(Request $request)
+    {
+        //
+
+        alert()->success('El test postural bipedo posterior del paciente ha sido registrado', 'Test Postural registrado')->persistent('Close');
+
+        return redirect()->route('consultamedica.index', $request->paciente_id);
     }
 
     /**
@@ -26,7 +38,7 @@ class TestPosturalController extends Controller
         //
     }
 
-    /**
+        /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,48 +49,4 @@ class TestPosturalController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
