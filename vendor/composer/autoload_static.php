@@ -357,6 +357,7 @@ class ComposerStaticInitf3c64e7535bc39b8119adde7561e687a
         'App\\Http\\Controllers\\NoPatologicoController' => __DIR__ . '/../..' . '/app/Http/Controllers/NoPatologicoController.php',
         'App\\Http\\Controllers\\PacienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/PacienteController.php',
         'App\\Http\\Controllers\\PatologiaController' => __DIR__ . '/../..' . '/app/Http/Controllers/PatologiaController.php',
+        'App\\Http\\Controllers\\TestPosturalController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestPosturalController.php',
         'App\\Http\\Controllers\\UsuarioController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsuarioController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',

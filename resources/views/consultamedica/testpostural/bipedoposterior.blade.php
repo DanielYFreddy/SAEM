@@ -74,25 +74,40 @@
 
       e.preventDefault(); // <--- prevent form from submitting
      
-      swal({
-          title: "Estas seguro de guardar la informacion?",
-          text: "La informacion se asignara al paciente!",
-          type: "warning",
-          confirmButtonColor: "#DD6B55",
-          confirmButtonText: "Si",
-          cancelButtonText: "No",
-          showCancelButton:true,
-        },
-          function(isConfirm) {
-            if (isConfirm) {
-                form.submit(); // <--- submit form programmatically
-                e.preventDefault();
-            } else {
-                e.preventDefault();
-          }
-        }
-        );
+	  
 
+	  if($('[name="izquierda[]"]:checked').length == 0 && $('[name="derecha[]"]:checked').length == 0){
+		
+			swal({
+	          title: "No has seleccionado ninguna opción!",
+	          text: "Por favor selecciona una opción para continuar",
+	          type: "info",
+	        }
+	        );
+	        e.preventDefault();
+
+	  }
+	  else
+	  {
+	        swal({
+	          title: "Estas seguro de guardar la informacion?",
+	          text: "La informacion se asignara al paciente!",
+	          type: "warning",
+	          confirmButtonColor: "#DD6B55",
+	          confirmButtonText: "Si",
+	          cancelButtonText: "No",
+	          showCancelButton:true,
+	        },
+	          function(isConfirm) {
+	            if (isConfirm) {
+	                form.submit(); // <--- submit form programmatically
+	                e.preventDefault();
+	            } else {
+	                e.preventDefault();
+	          }
+	        }
+	        );
+	  }
 
     });
   }
