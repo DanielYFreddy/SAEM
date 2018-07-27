@@ -23,6 +23,34 @@ class TestPosturalController extends Controller
     {
         //
 
+        foreach ($request->izquierda as $movimiento_izquierda) {
+            
+            DB::table('testpostural')->insert(
+                [
+                    'paciente_id' => $request->paciente_id,
+                    'movimiento_id' => $movimiento_izquierda,
+                    'lado' => 'Izquierda',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),  
+
+                ]
+            );
+        }
+
+        foreach ($request->derecha as $movimiento_derecha) {
+            DB::table('testpostural')->insert(
+                [
+                    'paciente_id' => $request->paciente_id,
+                    'movimiento_id' => $movimiento_derecha,
+                    'lado' => 'Derecha',
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),  
+
+                ]
+            );
+        }
+
+
         alert()->success('El test postural bipedo posterior del paciente ha sido registrado', 'Test Postural registrado')->persistent('Close');
 
         return redirect()->route('consultamedica.index', $request->paciente_id);

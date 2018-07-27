@@ -87,7 +87,7 @@ class PacienteController extends Controller
             ]
         );
 
-        alert()->success('El paciente ha sido registrado', 'Paciente registrado')->persistent('Close');
+        alert()->success('El paciente ha sido registrado', 'Paciente registrado')->persistent('Cerrar');
 
         return redirect()->route('pacientes.index');
     }
