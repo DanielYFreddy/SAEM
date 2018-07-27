@@ -18,12 +18,13 @@
                     {!! Form::open(['route' => ['bipedoposterior.store'], 'id' => 'form']) !!}
                       <input type="hidden" name="paciente_id" value="{{$paciente->id}}">
 
-					   <table class="table">
-						  <thead>
+					   <table class="table table-striped">
+						  <thead class="thead-dark">
 						    <tr>
 						      <th scope="col">Movimiento</th>
 						      <th scope="col">Izquierda</th>
 						      <th scope="col">Derecha</th>
+						      <th scope="col">Ninguno</th>
 						    </tr>
 						  </thead>
 						  <tbody>
@@ -41,6 +42,13 @@
 				                      <div class="form-group">
 					                        <div class="form-check">
 					                          {{ Form::checkbox('derecha[]', $movimiento->id,false,['class'=>'form-check-input']) }}
+					                        </div>
+				                      </div>							      	
+							      </td>
+							      <td>
+				                      <div class="form-group">
+					                        <div class="form-check">
+					                          {{ Form::checkbox('ninguno[]', $movimiento->id,false,['class'=>'form-check-input']) }}
 					                        </div>
 				                      </div>							      	
 							      </td>
