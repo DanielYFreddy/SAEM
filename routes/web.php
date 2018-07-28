@@ -94,9 +94,21 @@ Route::post('/actividadfisica/store', 'ActividadFisicaController@store')->name('
 Route::get('/consultamedica/paciente/{paciente_id}', 'ConsultaMedicaController@index')->name('consultamedica.index');
 
     //test postural
+    //bipedo posterior
 Route::get('/consultamedica/paciente/{paciente_id}/testpostural/bipedoposterior/','TestPosturalController@createBipedoPosterior')->name('bipedoposterior.create');
 Route::post('/consultamedica/bipedoposterior/store', 'TestPosturalController@storeBipedoPosterior')->name('bipedoposterior.store');
-
+    //bipedo anterior
+Route::get('/consultamedica/paciente/{paciente_id}/testpostural/bipedoanterior/','TestPosturalController@createBipedoAnterior')->name('bipedoanterior.create');
+Route::post('/consultamedica/bipedoanterior/store', 'TestPosturalController@storeBipedoAnterior')->name('bipedoanterior.store');
+    //latera
+Route::get('/consultamedica/paciente/{paciente_id}/testpostural/lateral/','TestPosturalController@createLateral')->name('lateral.create');
+Route::post('/consultamedica/lateral/store', 'TestPosturalController@storeLateral')->name('lateral.store');
+    //sedente
+Route::get('/consultamedica/paciente/{paciente_id}/testpostural/sedente/','TestPosturalController@createSedente')->name('sedente.create');
+Route::post('/consultamedica/sedente/store', 'TestPosturalController@storeSedente')->name('sedente.store');
+    //marcha
+Route::get('/consultamedica/paciente/{paciente_id}/testpostural/marcha/','TestPosturalController@createMarcha')->name('marcha.create');
+Route::post('/consultamedica/marcha/store', 'TestPosturalController@storeMarcha')->name('marcha.store');
 
 	//citas
 Route::get('/agenda', function () {
