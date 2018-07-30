@@ -38,7 +38,7 @@
                               <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-warning">Modificar</a>
                               <a href="{{ route('historiales.index', $paciente->id) }}" class="btn btn-primary">+Historial Clinico</a>
                               <a href="{{ route('consultamedica.index', $paciente->id) }}" class="btn btn-success">Consulta Medica</a>
-                              <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-info">Reportes Clinicos</a>
+                              <a href="{{ route('reportes.index', $paciente->id) }}" class="btn btn-info">Reportes Clinicos</a>
                             </td>
                          </tr>
                         @endforeach                      

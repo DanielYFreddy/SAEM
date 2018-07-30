@@ -113,6 +113,10 @@ Route::post('/consultamedica/marcha/store', 'TestPosturalController@storeMarcha'
 Route::get('/consultamedica/paciente/{paciente_id}/seguimiento','SeguimientoController@create')->name('seguimiento.create');
 Route::post('/consultamedica/seguimiento/store', 'SeguimientoController@store')->name('seguimiento.store');
 
+    //reportes
+Route::get('/reportes/paciente/{paciente_id}', 'ReporteController@index')->name('reportes.index');
+Route::get('/reportes/paciente/{paciente_id}/reporteseguimiento','ReporteController@showReporteSeguimiento')->name('reporte.seguimiento');
+
 
 	//citas
 Route::get('/agenda', function () {
