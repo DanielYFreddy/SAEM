@@ -13,9 +13,18 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Reporte Seguimiento</h5>
+          <h5 class="card-title">Reporte de <br>Seguimiento</h5>
           <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
           <a href="{{ route('reporte.seguimiento', $paciente->id) }}" target="_blank" class="btn btn-primary">Ver</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card border-primary">
+        <div class="card-body">
+          <h5 class="card-title">Reporte Historial Clinico</h5>
+          <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
+          <a href="{{ route('reporte.historial', $paciente->id) }}" target="_blank" class="btn btn-primary">Ver</a>
         </div>
       </div>
     </div>

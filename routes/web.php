@@ -112,6 +112,7 @@ Route::post('/consultamedica/seguimiento/store', 'SeguimientoController@store')-
     //reportes
 Route::get('/reportes/paciente/{paciente_id}', 'ReporteController@index')->name('reportes.index');
 Route::get('/reportes/paciente/{paciente_id}/reporteseguimiento','ReporteController@showReporteSeguimiento')->name('reporte.seguimiento');
+Route::get('/reportes/paciente/{paciente_id}/reportehistorialclinico','ReporteController@showReporteHistorialClinico')->name('reporte.historial');
 
 
 	//citas
