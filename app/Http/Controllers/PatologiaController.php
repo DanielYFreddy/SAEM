@@ -47,27 +47,6 @@ class PatologiaController extends Controller
         return view('historiales.patologias.create')->with('paciente',$paciente);
     }
 
-    public function createPersonales($paciente_id)
-    {
-        //
-        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
-        return view('historiales.patologias.create')->with('paciente',$paciente);
-    }
-
-    public function createParentezco($paciente_id)
-    {
-        //
-        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
-        return view('historiales.patologias.create')->with('paciente',$paciente);
-    }
-
-    public function createHeredofamiliar($paciente_id)
-    {
-        //
-        $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
-        return view('historiales.patologias.create')->with('paciente',$paciente);
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -76,26 +55,21 @@ class PatologiaController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    public function storePersonal(Request $request)
-    {
-        //
-        DB::table('patologia_personal')->insert(
+        dd(request()->all());
+        
+            /*DB::table('patologia_parentezco')->insert(
             [
                 'paciente_id' => $request->paciente_id,
-                'patologia_id' => $request->Flebitis_trombosis,
+                'patologia_id' => $request->'FlebitisTrombosis.2',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'), 
+            ]);*/
 
-            ]
-        );
+        alert()->success('Los datos patologicos del paciente han sido registrados', 'Patologias Registradas')->persistent('Close');
 
-        alert()->success('Lo no patologico del paciente ha sido registrado', 'No patologico registrado')->persistent('Close');
-
-        return redirect()->route('nopatologicos.index', $request->paciente_id);
+        return redirect()->route('patologias.index', $request->paciente_id);
     }
+
 
     /**
      * Display the specified resource.

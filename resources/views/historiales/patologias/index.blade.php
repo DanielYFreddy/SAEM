@@ -5,10 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <h1>Listado de Patologias: {{ $paciente->nombre }}</h1>
+            @if(count($patologia_personal)==0 && count($patologia_parentezco)==0  && count($patologia_heredofalimiliar)==0 )
+              <a href="{{ route('patologias.create', $paciente->id) }}" class="btn btn-primary float-left">+Agregar Patologia</a>
+            @endif
+            <br></br>
             <div class="card-deck mt-4">
               <div class="card">
                 <div class="card-header">
                   <h3>Patologia Personal</h3>
+                  
                 </div>
                 <div class="card-body">
                   @if(count($patologia_personal)!=0)
@@ -19,7 +24,7 @@
                     
                   @else
                     <p>No hay registro de una patologia personal para este paciente</p>
-                    <a href="{{ route('patologias.createPersonales', $paciente->id) }}" class="btn btn-primary float-left">+Agregar</a>
+                    
                   @endif
                 </div>
               </div>
@@ -37,7 +42,6 @@
                     
                   @else
                     <p>No hay registro de una patologia parentezco para este paciente</p>
-                    <a href="{{ route('patologias.createParentezco', $paciente->id) }}" class="btn btn-primary float-left">+Agregar</a>
                   @endif
                 </div>
               </div>
@@ -55,7 +59,6 @@
                     
                   @else
                     <p>No hay registro de una patologia heredofamiliar para este paciente</p>
-                    <a href="{{ route('patologias.createHeredofamiliar', $paciente->id) }}" class="btn btn-primary float-left">+Agregar</a>
                   @endif
                 </div>
               </div>

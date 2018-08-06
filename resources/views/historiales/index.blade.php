@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="alert alert-info" role="alert">
+      <div class="alert alert-success" role="alert">
         <h3>Paciente: {{ $paciente->nombre }}</h3>
       </div>      
     </div>
