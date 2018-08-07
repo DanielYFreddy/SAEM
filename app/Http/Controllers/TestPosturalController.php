@@ -22,34 +22,36 @@ class TestPosturalController extends Controller
     public function storeBipedoPosterior(Request $request)
     {
         //
+        if ($request->izquierda !== null) {
+            foreach ($request->izquierda as $movimiento_izquierda) {
+                
+                DB::table('testpostural')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'movimiento_id' => $movimiento_izquierda,
+                        'lado' => 'Izquierda',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),  
 
-        foreach ($request->izquierda as $movimiento_izquierda) {
-            
-            DB::table('testpostural')->insert(
-                [
-                    'paciente_id' => $request->paciente_id,
-                    'movimiento_id' => $movimiento_izquierda,
-                    'lado' => 'Izquierda',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),  
-
-                ]
-            );
+                    ]
+                );
+            }
         }
 
-        foreach ($request->derecha as $movimiento_derecha) {
-            DB::table('testpostural')->insert(
-                [
-                    'paciente_id' => $request->paciente_id,
-                    'movimiento_id' => $movimiento_derecha,
-                    'lado' => 'Derecha',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),  
+        if ($request->derecha !== null) {
+            foreach ($request->derecha as $movimiento_derecha) {
+                DB::table('testpostural')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'movimiento_id' => $movimiento_derecha,
+                        'lado' => 'Derecha',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),  
 
-                ]
-            );
+                    ]
+                );
+            }
         }
-
 
         if ($request->ninguno !== null) {
             foreach ($request->ninguno as $movimiento_ninguno) {
@@ -86,34 +88,36 @@ class TestPosturalController extends Controller
     public function storeBipedoAnterior(Request $request)
     {
         //
+        if ($request->izquierda !== null) {
+            foreach ($request->izquierda as $movimiento_izquierda) {
+                
+                DB::table('testpostural')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'movimiento_id' => $movimiento_izquierda,
+                        'lado' => 'Izquierda',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),  
 
-        foreach ($request->izquierda as $movimiento_izquierda) {
-            
-            DB::table('testpostural')->insert(
-                [
-                    'paciente_id' => $request->paciente_id,
-                    'movimiento_id' => $movimiento_izquierda,
-                    'lado' => 'Izquierda',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),  
-
-                ]
-            );
+                    ]
+                );
+            }
         }
 
-        foreach ($request->derecha as $movimiento_derecha) {
-            DB::table('testpostural')->insert(
-                [
-                    'paciente_id' => $request->paciente_id,
-                    'movimiento_id' => $movimiento_derecha,
-                    'lado' => 'Derecha',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),  
+        if ($request->derecha !== null) {
+            foreach ($request->derecha as $movimiento_derecha) {
+                DB::table('testpostural')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'movimiento_id' => $movimiento_derecha,
+                        'lado' => 'Derecha',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),  
 
-                ]
-            );
+                    ]
+                );
+            }
         }
-
 
         if ($request->ninguno !== null) {
             foreach ($request->ninguno as $movimiento_ninguno) {
@@ -150,32 +154,35 @@ class TestPosturalController extends Controller
     public function storeLateral(Request $request)
     {
         //
+        if ($request->izquierda !== null) {
+            foreach ($request->izquierda as $movimiento_izquierda) {
+                
+                DB::table('testpostural')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'movimiento_id' => $movimiento_izquierda,
+                        'lado' => 'Izquierda',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),  
 
-        foreach ($request->izquierda as $movimiento_izquierda) {
-            
-            DB::table('testpostural')->insert(
-                [
-                    'paciente_id' => $request->paciente_id,
-                    'movimiento_id' => $movimiento_izquierda,
-                    'lado' => 'Izquierda',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),  
+                    ]
+                );
+            }
+        }   
 
-                ]
-            );
-        }
+        if ($request->derecha !== null) {
+            foreach ($request->derecha as $movimiento_derecha) {
+                DB::table('testpostural')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'movimiento_id' => $movimiento_derecha,
+                        'lado' => 'Derecha',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),  
 
-        foreach ($request->derecha as $movimiento_derecha) {
-            DB::table('testpostural')->insert(
-                [
-                    'paciente_id' => $request->paciente_id,
-                    'movimiento_id' => $movimiento_derecha,
-                    'lado' => 'Derecha',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),  
-
-                ]
-            );
+                    ]
+                );
+            }
         }
 
 
@@ -214,32 +221,35 @@ class TestPosturalController extends Controller
     public function storeSedente(Request $request)
     {
         //
+        if ($request->izquierda !== null) {
+            foreach ($request->izquierda as $movimiento_izquierda) {
+                
+                DB::table('testpostural')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'movimiento_id' => $movimiento_izquierda,
+                        'lado' => 'Izquierda',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),  
 
-        foreach ($request->izquierda as $movimiento_izquierda) {
-            
-            DB::table('testpostural')->insert(
-                [
-                    'paciente_id' => $request->paciente_id,
-                    'movimiento_id' => $movimiento_izquierda,
-                    'lado' => 'Izquierda',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),  
-
-                ]
-            );
+                    ]
+                );
+            }
         }
 
-        foreach ($request->derecha as $movimiento_derecha) {
-            DB::table('testpostural')->insert(
-                [
-                    'paciente_id' => $request->paciente_id,
-                    'movimiento_id' => $movimiento_derecha,
-                    'lado' => 'Derecha',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),  
+        if ($request->derecha !== null) {
+            foreach ($request->derecha as $movimiento_derecha) {
+                DB::table('testpostural')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'movimiento_id' => $movimiento_derecha,
+                        'lado' => 'Derecha',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),  
 
-                ]
-            );
+                    ]
+                );
+            }
         }
 
 
@@ -278,33 +288,36 @@ class TestPosturalController extends Controller
     public function storeMarcha(Request $request)
     {
         //
+        if ($request->izquierda !== null) {
+            foreach ($request->izquierda as $movimiento_izquierda) {
+                
+                DB::table('testpostural')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'movimiento_id' => $movimiento_izquierda,
+                        'lado' => 'Izquierda',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),  
 
-        foreach ($request->izquierda as $movimiento_izquierda) {
-            
-            DB::table('testpostural')->insert(
-                [
-                    'paciente_id' => $request->paciente_id,
-                    'movimiento_id' => $movimiento_izquierda,
-                    'lado' => 'Izquierda',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),  
-
-                ]
-            );
+                    ]
+                );
+            }
         }
 
-        foreach ($request->derecha as $movimiento_derecha) {
-            DB::table('testpostural')->insert(
-                [
-                    'paciente_id' => $request->paciente_id,
-                    'movimiento_id' => $movimiento_derecha,
-                    'lado' => 'Derecha',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),  
+        if ($request->derecha !== null) {
+            foreach ($request->derecha as $movimiento_derecha) {
+                DB::table('testpostural')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'movimiento_id' => $movimiento_derecha,
+                        'lado' => 'Derecha',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'),  
 
-                ]
-            );
-        }
+                    ]
+                );
+            }
+        }      
 
 
         if ($request->ninguno !== null) {
