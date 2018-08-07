@@ -16,17 +16,17 @@ class PatologiaController extends Controller
     {
         
         $patologia_personal = DB::table('patologia_personal')
-            ->join('patologia', 'patologia_personal.id', '=', 'patologia.id')
+            ->join('patologia', 'patologia_personal.patologia_id', '=', 'patologia.id')
             ->select('patologia_personal.*', 'patologia.nombre')->where('patologia_personal.paciente_id', '=', $paciente_id)
             ->get();
 
         $patologia_parentezco = DB::table('patologia_parentezco')
-            ->join('patologia', 'patologia_parentezco.id', '=', 'patologia.id')
+            ->join('patologia', 'patologia_parentezco.patologia_id', '=', 'patologia.id')
             ->select('patologia_parentezco.*', 'patologia.nombre')->where('patologia_parentezco.paciente_id', '=', $paciente_id)
             ->get();
 
         $patologia_heredofalimiliar = DB::table('patologia_heredofalimiliar')
-            ->join('patologia', 'patologia_heredofalimiliar.id', '=', 'patologia.id')
+            ->join('patologia', 'patologia_heredofalimiliar.patologia_id', '=', 'patologia.id')
             ->select('patologia_heredofalimiliar.*', 'patologia.nombre')->where('patologia_heredofalimiliar.paciente_id', '=', $paciente_id)
             ->get();
 
@@ -55,15 +55,926 @@ class PatologiaController extends Controller
      */
     public function store(Request $request)
     {
-        dd(request()->all());
+        if (!empty($request->FlebitisTrombosis)) {
         
-            /*DB::table('patologia_parentezco')->insert(
-            [
-                'paciente_id' => $request->paciente_id,
-                'patologia_id' => $request->'FlebitisTrombosis.2',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'), 
-            ]);*/
+            foreach ($request->FlebitisTrombosis as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '1',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '1',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '1',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->HTA)) {
+        
+            foreach ($request->HTA as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '2',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '2',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '2',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->EnfVascular)) {
+        
+            foreach ($request->EnfVascular as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '3',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '3',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '3',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->AsmaBronquitis)) {
+        
+            foreach ($request->AsmaBronquitis as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '4',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '4',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '4',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->DM)) {
+        
+            foreach ($request->DM as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '5',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '5',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '5',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->HiperHipo)) {
+        
+            foreach ($request->HiperHipo as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '6',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '6',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '6',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->Gota)) {
+        
+            foreach ($request->Gota as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '7',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '7',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '7',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->AR)) {
+        
+            foreach ($request->AR as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '8',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '8',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '8',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->Osteoartrosis)) {
+        
+            foreach ($request->Osteoartrosis as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '10',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '10',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '10',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->Lupus)) {
+        
+            foreach ($request->Lupus as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '11',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '11',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '11',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->Ulceras)) {
+        
+            foreach ($request->Ulceras as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '12',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '12',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '12',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->Gastritis)) {
+        
+            foreach ($request->Gastritis as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '13',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '13',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '13',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->Colitis)) {
+        
+            foreach ($request->Colitis as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '14',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '14',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '14',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->Estrenimiento)) {
+        
+            foreach ($request->Estrenimiento as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '15',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '15',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '15',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->LxCadera)) {
+        
+            foreach ($request->LxCadera as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '16',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '16',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '16',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->LxRodilla)) {
+        
+            foreach ($request->LxRodilla as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '17',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '17',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '17',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->LxHombro)) {
+        
+            foreach ($request->LxHombro as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '18',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '18',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '18',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->Espalda)) {
+        
+            foreach ($request->Espalda as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '19',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '19',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '19',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->CA)) {
+        
+            foreach ($request->CA as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '20',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '20',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '20',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->Alergias)) {
+        
+            foreach ($request->Alergias as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '21',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '21',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '21',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->Ndegenerativas)) {
+        
+            foreach ($request->Ndegenerativas as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '22',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '22',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '22',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->TransMentales)) {
+        
+            foreach ($request->TransMentales as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '23',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '23',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '23',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+
+        if (!empty($request->TransSueno)) {
+        
+            foreach ($request->TransSueno as $value) { 
+                
+                if ($value == 'Personales') {
+
+                    DB::table('patologia_personal')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '24',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Hfamiliares') {
+
+                    DB::table('patologia_heredofalimiliar')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '24',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+                if ($value == 'Parentezco') {
+
+                    DB::table('patologia_parentezco')->insert(
+                    [
+                        'paciente_id' => $request->paciente_id,
+                        'patologia_id' => '24',
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s'), 
+                    ]);
+                }
+
+            }
+        }
+            
 
         alert()->success('Los datos patologicos del paciente han sido registrados', 'Patologias Registradas')->persistent('Close');
 
