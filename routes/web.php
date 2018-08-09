@@ -116,7 +116,7 @@ Route::get('/reportes/paciente/{paciente_id}/reportehistorialclinico','ReporteCo
 
 
 	//citas
-Route::post('/citas/paciente/{nombrePaciente}', 'CitaController@getPaciente')->name('cita.paciente');
+Route::get('/citas', 'CitaController@getCitas')->name('citas');
 Route::get('/agenda', function () {
     return view('citas.agenda');
 })->name('citas.agenda');

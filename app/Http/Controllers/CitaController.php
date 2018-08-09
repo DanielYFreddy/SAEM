@@ -9,12 +9,12 @@ class CitaController extends Controller
 {
 
 
-    public function getPaciente($nombrePaciente)
+    public function getCitas()
     {
 
-        $pacientes = DB::table('paciente')->where('nombre', 'like', '%'.$nombrePaciente.'%' )->get();
+        $citas = DB::table('cita')->get();
 
-        return json_encode($pacientes)
+        return response()->json($citas);
     }
 
 
