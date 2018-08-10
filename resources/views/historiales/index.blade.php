@@ -13,7 +13,7 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Diagnostico</h5>
+          <h5 class="card-title">Diagnóstico</h5>
           <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
           <a href="{{ route('diagnosticos.index', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
@@ -31,7 +31,7 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">No Patologicos</h5>
+          <h5 class="card-title">No Patológicos</h5>
           <p class="card-text text-center"><i class="fas fa-notes-medical fa-5x"></i></p>
           <a href="{{ route('nopatologicos.index', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
@@ -40,7 +40,7 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Ginecologico</h5>
+          <h5 class="card-title">Ginecológico</h5>
           <p class="card-text text-center"><i class="fas fa-user-md fa-5x"></i></p>
           <a href="{{ route('ginecologicos.index', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
@@ -52,7 +52,7 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Actividad Fisica</h5>
+          <h5 class="card-title">Actividad Física</h5>
           <p class="card-text text-center"><i class="fas fa-file-medical-alt fa-5x"></i></p>
           <a href="{{ route('actividadfisica.index', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>

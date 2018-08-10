@@ -11,7 +11,7 @@
               <h3>Paciente: {{ $paciente->nombre }} </h3>
                                 
             </div>
-            <h1>Datos Patologicos</h1>
+            <h1>Datos Patológicos</h1>
 
             {!! Form::open(['route' => ['patologias.store'], 'id' => 'form']) !!}
             <input type="hidden" name="paciente_id" value="{{$paciente->id}}">
@@ -20,7 +20,7 @@
 
                 <div class="card">
                   <div class="card-header">
-                    <h5>Cardiovascular/Pulmonar</h3>
+                    <h5>Cardiovasculár/Pulmonár</h3>
                   </div>
                   <div class="card-body">
                     {{ Form::label('', 'Flebitis/Trombosis') }}
@@ -100,7 +100,7 @@
 
                 <div class="card">
                   <div class="card-header">
-                    <h5>Renal/Hepaticas</h3>
+                    <h5>Renal/Hepáticas</h3>
                   </div>
                   <div class="card-body">
                     
@@ -163,7 +163,7 @@
 
                 <div class="card">
                   <div class="card-header">
-                    <h5>Inmunologicas/Hematologicas</h3>
+                    <h5>Inmunológicas/Hematológicas</h3>
                   </div>
                   <div class="card-body">
                     {{ Form::label('', 'AR') }}
@@ -246,7 +246,7 @@
 
                 <div class="card">
                   <div class="card-header">
-                    <h5>Gastrointestinal</h3>
+                    <h5>Gastrointestinál</h3>
                   </div>
                   <div class="card-body">
                     {{ Form::label('', 'Ulceras') }}

@@ -5,7 +5,7 @@
   
     <div class="row justify-content-center">
             <div class="col-md-12">
-            <h1>Informacion Ginecologico</h1>
+            <h1>Información Ginecológico</h1>
             <div class="card">
                 <div class="card-header">
                   Paciente: {{ $paciente->nombre }}
@@ -22,11 +22,11 @@
                       <li class="list-group-item">Tratamiento: {{ $ginecologico->tratamiento }}</li>
                       
                       @if($ginecologico->observacion != ' ')
-                        <li class="list-group-item">Observacion: {{ $ginecologico->observacion }}</li>
+                        <li class="list-group-item">Observación: {{ $ginecologico->observacion }}</li>
                       @endif
                     </ul>
                     @else
-                      <p>No hay registro de una informacion ginecologico para este paciente</p>
+                      <p>No hay registro de una información ginecológico para este paciente</p>
                       <a href="{{ route('ginecologicos.create', $paciente->id) }}" class="btn btn-success float-left">+Agregar</a>
                     @endif
                   </div>

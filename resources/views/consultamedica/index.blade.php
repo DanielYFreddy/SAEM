@@ -13,7 +13,7 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Test Postural Bipedo Posterior</h5>
+          <h5 class="card-title">Test Postural Bípedo Posterior</h5>
           <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
           <a href="{{ route('bipedoposterior.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
@@ -22,7 +22,7 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Test Postural Bipedo Anterior</h5>
+          <h5 class="card-title">Test Postural Bípedo Anterior</h5>
           <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
           <a href="{{ route('bipedoanterior.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
@@ -73,7 +73,7 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Valoracion Goniometrica</h5>
+          <h5 class="card-title">Valoración Goniométrica</h5>
           <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
           <a href="{{ route('goniometrica.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>

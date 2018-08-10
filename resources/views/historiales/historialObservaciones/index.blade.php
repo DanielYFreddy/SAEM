@@ -5,7 +5,7 @@
   
     <div class="row justify-content-center">
             <div class="col-md-12">
-            <h1>Informacion Observaciones</h1>
+            <h1>Información Observaciones</h1>
             <div class="card">
                 <div class="card-header">
                   Paciente: {{ $paciente->nombre }}
@@ -22,7 +22,7 @@
                         @endforeach
                     </ul>
                     @else
-                      <p>No hay registro de alguna observacion para este paciente</p>
+                      <p>No hay registro de alguna observación para este paciente</p>
                     @endif
                   </div>
                 </div>

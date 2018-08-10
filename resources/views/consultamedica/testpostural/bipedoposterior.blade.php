@@ -6,7 +6,7 @@
   
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Test postural bipedo posterior</h1>
+            <h1>Test Postural Bípedo Posterior</h1>
             <div class="card">
                 <div class="card-header">
                   Paciente: {{ $paciente->nombre }}

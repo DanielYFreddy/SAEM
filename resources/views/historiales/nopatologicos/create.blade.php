@@ -5,7 +5,7 @@
   
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>No Patologicas</h1>
+            <h1>No Patológicas</h1>
             <div class="card">
                 <div class="card-header">
                   Paciente: {{ $paciente->nombre }}

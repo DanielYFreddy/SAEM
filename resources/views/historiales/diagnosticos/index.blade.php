@@ -6,7 +6,7 @@
     
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Diagnostico Medico</h1>
+            <h1>Diagnóstico Médico</h1>
             <div class="card">
                 <div class="card-header">
                   Paciente: {{ $paciente->nombre }}
@@ -16,8 +16,8 @@
                 <div class="card-body">
                   <div class="col-md-12">
                     @if ($diagnostico !== null)
-                      <h4>Diagnostico: {{ $diagnostico->diagnostico }}</h4>
-                      <h5>Tratamiento Farmacologico:</h5>
+                      <h4>Diagnóstico: {{ $diagnostico->diagnostico }}</h4>
+                      <h5>Tratamiento Farmacológico:</h5>
                       <p>{{ $diagnostico->tratamientoFarmacologico}}</p>
                       <h5>Evolución:</h5>
                       <p>{{ $diagnostico->evolucion}}</p>
@@ -30,8 +30,8 @@
                       <h5>Traumáticos:</h5>
                       <p>{{ $diagnostico->traumaticos}}</p>
                     @else
-                      <p>No hay registro de un diagnostico para este paciente</p>
-                      <a href="{{ route('diagnosticos.create', $paciente->id) }}" class="btn btn-primary float-left">+Agregar Diagnostico</a>
+                      <p>No hay registro de un diagnóstico para este paciente</p>
+                      <a href="{{ route('diagnosticos.create', $paciente->id) }}" class="btn btn-primary float-left">+Agregar Diagnóstico</a>
                     @endif
                   </div>
                 </div>

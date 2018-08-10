@@ -5,7 +5,7 @@
   
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Actividad Fisica</h1>
+            <h1>Actividad Física</h1>
             <div class="card">
                 <div class="card-header">
                   Paciente: {{ $paciente->nombre }}
@@ -18,7 +18,7 @@
                       <input type="hidden" name="paciente_id" value="{{$paciente->id}}">
 
                       <div class="form-group">
-                        {{ Form::label('', 'Nivel de actividad fisica') }}
+                        {{ Form::label('', 'Nivel de actividad física') }}
 
                         <div class="form-check">
                           {{ Form::radio('nivelActividad', 'Activo',true,['class'=>'form-check-input']) }}

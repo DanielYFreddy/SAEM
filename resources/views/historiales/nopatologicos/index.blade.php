@@ -5,7 +5,7 @@
   
     <div class="row justify-content-center">
             <div class="col-md-12">
-            <h1>Informacion no patologica</h1>
+            <h1>Información No Patológica</h1>
             <div class="card">
                 <div class="card-header">
                   Paciente: {{ $paciente->nombre }}
@@ -21,7 +21,7 @@
                       <li class="list-group-item">Medicación: {{ $nopatologico->medicacion }}</li>
                     </ul>
                     @else
-                      <p>No hay registro de un informacion no patologica para este paciente</p>
+                      <p>No hay registro de una información no patológica para este paciente</p>
                       <a href="{{ route('nopatologicos.create', $paciente->id) }}" class="btn btn-success float-left">+Agregar</a>
                     @endif
                   </div>

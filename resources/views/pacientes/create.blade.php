@@ -93,7 +93,7 @@
                     </div>
 
                     <div class="form-group">
-                      {{ Form::label('', 'Genero') }}
+                      {{ Form::label('', 'Género') }}
 
                       <div class="form-check">
                         {{ Form::radio('genero', 'Masculino',true,['id'=>'Masculino','class'=>'form-check-input']) }}
@@ -157,7 +157,7 @@
 
                   <div class="form-group">
 
-                        {{ Form::label('telefono', 'Telefono') }}
+                        {{ Form::label('telefono', 'Teléfono') }}
                         {{ Form::text('telefono',null,['id'=>'telefono','class'=>'form-control']) }}
 
                         @if ( !empty($errors->get('telefono')))

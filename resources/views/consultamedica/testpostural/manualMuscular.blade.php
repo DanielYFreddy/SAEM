@@ -20,7 +20,7 @@
             		<div class="card-deck mt-4">
             			<div class="card">
             				<div class="card-header">
-			                    <h5>Valoracion Manual Muscular</h3>
+			                    <h5>Valoración Manual Muscular</h3>
 			                </div>
 
 			                <div class="card-body">
