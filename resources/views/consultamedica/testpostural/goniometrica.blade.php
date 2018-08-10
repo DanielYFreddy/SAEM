@@ -57,7 +57,8 @@
 			                    {{ Form::submit('Guardar', ['class'=>'btn btn-primary', 'onclick' => 
 			                        'confirmar()'
 			                      ]) 
-			                    }}   
+			                    }} 
+                          <a href="{{ route('consultamedica.index', $paciente->id) }}" class="btn btn-danger ">Atras</a>   
 
 			                </div>
             			</div>
