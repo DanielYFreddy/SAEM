@@ -39,11 +39,11 @@
             </div>
             <div class="form-group clockpicker">
               <label for="hora">Hora inicio:</label>
-              <input type="text" class="form-control" id="horaInicio" name="horaInicio"></input>
+              <input type="text" class="form-control" id="horaInicio" name="horaInicio" readonly></input>
             </div>
             <div class="form-group clockpicker">
               <label for="hora">Hora final:</label>
-              <input type="text" class="form-control" id="horaFinal" name="horaFinal"></input>
+              <input type="text" class="form-control" id="horaFinal" name="horaFinal" readonly></input>
             </div>
           </form>
       </div>
