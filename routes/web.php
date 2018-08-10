@@ -117,6 +117,5 @@ Route::get('/reportes/paciente/{paciente_id}/reportehistorialclinico','ReporteCo
 
 	//citas
 Route::get('/citas', 'CitaController@getCitas')->name('citas');
-Route::get('/agenda', function () {
-    return view('citas.agenda');
-})->name('citas.agenda');
+Route::get('/agenda', 'CitaController@index')->name('citas.agenda');
+Route::post('/citas/store', 'CitaController@store')->name('citas.store');

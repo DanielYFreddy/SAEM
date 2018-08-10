@@ -19,6 +19,8 @@
     <link href="{{ asset('fullcalendar/css/fullcalendar.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
+    <link href="{{ asset('clockpicker/bootstrap-clockpicker.min.css') }}" rel="stylesheet">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -32,7 +34,8 @@
     <script src="{{ asset('fullcalendar/js/moment.min.js') }}"></script>
     <script src="{{ asset('fullcalendar/js/fullcalendar.js') }}"></script>
     <script src="{{ asset('fullcalendar/js/es.js') }}"></script>
-    
+
+    <script src="{{ asset('clockpicker/bootstrap-clockpicker.min.js') }}"></script>
 
 
 </head>

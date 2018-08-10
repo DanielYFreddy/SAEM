@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-      <button id="pacientes">Mostrar Pacientes</button>
         <div class="col-md-12">
           <div id='calendar'></div>
         </div>
@@ -21,7 +20,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <form>
+          <form id="form_id">
             <div class="form-group">
               <label for="id">Id:</label>
               <input type="text" class="form-control" id="id" name="id"></input>
@@ -38,11 +37,11 @@
               <label for="fecha">Fecha:</label>
               <input type="text" class="form-control" id="fecha" name="fecha"></input>
             </div>
-            <div class="form-group">
+            <div class="form-group clockpicker">
               <label for="hora">Hora inicio:</label>
               <input type="text" class="form-control" id="horaInicio" name="horaInicio"></input>
             </div>
-            <div class="form-group">
+            <div class="form-group clockpicker">
               <label for="hora">Hora final:</label>
               <input type="text" class="form-control" id="horaFinal" name="horaFinal"></input>
             </div>
@@ -76,6 +75,7 @@
 
           dayClick: function(date, jsEvent, view) {
             
+            $('#id').val('');
             $('#titulo').val('');
             $('#descripcion').val('');
             $('#horaInicio').val('');
@@ -105,6 +105,12 @@
       });
     }); 
 
+    $('.clockpicker').clockpicker({
+        placement: 'top',
+        align: 'left',
+        autoclose: true,
+        'default': 'now'
+    });
 
     var nuevaCita;
 
@@ -116,14 +122,29 @@
         descripcion:$('#descripcion').val(),
         end:$('#fecha').val()+" "+$('#horaFinal').val(),
       };
-      
+    
+
+      var titulo = $('#titulo').val();
+
+      $('#id').val('');
       $('#titulo').val('');
       $('#fecha').val('');
       $('#descripcion').val('');
       $('#horaInicio').val('');
       $('#horaFinal').val('');
 
-      $('#calendar').fullCalendar('renderEvent',nuevaCita);
+      $.ajax({
+
+        type:"POST",
+        url:"citas/store",
+        data:{"_token": "{{csrf_token()}}","titulo":titulo},
+        success: function(response){
+          console.log(response);
+        }
+
+      });
+
+      //$('#calendar').fullCalendar('renderEvent',nuevaCita);
       $('#modalCitas').modal('toggle');
     });
 

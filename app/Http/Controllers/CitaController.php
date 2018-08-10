@@ -18,12 +18,6 @@ class CitaController extends Controller
     }
 
 
-
-
-
-
-
-
     /**
      * Display a listing of the resource.
      *
@@ -32,6 +26,7 @@ class CitaController extends Controller
     public function index()
     {
         //
+        return view('citas.agenda');
     }
 
     /**
@@ -53,6 +48,9 @@ class CitaController extends Controller
     public function store(Request $request)
     {
         //
+        $response = array('status' => 'success', 'msg' => 'Guardado',);
+        //input('titulo')
+        return response()->json($request->titulo);
     }
 
     /**
