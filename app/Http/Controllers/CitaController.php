@@ -9,19 +9,13 @@ class CitaController extends Controller
 {
 
 
-    public function getPaciente($nombrePaciente)
+    public function getCitas()
     {
 
-        $pacientes = DB::table('paciente')->where('nombre', 'like', '%'.$nombrePaciente.'%' )->get();
+        $citas = DB::table('cita')->get();
 
-        return json_encode($pacientes)
+        return response()->json($citas);
     }
-
-
-
-
-
-
 
 
     /**
@@ -32,6 +26,7 @@ class CitaController extends Controller
     public function index()
     {
         //
+        return view('citas.agenda');
     }
 
     /**
@@ -53,6 +48,9 @@ class CitaController extends Controller
     public function store(Request $request)
     {
         //
+        $response = array('status' => 'success', 'msg' => 'Guardado',);
+        //input('titulo')
+        return response()->json($request->titulo);
     }
 
     /**

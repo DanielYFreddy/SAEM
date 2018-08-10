@@ -14,28 +14,36 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="tituloModal">Control de citas</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-          <form>
+          <form id="form_id">
+            <div class="form-group">
+              <label for="id">Id:</label>
+              <input type="text" class="form-control" id="id" name="id"></input>
+            </div>
             <div class="form-group">
               <label for="titulo">Titulo:</label>
-              <input type="text" class="form-control" id="titulo"></input>
+              <input type="text" class="form-control" id="titulo" name="titulo"></input>
             </div>
             <div class="form-group">
               <label for="descripcion">Descripción:</label>
-              <input type="text" class="form-control" id="descripcion"></input>
+              <textarea rows="3" class="form-control" id="descripcion" name="descripcion"></textarea> 
             </div>
             <div class="form-group">
               <label for="fecha">Fecha:</label>
-              <input type="text" class="form-control" id="fecha"></input>
+              <input type="text" class="form-control" id="fecha" name="fecha"></input>
             </div>
-            <div class="form-group">
-              <label for="hora">Hora:</label>
-              <input type="text" class="form-control" id="hora"></input>
+            <div class="form-group clockpicker">
+              <label for="hora">Hora inicio:</label>
+              <input type="text" class="form-control" id="horaInicio" name="horaInicio" readonly></input>
+            </div>
+            <div class="form-group clockpicker">
+              <label for="hora">Hora final:</label>
+              <input type="text" class="form-control" id="horaFinal" name="horaFinal" readonly></input>
             </div>
           </form>
       </div>
@@ -63,26 +71,33 @@
           prev: 'fas fa-chevron-left',
           next: 'fas fa-chevron-right',
 
-          events: [
-            {
-              title  : 'event1',
-              start  : '2018-08-01'
-            },
-            {
-              title  : 'event2',
-              start  : '2018-08-05',
-              end    : '2018-08-07'
-            },
-            {
-              title  : 'event3',
-              start  : '2018-08-09T12:30:00',
-              allDay : false // will make the time show
-            }
-          ],
+          events: 'citas',
 
           dayClick: function(date, jsEvent, view) {
+            
+            $('#id').val('');
+            $('#titulo').val('');
+            $('#descripcion').val('');
+            $('#horaInicio').val('');
+            $('#horaFinal').val('');
+            $('#fecha').val(date.format());
+            $('#modalCitas').modal();
 
-            $('#fecha').val(date.format())
+          },
+          eventClick: function(calEvent, jsEvent, view) {
+
+            $('#id').val(calEvent.id);
+            $('#titulo').val(calEvent.title);
+            $('#descripcion').val(calEvent.descripcion);
+
+            fechaHoraInicio = calEvent.start._i.split(" ");
+            fechaHoraFinal = calEvent.end._i.split(" ");
+
+            $('#fecha').val(fechaHoraInicio[0]);
+            $('#horaInicio').val(fechaHoraInicio[1]);
+
+            $('#horaFinal').val(fechaHoraFinal[1]);
+
             $('#modalCitas').modal();
 
           }
@@ -90,19 +105,48 @@
       });
     }); 
 
+    $('.clockpicker').clockpicker({
+        placement: 'top',
+        align: 'left',
+        autoclose: true,
+        'default': 'now'
+    });
 
-          var nuevaCita;
+    var nuevaCita;
 
     $('#btnAgregar').click(function(){
 
      nuevaCita = {
         title:$('#titulo').val(),
-        start:$('#fecha').val()+" "+$('#hora').val(),
+        start:$('#fecha').val()+" "+$('#horaInicio').val(),
         descripcion:$('#descripcion').val(),
+        end:$('#fecha').val()+" "+$('#horaFinal').val(),
       };
-      alert(nuevaCita.start);
-      $('#calendar').fullCalendar('renderEvent',nuevaCita);
+    
+
+      var titulo = $('#titulo').val();
+
+      $('#id').val('');
+      $('#titulo').val('');
+      $('#fecha').val('');
+      $('#descripcion').val('');
+      $('#horaInicio').val('');
+      $('#horaFinal').val('');
+
+      $.ajax({
+
+        type:"POST",
+        url:"citas/store",
+        data:{"_token": "{{csrf_token()}}","titulo":titulo},
+        success: function(response){
+          console.log(response);
+        }
+
+      });
+
+      //$('#calendar').fullCalendar('renderEvent',nuevaCita);
       $('#modalCitas').modal('toggle');
     });
+
   </script>
 @endsection
