@@ -70,6 +70,40 @@
         </div>
       </div>
     </div>
+    <div class="col-md-3">
+      <div class="card border-primary">
+        <div class="card-body">
+          <h5 class="card-title">Valoracion Goniometrica</h5>
+          <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
+          <a href="{{ route('goniometrica.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card border-primary">
+        <div class="card-body">
+          <h5 class="card-title">Manual Muscular</h5>
+          <br>
+          <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
+          <a href="{{ route('manualMuscular.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <div class="row"><div class="col-md-12"><br></div></div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card border-primary">
+        <div class="card-body">
+          <h5 class="card-title">Antropometria</h5>
+          <br>
+          <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
+          <a href="{{ route('antropometria.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
+        </div>
+      </div>
+    </div>
   </div>  
 </div>
 @endsection

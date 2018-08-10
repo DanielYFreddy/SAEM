@@ -40,18 +40,20 @@ class HitorialObservacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        DB::table('hitorial_observacion')->insert(
-            [
-                'paciente_id' => $request->paciente_id,
-                'observaciones' => $request->observaciones,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),  
+        if (!is_null($request->observaciones)) {
+            DB::table('hitorial_observacion')->insert(
+                [
+                    'paciente_id' => $request->paciente_id,
+                    'observaciones' => $request->observaciones,
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),  
 
-            ]
-        );
+                ]
+            );
 
         alert()->success('La observacion del paciente ha sido registrado', 'Observacion registrado')->persistent('Cerrar');
+
+        }
 
         return redirect()->route('historialObservaciones.index', $request->paciente_id);
     }

@@ -6,8 +6,9 @@
         <div class="col-md-12">
             <h1>Listado de Patologias: {{ $paciente->nombre }}</h1>
             @if(count($patologia_personal)==0 && count($patologia_parentezco)==0  && count($patologia_heredofalimiliar)==0 )
-              <a href="{{ route('patologias.create', $paciente->id) }}" class="btn btn-primary float-left">+Agregar Patologia</a>
+              <a href="{{ route('patologias.create', $paciente->id) }}" class="btn btn-primary float-left mr-2">+Agregar Patologia</a>
             @endif
+            <a href="{{ route('historiales.index', $paciente->id) }}" class="btn btn-danger float-left">Atras</a>
             <br></br>
             <div class="card-deck mt-4">
               <div class="card">

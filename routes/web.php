@@ -108,6 +108,15 @@ Route::post('/consultamedica/marcha/store', 'TestPosturalController@storeMarcha'
     //seguimiento
 Route::get('/consultamedica/paciente/{paciente_id}/seguimiento','SeguimientoController@create')->name('seguimiento.create');
 Route::post('/consultamedica/seguimiento/store', 'SeguimientoController@store')->name('seguimiento.store');
+    //goniometrica
+Route::get('/consultamedica/paciente/{paciente_id}/testpostural/goniometrica/','TestPosturalController@createGoniometrica')->name('goniometrica.create');
+Route::post('/consultamedica/goniometrica/store', 'TestPosturalController@storeGoniometrica')->name('goniometrica.store');
+    //manual muscular
+Route::get('/consultamedica/paciente/{paciente_id}/testpostural/manualMuscular/','TestPosturalController@createManualMuscular')->name('manualMuscular.create');
+Route::post('/consultamedica/manualMuscular/store', 'TestPosturalController@storeManualMuscular')->name('manualMuscular.store');
+    //antropometria
+Route::get('/consultamedica/paciente/{paciente_id}/testpostural/antropometria/','TestPosturalController@createAntropometria')->name('antropometria.create');
+Route::post('/consultamedica/antropometria/store', 'TestPosturalController@storeAntropometria')->name('antropometria.store');
 
     //reportes
 Route::get('/reportes/paciente/{paciente_id}', 'ReporteController@index')->name('reportes.index');

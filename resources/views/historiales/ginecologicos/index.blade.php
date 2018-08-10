@@ -20,7 +20,10 @@
                       <li class="list-group-item">Abortos: {{ $ginecologico->abortos }}</li>
                       <li class="list-group-item">Periodo Mestrual: {{ $ginecologico->periodoMestrual }}</li>
                       <li class="list-group-item">Tratamiento: {{ $ginecologico->tratamiento }}</li>
-                      <li class="list-group-item">Observacion: {{ $ginecologico->observacion }}</li>
+                      
+                      @if($ginecologico->observacion != ' ')
+                        <li class="list-group-item">Observacion: {{ $ginecologico->observacion }}</li>
+                      @endif
                     </ul>
                     @else
                       <p>No hay registro de una informacion ginecologico para este paciente</p>

@@ -41,19 +41,40 @@ class GinecologicoController extends Controller
     public function store(Request $request)
     {
         //
-        DB::table('ginecologico')->insert(
-            [
+        if (!is_null($request->observacion)) {
+            DB::table('ginecologico')->insert(
+                [
                 'paciente_id' => $request->paciente_id,
                 'embarazo' => $request->embarazo,
                 'abortos' => $request->abortos,
                 'periodoMestrual' => $request->periodoMestrual,
                 'tratamiento' => $request->tratamiento,
                 'observacion' => $request->observacion,
+                
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),  
 
-            ]
-        );
+                ]
+            );
+        }
+
+        if (is_null($request->observacion)) {
+            DB::table('ginecologico')->insert(
+                [
+                'paciente_id' => $request->paciente_id,
+                'embarazo' => $request->embarazo,
+                'abortos' => $request->abortos,
+                'periodoMestrual' => $request->periodoMestrual,
+                'tratamiento' => $request->tratamiento,
+                'observacion' => ' ',
+                
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),  
+
+                ]
+            );
+        }
+        
 
         alert()->success('Lo ginecologico del paciente ha sido registrado', 'Ginecologico registrado')->persistent('Close');
 
