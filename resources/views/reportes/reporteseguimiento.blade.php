@@ -12,6 +12,7 @@
   @if ($seguimientos->isEmpty())
     <p>No hay seguimiento para mostrar</p>
   @else
+
    @foreach ($seguimientos as $seguimiento)
       <table class="table table-bordered ">
         <tr>
@@ -84,6 +85,13 @@
         </tr>
 
       </table>
+
+      @if(end($seguimientos)!=$seguimiento)
+        <div style="page-break-after: always"></div>
+      @else
+        
+      @endif
+      
     @endforeach
   @endif
 </body>
