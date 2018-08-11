@@ -26,24 +26,37 @@
               <input type="text" class="form-control" id="id" name="id"></input>
             </div>
             <div class="form-group">
-              <label for="titulo">Titulo:</label>
-              <input type="text" class="form-control" id="titulo" name="titulo"></input>
+              <label for="titulo">Paciente:</label>
+              <input type="text" class="form-control" id="titulo" name="titulo" autocomplete="off"></input>
+              <div id="listaPacientes" style="z-index:99"></div>
+              <div class="invalid-feedback invalid-titulo">
+                
+              </div>
             </div>
             <div class="form-group">
               <label for="descripcion">Descripción:</label>
-              <textarea rows="3" class="form-control" id="descripcion" name="descripcion"></textarea> 
+              <textarea rows="3" class="form-control" id="descripcion" name="descripcion"></textarea>
+              <div class="invalid-feedback invalid-descripcion">
+                
+              </div> 
             </div>
             <div class="form-group">
               <label for="fecha">Fecha:</label>
-              <input type="text" class="form-control" id="fecha" name="fecha"></input>
+              <input type="text" class="form-control" id="fecha" name="fecha" readonly></input>
             </div>
             <div class="form-group clockpicker">
               <label for="hora">Hora inicio:</label>
               <input type="text" class="form-control" id="horaInicio" name="horaInicio" readonly></input>
+              <div class="invalid-feedback invalid-horaInicio">
+                
+              </div>
             </div>
             <div class="form-group clockpicker">
               <label for="hora">Hora final:</label>
               <input type="text" class="form-control" id="horaFinal" name="horaFinal" readonly></input>
+              <div class="invalid-feedback invalid-horaFinal">
+                
+              </div>
             </div>
           </form>
       </div>
@@ -74,17 +87,46 @@
           events: 'citas',
 
           dayClick: function(date, jsEvent, view) {
+
+            $('#listaPacientes').fadeOut();
             
+            $("#titulo").removeClass("is-invalid");
+            $(".invalid-titulo").empty();
+
+            $("#descripcion").removeClass("is-invalid");
+            $(".invalid-descripcion").empty();  
+            
+            $("#horaInicio").removeClass("is-invalid");
+            $(".invalid-horaInicio").empty();       
+
+            $("#horaFinal").removeClass("is-invalid");
+            $(".invalid-horaFinal").empty();   
+
             $('#id').val('');
             $('#titulo').val('');
             $('#descripcion').val('');
             $('#horaInicio').val('');
             $('#horaFinal').val('');
             $('#fecha').val(date.format());
+
             $('#modalCitas').modal();
 
           },
           eventClick: function(calEvent, jsEvent, view) {
+
+            $('#listaPacientes').fadeOut();
+
+            $("#titulo").removeClass("is-invalid");
+            $(".invalid-titulo").empty();
+
+            $("#descripcion").removeClass("is-invalid");
+            $(".invalid-descripcion").empty();  
+            
+            $("#horaInicio").removeClass("is-invalid");
+            $(".invalid-horaInicio").empty();       
+
+            $("#horaFinal").removeClass("is-invalid");
+            $(".invalid-horaFinal").empty(); 
 
             $('#id').val(calEvent.id);
             $('#titulo').val(calEvent.title);
@@ -112,19 +154,90 @@
         'default': 'now'
     });
 
-    var nuevaCita;
+    $('#titulo').keyup(function(){
+      var nombrePaciente = $(this).val();
+      if (nombrePaciente != '') {
+        $.ajax({
 
-    $('#btnAgregar').click(function(){
+          type:"POST",
+          url:"citas/buscarPaciente",
+          data:{"_token": "{{csrf_token()}}","nombrePaciente":nombrePaciente,},
+          success: function(response){
+            $('#listaPacientes').fadeIn();
+            $('#listaPacientes').html(response);
+          }
 
-     nuevaCita = {
-        title:$('#titulo').val(),
-        start:$('#fecha').val()+" "+$('#horaInicio').val(),
-        descripcion:$('#descripcion').val(),
-        end:$('#fecha').val()+" "+$('#horaFinal').val(),
-      };
-    
+        });
+      }
+    });
 
-      var titulo = $('#titulo').val();
+    $(document).on('click', '.dropdown-item', function(){
+      $('#titulo').val($(this).text());
+      $('#listaPacientes').fadeOut();
+    });
+
+
+    $('#btnAgregar').click(function(){    
+
+
+      if($('#id').val() !== '')
+      {
+        console.log("No se puede agregar");
+        return false;
+      }     
+
+      if($('#titulo').val() == '')
+      {
+        $("#titulo").addClass("is-invalid");
+        $(".invalid-titulo").html("El titulo es requerido");
+        return false;
+      }
+      else
+      {
+        $("#titulo").removeClass("is-invalid");
+        $(".invalid-titulo").empty();
+      }
+
+      if($('#descripcion').val() == '')
+      {
+        $("#descripcion").addClass("is-invalid");
+        $(".invalid-descripcion").html("La descripcion es requerida");
+        return false;
+      }
+      else
+      {
+        $("#descripcion").removeClass("is-invalid");
+        $(".invalid-descripcion").empty();
+      }      
+
+      if($('#horaInicio').val() == '')
+      {
+        $("#horaInicio").addClass("is-invalid");
+        $(".invalid-horaInicio").html("La hora de inicio es requerida");
+        return false;
+      }
+      else
+      {
+        $("#horaInicio").removeClass("is-invalid");
+        $(".invalid-horaInicio").empty();
+      }  
+
+      if($('#horaFinal').val() == '')
+      {
+        $("#horaFinal").addClass("is-invalid");
+        $(".invalid-horaFinal").html("La hora final es requerida");
+        return false;
+      }
+      else
+      {
+        $("#horaFinal").removeClass("is-invalid");
+        $(".invalid-horaFinal").empty();
+      }  
+
+      var title = $('#titulo').val();
+      var start = $('#fecha').val()+" "+$('#horaInicio').val();
+      var descripcion = $('#descripcion').val();
+      var end = $('#fecha').val()+" "+$('#horaFinal').val();      
 
       $('#id').val('');
       $('#titulo').val('');
@@ -137,7 +250,7 @@
 
         type:"POST",
         url:"citas/store",
-        data:{"_token": "{{csrf_token()}}","titulo":titulo},
+        data:{"_token": "{{csrf_token()}}","title":title,"start":start,"descripcion":descripcion,"end":end,},
         success: function(response){
           console.log(response);
         }

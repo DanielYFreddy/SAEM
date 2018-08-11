@@ -29,6 +29,25 @@ class CitaController extends Controller
         return view('citas.agenda');
     }
 
+    public function buscarPaciente(Request $request)
+    {
+
+        if ($request->nombrePaciente) {
+            $pacientes = DB::table('paciente')->where('nombre', 'like', '%'.$request->nombrePaciente.'%' )->get();
+
+            $response = '<div class="dropdown-menu" style="display:block; position:relative">';
+
+            foreach ($pacientes as $paciente) {
+                $response .= '<a href="#" class="dropdown-item">'.$paciente->nombre.'</a>';
+            }
+
+            $response .='</div>';
+
+            echo $response;
+        }
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -49,8 +68,8 @@ class CitaController extends Controller
     {
         //
         $response = array('status' => 'success', 'msg' => 'Guardado',);
-        //input('titulo')
-        return response()->json($request->titulo);
+        //input('title')
+        return response()->json($request->start);
     }
 
     /**

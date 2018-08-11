@@ -27,7 +27,7 @@
                 <div class="card-body">
 
 
-                    You are logged in!
+                    Citas aqui
                 </div>
             </div>
         </div>
