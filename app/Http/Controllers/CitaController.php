@@ -37,9 +37,16 @@ class CitaController extends Controller
 
             $response = '<div class="dropdown-menu" style="display:block; position:relative">';
 
-            foreach ($pacientes as $paciente) {
-                $response .= '<a href="#" class="dropdown-item">'.$paciente->nombre.'</a>';
+            if ($pacientes->isNotEmpty()) {
+                foreach ($pacientes as $paciente) {
+                  $response .= '<a href="#" class="dropdown-item seleccionar-paciente">'.$paciente->nombre.'</a>';
+                }
             }
+            else
+            {
+                $response .= '<a href="#" class="dropdown-item disabled">No existen concidencias</a>';
+            }
+
 
             $response .='</div>';
 
@@ -48,72 +55,24 @@ class CitaController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
+        DB::table('cita')->insert(
+            [
+                'title' => $request->title,
+                'descripcion' => $request->descripcion,
+                'start' => $request->start,
+                'end' => $request->end,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),  
+
+            ]
+        );
+
         $response = array('status' => 'success', 'msg' => 'Guardado',);
         //input('title')
-        return response()->json($request->start);
+        return response()->json($response);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

@@ -171,9 +171,23 @@
       }
     });
 
-    $(document).on('click', '.dropdown-item', function(){
+    $(document).on('click', '.seleccionar-paciente', function(){
       $('#titulo').val($(this).text());
       $('#listaPacientes').fadeOut();
+    });
+
+    $(document).mouseup(function(e)
+    {
+        // cambia este selector para adaptarlo al <div> de tu código HTML
+        var container = $("#listaPacientes");
+     
+        // esta condición comprueba que el destino del click no sea el propio
+        // contenedor ni ninguno de sus desdendientes (es decir, los enlaces que
+        // están dentro del <div>)
+        if (!container.is(e.target) && container.has(e.target).length === 0)
+        {
+            container.hide();
+        }
     });
 
 
@@ -237,7 +251,7 @@
       var title = $('#titulo').val();
       var start = $('#fecha').val()+" "+$('#horaInicio').val();
       var descripcion = $('#descripcion').val();
-      var end = $('#fecha').val()+" "+$('#horaFinal').val();      
+      var end = $('#fecha').val()+" "+$('#horaFinal').val();
 
       $('#id').val('');
       $('#titulo').val('');
@@ -252,13 +266,25 @@
         url:"citas/store",
         data:{"_token": "{{csrf_token()}}","title":title,"start":start,"descripcion":descripcion,"end":end,},
         success: function(response){
-          console.log(response);
+          if(response.msg){
+            $('#calendar').fullCalendar('refetchEvents');
+            $('#modalCitas').modal('toggle');
+            swal({
+              title: "Cita Registrada",
+              text: "La cita del paciente ha sido registrada",
+              type: "success",
+            })
+          }
+        },
+        error: function(){
+            swal({
+              title: "Error",
+              text: "Oops ha ocurrido un error. Revisa la información antes de guardarla.",
+              type: "warning",
+            })
         }
 
       });
-
-      //$('#calendar').fullCalendar('renderEvent',nuevaCita);
-      $('#modalCitas').modal('toggle');
     });
 
   </script>
