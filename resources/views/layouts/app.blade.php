@@ -79,19 +79,6 @@
                                   <a class="dropdown-item" href="#">Recodatorio de citas</a>
                                 </div>
                           </li>
-                          <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="reportes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Reportes
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="reportes">
-                                  <a class="dropdown-item" href="#">Reporte de seguimiento</a>
-                                  <a class="dropdown-item" href="#">Reporte de historia clínica</a>
-                                  <a class="dropdown-item" href="#">Reporte de test postural</a>
-                                  <a class="dropdown-item" href="#">Reporte de valoración gonométrica</a>
-                                  <a class="dropdown-item" href="#">Reporte de valoracón manual muscular</a>
-                                  <a class="dropdown-item" href="#">Reporte de antropometria</a>
-                                </div>
-                          </li>
                         </ul>
                     @endauth
 

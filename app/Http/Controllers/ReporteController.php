@@ -36,4 +36,24 @@ class ReporteController extends Controller
 		$pdf->loadHTML($view);
 		return $pdf->stream('Reporte de Historial Clinico '.$paciente->nombre);
 	}
+
+	public function showReporteTestPostural($paciente_id)
+	{
+		
+	}
+
+	public function showReporteValoracionGoniometrica($paciente_id)
+	{
+		
+	}
+
+	public function showReporteValoracionManualMuscular($paciente_id)
+	{
+		
+	}
+
+	public function showReporteAntropometria($paciente_id)
+	{
+		
+	}
 }

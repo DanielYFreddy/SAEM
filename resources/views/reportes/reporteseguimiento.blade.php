@@ -17,7 +17,7 @@
       <table class="table table-bordered ">
         <tr>
           <th colspan="2" class="text-center">
-           <h4>Fecha: {!! $seguimiento->created_at !!}</h4>
+           <h4>Fecha: {!! date('d-m-Y', strtotime($seguimiento->created_at)) !!}</h4>
           </th>
         </tr>
 

@@ -120,8 +120,12 @@ Route::post('/consultamedica/antropometria/store', 'TestPosturalController@store
 
     //reportes
 Route::get('/reportes/paciente/{paciente_id}', 'ReporteController@index')->name('reportes.index');
-Route::get('/reportes/paciente/{paciente_id}/reporteseguimiento','ReporteController@showReporteSeguimiento')->name('reporte.seguimiento');
-Route::get('/reportes/paciente/{paciente_id}/reportehistorialclinico','ReporteController@showReporteHistorialClinico')->name('reporte.historial');
+Route::get('/reportes/paciente/{paciente_id}/reporte_seguimiento','ReporteController@showReporteSeguimiento')->name('reporte.seguimiento');
+Route::get('/reportes/paciente/{paciente_id}/reporte_historial_clinico','ReporteController@showReporteHistorialClinico')->name('reporte.historial');
+Route::get('/reportes/paciente/{paciente_id}/reporte_test_postural','ReporteController@showReporteTestPostural')->name('reporte.testPostural');
+Route::get('/reportes/paciente/{paciente_id}/reporte_valoracion_goniometrica','ReporteController@showReporteValoracionGoniometrica')->name('reporte.valoracionGoniometrica');
+Route::get('/reportes/paciente/{paciente_id}/reporte_valoracion_manual_muscular','ReporteController@showReporteValoracionManualMuscular')->name('reporte.valoracionManualMuscular');
+Route::get('/reportes/paciente/{paciente_id}/reporte_antropometria','ReporteController@showReporteAntropometria')->name('reporte.antropometria');
 
 
 	//citas
