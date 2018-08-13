@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function isAdmin()
+    {
+        return $this->rol === 'Admin';
+    }
+
     public function scopeSearchUsuario($query, $name)
     { 
         return $query->where('name', 'like', '%'.$name.'%' );

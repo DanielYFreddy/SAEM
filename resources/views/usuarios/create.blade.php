@@ -58,7 +58,22 @@
                           </div>
                         @endif
 
-          					</div>  		
+          					</div>  
+
+
+                    <div class="form-group">
+                     {{ Form::label('rol', 'Rol') }}
+                     {{ Form::select('rol', ['Admin' => 'Administrador', 'Asistente' => 'Asistente'], null, ['placeholder' => 'Seleccione una opción...','class'=>'form-control']) }}
+
+                        @if (!empty($errors->get('rol')))
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ $errors->first('rol') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endif
+                    </div>		
 
                     {{ Form::submit('Guardar', ['class'=>'btn btn-primary', 'onclick' => 
                       'confirmar()'

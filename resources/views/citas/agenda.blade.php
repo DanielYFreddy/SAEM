@@ -22,8 +22,8 @@
       <div class="modal-body">
           <form id="form_id">
             <div class="form-group">
-              <label for="id">Id:</label>
-              <input type="text" class="form-control" id="id" name="id"></input>
+              <!--label for="id">Id:</label-->
+              <input type="hidden" class="form-control" id="id" name="id"></input>
             </div>
             <div class="form-group">
               <label for="titulo">Paciente:</label>

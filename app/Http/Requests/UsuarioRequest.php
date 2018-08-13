@@ -37,6 +37,7 @@ class UsuarioRequest extends FormRequest
                     'name' => 'required',
                     'email'      => 'required|email|unique:users,email',
                     'password'   => 'required|alpha_num|min:6',
+                    'rol' => 'required',
                 ];
             }
             case 'PUT':
@@ -44,6 +45,7 @@ class UsuarioRequest extends FormRequest
                 return [
                     'name' => 'required',
                     'email'      => 'required|email|unique:users,email,'.$this->get('id'),
+                    'rol' => 'required',
                 ];
             }
             case 'PATCH':
@@ -69,6 +71,7 @@ class UsuarioRequest extends FormRequest
                     'password.required' => 'El campo contraseña es requerido',
                     'password.min' => 'El campo contraseña necesita mínimo 6 caracteres',
                     'password.alpha_num' => 'El campo contraseña necesita ser alfanumérico',
+                    'rol.required' => 'El campo rol es requerido',
                 ];
             }
             case 'PUT':
@@ -76,6 +79,7 @@ class UsuarioRequest extends FormRequest
                 return [
                     'name.required' => 'El campo nombre es requerido',
                     'email.required' => 'El campo email es requerido',
+                    'rol.required' => 'El campo rol es requerido',
                 ];
             }
             case 'PATCH':

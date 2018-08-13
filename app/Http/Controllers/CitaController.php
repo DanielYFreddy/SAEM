@@ -64,6 +64,7 @@ class CitaController extends Controller
                 'descripcion' => $request->descripcion,
                 'start' => $request->start,
                 'end' => $request->end,
+                'color' => '#00cc66',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),  
 
@@ -85,6 +86,7 @@ class CitaController extends Controller
                 'descripcion' => $request->descripcion,
                 'start' => $request->start,
                 'end' => $request->end,
+                'color' => '#00cc66',
                 'updated_at' => date('Y-m-d H:i:s'),  
 
         ]);  

@@ -52,25 +52,27 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    @auth        
+                    @auth      
                         <ul class="navbar-nav mr-auto">
+                            @if (Auth::user()->isAdmin())
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="mantenimiento" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Administración
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="mantenimiento">
+                                      <a class="dropdown-item" href="{{ route('usuarios.index') }}">Usuarios</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="expedientes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Control de Expedientes
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="expedientes">
+                                      <a class="dropdown-item" href="{{ route('pacientes.index') }}">Pacientes</a>
+                                    </div>
+                                </li>
+                            @endif  
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="mantenimiento" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Administración
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="mantenimiento">
-                                  <a class="dropdown-item" href="{{ route('usuarios.index') }}">Usuarios</a>
-                                </div>
-                          </li>
-                          <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="expedientes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Control de Expedientes
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="expedientes">
-                                  <a class="dropdown-item" href="{{ route('pacientes.index') }}">Pacientes</a>
-                                </div>
-                          </li>
-                          <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="citas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   Citas
                                 </a>
@@ -78,7 +80,7 @@
                                   <a class="dropdown-item" href="{{ route('citas.agenda') }}">Asignar Citas</a>
                                   <a class="dropdown-item" href="#">Recodatorio de citas</a>
                                 </div>
-                          </li>
+                            </li>
                         </ul>
                     @endauth
 

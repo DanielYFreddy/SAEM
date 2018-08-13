@@ -11,6 +11,11 @@ use Alert;
 class UsuarioController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(['auth','admin']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -58,6 +63,9 @@ class UsuarioController extends Controller
                 'name'  => $request->name,
                 'email' => $request->email, 
                 'password' => bcrypt($request->password),
+                'rol' => $request->rol,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),  
 
             ]
         );
@@ -68,7 +76,7 @@ class UsuarioController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();*/
 
-        alert()->success('El usuario ha sido registrado', 'Usuario registrado')->persistent('Close');
+        alert()->success('El usuario ha sido registrado', 'Usuario registrado')->persistent('Cerrar');
 
         return redirect()->route('usuarios.index');
 
@@ -114,7 +122,9 @@ class UsuarioController extends Controller
         DB::table('users')->where('id', $id)->update(
             [
                 'name' => $request->name,
-                'email' => $request->email
+                'email' => $request->email,
+                'rol' => $request->rol,
+                'updated_at' => date('Y-m-d H:i:s'),  
 
             ]);
         /*
@@ -122,7 +132,7 @@ class UsuarioController extends Controller
         $user->email = $request->email;
         $user->save();*/
 
-        alert()->success('El usuario ha sido modificado', 'Usuario modificado')->persistent('Close');
+        alert()->success('El usuario ha sido modificado', 'Usuario modificado')->persistent('Cerrar');
 
         return redirect()->route('usuarios.index');
 
