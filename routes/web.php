@@ -129,3 +129,5 @@ Route::get('/citas', 'CitaController@getCitas')->name('citas');
 Route::get('/agenda', 'CitaController@index')->name('citas.agenda');
 Route::post('/citas/store', 'CitaController@store')->name('citas.store');
 Route::post('/citas/buscarPaciente', 'CitaController@buscarPaciente')->name('citas.buscarPaciente');
+Route::post('/citas/update', 'CitaController@update')->name('citas.update');
+Route::post('/citas/destroy', 'CitaController@destroy')->name('citas.destroy');

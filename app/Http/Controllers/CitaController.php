@@ -75,4 +75,34 @@ class CitaController extends Controller
         return response()->json($response);
     }
 
+    public function update(Request $request)
+    {
+        //
+
+        DB::table('cita')->where('id', $request->id)->update(
+            [
+                'title' => $request->title,
+                'descripcion' => $request->descripcion,
+                'start' => $request->start,
+                'end' => $request->end,
+                'updated_at' => date('Y-m-d H:i:s'),  
+
+        ]);  
+
+        $response = array('status' => 'success', 'msg' => 'Guardado',);
+        //input('title')
+        return response()->json($response);
+    }
+
+    public function destroy(Request $request)
+    {
+        //
+
+        DB::table('cita')->where('id', $request->id)->delete();
+
+        $response = array('status' => 'success', 'msg' => 'Eliminada',);
+        //input('title')
+        return response()->json($response);
+    }
+
 }

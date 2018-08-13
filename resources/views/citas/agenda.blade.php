@@ -62,6 +62,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" id="btnAgregar" class="btn btn-primary">Agregar</button>
+        <button type="button" id="btnModificar" class="btn btn-warning">Modificar</button>
+        <button type="button" id="btnBorrar" class="btn btn-danger">Borrar</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
@@ -154,6 +156,7 @@
         'default': 'now'
     });
 
+    //consulta pacientes 
     $('#titulo').keyup(function(){
       var nombrePaciente = $(this).val();
       if (nombrePaciente != '') {
@@ -171,11 +174,13 @@
       }
     });
 
+    //selecciona un paciente de una lista
     $(document).on('click', '.seleccionar-paciente', function(){
       $('#titulo').val($(this).text());
       $('#listaPacientes').fadeOut();
     });
 
+    //quita lista pacientes
     $(document).mouseup(function(e)
     {
         // cambia este selector para adaptarlo al <div> de tu código HTML
@@ -190,13 +195,17 @@
         }
     });
 
-
+    // agrega una cita
     $('#btnAgregar').click(function(){    
 
 
       if($('#id').val() !== '')
       {
-        console.log("No se puede agregar");
+        swal({
+          title: "Atención",
+          text: "La cita ya se encuentra registrada.",
+          type: "info",
+        });
         return false;
       }     
 
@@ -280,6 +289,190 @@
             swal({
               title: "Error",
               text: "Oops ha ocurrido un error. Revisa la información antes de guardarla.",
+              type: "warning",
+            })
+        }
+
+      });
+    });
+
+    // modificar una cita
+    $('#btnModificar').click(function(){    
+
+
+      if($('#titulo').val() == '')
+      {
+        $("#titulo").addClass("is-invalid");
+        $(".invalid-titulo").html("El titulo es requerido");
+        return false;
+      }
+      else
+      {
+        $("#titulo").removeClass("is-invalid");
+        $(".invalid-titulo").empty();
+      }
+
+      if($('#descripcion').val() == '')
+      {
+        $("#descripcion").addClass("is-invalid");
+        $(".invalid-descripcion").html("La descripcion es requerida");
+        return false;
+      }
+      else
+      {
+        $("#descripcion").removeClass("is-invalid");
+        $(".invalid-descripcion").empty();
+      }      
+
+      if($('#horaInicio').val() == '')
+      {
+        $("#horaInicio").addClass("is-invalid");
+        $(".invalid-horaInicio").html("La hora de inicio es requerida");
+        return false;
+      }
+      else
+      {
+        $("#horaInicio").removeClass("is-invalid");
+        $(".invalid-horaInicio").empty();
+      }  
+
+      if($('#horaFinal').val() == '')
+      {
+        $("#horaFinal").addClass("is-invalid");
+        $(".invalid-horaFinal").html("La hora final es requerida");
+        return false;
+      }
+      else
+      {
+        $("#horaFinal").removeClass("is-invalid");
+        $(".invalid-horaFinal").empty();
+      }  
+
+      var id = $('#id').val();
+      var title = $('#titulo').val();
+      var start = $('#fecha').val()+" "+$('#horaInicio').val();
+      var descripcion = $('#descripcion').val();
+      var end = $('#fecha').val()+" "+$('#horaFinal').val();
+
+      $('#id').val('');
+      $('#titulo').val('');
+      $('#fecha').val('');
+      $('#descripcion').val('');
+      $('#horaInicio').val('');
+      $('#horaFinal').val('');
+
+      $.ajax({
+
+        type:"POST",
+        url:"citas/update",
+        data:{"_token": "{{csrf_token()}}","title":title,"start":start,"descripcion":descripcion,"end":end,"id":id,},
+        success: function(response){
+          if(response.msg){
+            $('#calendar').fullCalendar('refetchEvents');
+            $('#modalCitas').modal('toggle');
+            swal({
+              title: "Cita Actualizada",
+              text: "La cita del paciente ha sido actualizada",
+              type: "success",
+            })
+          }
+        },
+        error: function(){
+            swal({
+              title: "Error",
+              text: "Oops ha ocurrido un error. Revisa la información antes de guardarla.",
+              type: "warning",
+            })
+        }
+
+      });
+    });
+
+     // borrar una cita
+    $('#btnBorrar').click(function(){    
+
+
+      if($('#titulo').val() == '')
+      {
+        $("#titulo").addClass("is-invalid");
+        $(".invalid-titulo").html("El titulo es requerido");
+        return false;
+      }
+      else
+      {
+        $("#titulo").removeClass("is-invalid");
+        $(".invalid-titulo").empty();
+      }
+
+      if($('#descripcion').val() == '')
+      {
+        $("#descripcion").addClass("is-invalid");
+        $(".invalid-descripcion").html("La descripcion es requerida");
+        return false;
+      }
+      else
+      {
+        $("#descripcion").removeClass("is-invalid");
+        $(".invalid-descripcion").empty();
+      }      
+
+      if($('#horaInicio').val() == '')
+      {
+        $("#horaInicio").addClass("is-invalid");
+        $(".invalid-horaInicio").html("La hora de inicio es requerida");
+        return false;
+      }
+      else
+      {
+        $("#horaInicio").removeClass("is-invalid");
+        $(".invalid-horaInicio").empty();
+      }  
+
+      if($('#horaFinal').val() == '')
+      {
+        $("#horaFinal").addClass("is-invalid");
+        $(".invalid-horaFinal").html("La hora final es requerida");
+        return false;
+      }
+      else
+      {
+        $("#horaFinal").removeClass("is-invalid");
+        $(".invalid-horaFinal").empty();
+      }  
+
+      var id = $('#id').val();
+      var title = $('#titulo').val();
+      var start = $('#fecha').val()+" "+$('#horaInicio').val();
+      var descripcion = $('#descripcion').val();
+      var end = $('#fecha').val()+" "+$('#horaFinal').val();
+
+      $('#id').val('');
+      $('#titulo').val('');
+      $('#fecha').val('');
+      $('#descripcion').val('');
+      $('#horaInicio').val('');
+      $('#horaFinal').val('');
+
+      $.ajax({
+
+        type:"POST",
+        url:"citas/destroy",
+        data:{"_token": "{{csrf_token()}}","id":id,},
+        success: function(response){
+          if(response.msg){
+            $('#calendar').fullCalendar('refetchEvents');
+            $('#modalCitas').modal('toggle');
+            swal({
+              title: "Cita Eliminada",
+              text: "La cita del paciente ha sido eliminada",
+              type: "success",
+            })
+          }
+        },
+        error: function(){
+            swal({
+              title: "Error",
+              text: "Oops ha ocurrido un error. Revisa la información antes de eliminarla.",
               type: "warning",
             })
         }
