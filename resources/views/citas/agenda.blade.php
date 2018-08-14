@@ -45,18 +45,22 @@
               <input type="text" class="form-control" id="fecha" name="fecha" readonly></input>
             </div>
             <div class="form-group clockpicker">
-              <label for="hora">Hora inicio:</label>
+              <label for="horaInicio">Hora inicio:</label>
               <input type="text" class="form-control" id="horaInicio" name="horaInicio" readonly></input>
               <div class="invalid-feedback invalid-horaInicio">
                 
               </div>
             </div>
             <div class="form-group clockpicker">
-              <label for="hora">Hora final:</label>
+              <label for="horaFinal">Hora final:</label>
               <input type="text" class="form-control" id="horaFinal" name="horaFinal" readonly></input>
               <div class="invalid-feedback invalid-horaFinal">
                 
               </div>
+            </div>
+            <div class="form-group">
+              <label for="color">Color:</label>
+              <input type="color" class="form-control" id="color" name="color" value="#00cc66" style="height: 36px" readonly></input>
             </div>
           </form>
       </div>
@@ -110,6 +114,7 @@
             $('#horaInicio').val('');
             $('#horaFinal').val('');
             $('#fecha').val(date.format());
+            $('#color').val('#00cc66');
 
             $('#modalCitas').modal();
 
@@ -141,6 +146,8 @@
             $('#horaInicio').val(fechaHoraInicio[1]);
 
             $('#horaFinal').val(fechaHoraFinal[1]);
+
+            $('#color').val(calEvent.color);
 
             $('#modalCitas').modal();
 
@@ -261,6 +268,7 @@
       var start = $('#fecha').val()+" "+$('#horaInicio').val();
       var descripcion = $('#descripcion').val();
       var end = $('#fecha').val()+" "+$('#horaFinal').val();
+      var color = $('#color').val();
 
       $('#id').val('');
       $('#titulo').val('');
@@ -268,12 +276,13 @@
       $('#descripcion').val('');
       $('#horaInicio').val('');
       $('#horaFinal').val('');
+      $('#color').val('#00cc66');
 
       $.ajax({
 
         type:"POST",
         url:"citas/store",
-        data:{"_token": "{{csrf_token()}}","title":title,"start":start,"descripcion":descripcion,"end":end,},
+        data:{"_token": "{{csrf_token()}}","title":title,"start":start,"descripcion":descripcion,"end":end,"color":color,},
         success: function(response){
           if(response.msg){
             $('#calendar').fullCalendar('refetchEvents');
@@ -353,6 +362,7 @@
       var start = $('#fecha').val()+" "+$('#horaInicio').val();
       var descripcion = $('#descripcion').val();
       var end = $('#fecha').val()+" "+$('#horaFinal').val();
+      var color = $('#color').val();
 
       $('#id').val('');
       $('#titulo').val('');
@@ -360,12 +370,13 @@
       $('#descripcion').val('');
       $('#horaInicio').val('');
       $('#horaFinal').val('');
+      $('#color').val('#00cc66');
 
       $.ajax({
 
         type:"POST",
         url:"citas/update",
-        data:{"_token": "{{csrf_token()}}","title":title,"start":start,"descripcion":descripcion,"end":end,"id":id,},
+        data:{"_token": "{{csrf_token()}}","title":title,"start":start,"descripcion":descripcion,"end":end,"id":id,"color":color,},
         success: function(response){
           if(response.msg){
             $('#calendar').fullCalendar('refetchEvents');
@@ -445,6 +456,7 @@
       var start = $('#fecha').val()+" "+$('#horaInicio').val();
       var descripcion = $('#descripcion').val();
       var end = $('#fecha').val()+" "+$('#horaFinal').val();
+      var color = $('#color').val();
 
       $('#id').val('');
       $('#titulo').val('');
@@ -452,6 +464,8 @@
       $('#descripcion').val('');
       $('#horaInicio').val('');
       $('#horaFinal').val('');
+      $('#color').val('#00cc66');
+
 
       $.ajax({
 

@@ -44,7 +44,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'SAEM') }}
+                    <img src="{{ asset('imagenes/logo.png') }}" width="30" height="30" class="d-inline-block align-top rounded" alt="">{{ config('app.name', 'SAEM') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

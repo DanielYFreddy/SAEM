@@ -89,6 +89,7 @@
             @endif
 
             <div class="content">
+                <div><img src="{{ asset('imagenes/logo.png') }}"></div>
                 <div class="title m-b-md">
                     SAEM
                 </div>
