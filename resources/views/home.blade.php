@@ -25,9 +25,32 @@
                 <div class="card-header">Paciente agendados para hoy {{ date('d-m-Y') }}</div>
 
                 <div class="card-body">
-
-
-                    Citas aqui
+                    @if ($citas->isEmpty())
+                        No hay citas registradas para hoy.
+                    @else
+                        <table class="table table-striped">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">Hora</th>
+                              <th scope="col">Paciente</th>
+                              <th scope="col">Descripción</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($citas as $cita)
+                                <?php
+                                    $fechaHora = explode(" ", $cita->start);
+                                    
+                                ?>
+                                <tr>
+                                  <td>{{$fechaHora[1]}}</td>
+                                  <td>{{$cita->title}}</td>
+                                  <td>{{$cita->descripcion}}</td>
+                                </tr>
+                            @endforeach
+                          </tbody>  
+                      </table>
+                    @endif
                 </div>
             </div>
         </div>
