@@ -106,14 +106,18 @@
             $(".invalid-horaInicio").empty();       
 
             $("#horaFinal").removeClass("is-invalid");
-            $(".invalid-horaFinal").empty();   
+            $(".invalid-horaFinal").empty();
+
+            $("#btnAgregar").removeAttr("disabled", "disabled");
+            $("#btnModificar").attr("disabled", "disabled");
+            $("#btnBorrar").attr("disabled", "disabled");
 
             $('#id').val('');
             $('#titulo').val('');
             $('#descripcion').val('');
             $('#horaInicio').val('');
             $('#horaFinal').val('');
-            $('#fecha').val(date.format());
+            $('#fecha').val(date.format('YYYY-MM-DD'));
             $('#color').val('#00cc66');
 
             $('#modalCitas').modal();
@@ -134,6 +138,10 @@
 
             $("#horaFinal").removeClass("is-invalid");
             $(".invalid-horaFinal").empty(); 
+
+            $("#btnAgregar").attr("disabled", "disabled");
+            $("#btnModificar").removeAttr("disabled", "disabled");
+            $("#btnBorrar").removeAttr("disabled", "disabled");
 
             $('#id').val(calEvent.id);
             $('#titulo').val(calEvent.title);
