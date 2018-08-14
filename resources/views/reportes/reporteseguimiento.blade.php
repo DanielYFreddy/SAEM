@@ -3,17 +3,33 @@
 <head>
     <meta charset="utf-8">
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/ImagenReporte.css') }}" rel="stylesheet">
 </head>
 <body>
 
-  <h3>Reporte de Seguimiento del paciente: {{ $paciente->nombre }}</h3>
-  <hr>
   @if ($seguimientos->isEmpty())
-    <p>No hay seguimiento para mostrar</p>
+    <center>
+      <h1 class="font-weight-bold">Reporte de Seguimiento al Paciente</h1>
+    </center>
+
+    <center>
+        <h3>{{ $paciente->nombre }}</h3>
+    </center>
+    <hr>
+    <p>No existe ningún seguimiento registrado para este paciente.</p>
   @else
 
    @foreach ($seguimientos as $seguimiento)
+
+      <center>
+          <h1 class="font-weight-bold">Reporte de Seguimiento al Paciente</h1>
+      </center>
+
+      <center>
+          <h3>{{ $paciente->nombre }}</h3>
+      </center>
+      <hr>
+
       <table class="table table-bordered ">
         <tr>
           <th colspan="2" class="text-center">

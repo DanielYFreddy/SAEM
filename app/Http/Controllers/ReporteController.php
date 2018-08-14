@@ -44,16 +44,31 @@ class ReporteController extends Controller
 
 	public function showReporteValoracionGoniometrica($paciente_id)
 	{
-		
+		$paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+		$goniometricas = DB::table('goniometrica')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
+		$view = view('reportes.reporteValoracionGoniometrica')->with('paciente', $paciente)->with('goniometricas', $goniometricas);
+		$pdf = \App::make('dompdf.wrapper');
+		$pdf->loadHTML($view);
+		return $pdf->stream('Reporte Valoracion Goniometrica '.$paciente->nombre);
 	}
 
 	public function showReporteValoracionManualMuscular($paciente_id)
 	{
-		
+		$paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+		$manualMusculares = DB::table('manualmuscular')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
+		$view = view('reportes.reporteValoracionManualMuscular')->with('paciente', $paciente)->with('manualMusculares', $manualMusculares);
+		$pdf = \App::make('dompdf.wrapper');
+		$pdf->loadHTML($view);
+		return $pdf->stream('Reporte Valoracion Manual Muscular '.$paciente->nombre);		
 	}
 
 	public function showReporteAntropometria($paciente_id)
 	{
-		
+		$paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+		$antropometrias = DB::table('antropometria')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
+		$view = view('reportes.reporteAntropometria')->with('paciente', $paciente)->with('antropometrias', $antropometrias);
+		$pdf = \App::make('dompdf.wrapper');
+		$pdf->loadHTML($view);
+		return $pdf->stream('Reporte de Antropometria '.$paciente->nombre);	
 	}
 }
