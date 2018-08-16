@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\DB;
 class TestPosturalController extends Controller
 {
 
-
+    public function __construct()
+    {
+        $this->middleware(['auth','admin']);
+    }
+    
     public function createBipedoPosterior($paciente_id)
     {
         //

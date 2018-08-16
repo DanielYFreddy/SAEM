@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class SeguimientoController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware(['auth','admin']);
+    }
     /**
      * Show the form for creating a new resource.
      *

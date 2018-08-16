@@ -9,8 +9,10 @@
             <h1>Listado de citas para el dia de mañana</h1>
             <div class="card">
                 <div class="card-header">
-                	Listado de citas 
-                	<a href="{{ route('recordatorio.send') }}" class="btn btn-success float-right">Enviar notificación</a>
+                	Listado de citas
+                  @if (!$citas->isEmpty()) 
+                	 <a href="{{ route('recordatorio.send') }}" class="btn btn-success float-right">Enviar notificación</a>
+                  @endif
                 </div>
 
                 <div class="card-body">
