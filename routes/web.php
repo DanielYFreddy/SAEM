@@ -135,3 +135,7 @@ Route::post('/citas/store', 'CitaController@store')->name('citas.store');
 Route::post('/citas/buscarPaciente', 'CitaController@buscarPaciente')->name('citas.buscarPaciente');
 Route::post('/citas/update', 'CitaController@update')->name('citas.update');
 Route::post('/citas/destroy', 'CitaController@destroy')->name('citas.destroy');
+
+    //recordatorio de citas
+Route::get('/recordatorio', 'RecordatorioCitaController@index')->name('recordatorio.index');
+Route::get('/recordatorio/send', 'RecordatorioCitaController@send')->name('recordatorio.send');

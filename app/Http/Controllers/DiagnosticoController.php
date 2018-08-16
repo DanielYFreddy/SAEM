@@ -58,7 +58,7 @@ class DiagnosticoController extends Controller
             ]
         );
 
-        alert()->success('El diagnostico del paciente ha sido registrado', 'Diagnostico registrado')->persistent('Close');
+        alert()->success('El diagnostico del paciente ha sido registrado', 'Diagnostico registrado')->persistent('Cerrar');
 
         return redirect()->route('diagnosticos.index', $request->paciente_id);
     }
@@ -114,7 +114,7 @@ class DiagnosticoController extends Controller
 
             ]);     
 
-         alert()->success('El diagnostico del paciente ha sido modificado', 'Diagnostico modificado')->persistent('Close');
+         alert()->success('El diagnostico del paciente ha sido modificado', 'Diagnostico modificado')->persistent('Cerrar');
 
         return redirect()->route('diagnosticos.index', $request->paciente_id);
     }

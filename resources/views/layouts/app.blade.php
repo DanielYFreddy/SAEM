@@ -43,7 +43,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('imagenes/logo.png') }}" width="30" height="30" class="d-inline-block align-top rounded" alt="">{{ config('app.name', 'SAEM') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -54,6 +54,9 @@
                     <!-- Left Side Of Navbar -->
                     @auth      
                         <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                 <a class="nav-link" href="{{ route('home') }}">Inicio</a>
+                             </li>
                             @if (Auth::user()->isAdmin())
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="mantenimiento" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,7 +81,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="citas">
                                   <a class="dropdown-item" href="{{ route('citas.agenda') }}">Asignar Citas</a>
-                                  <a class="dropdown-item" href="#">Recodatorio de citas</a>
+                                  <a class="dropdown-item" href="{{ route('recordatorio.index') }}">Recodatorio de citas</a>
                                 </div>
                             </li>
                         </ul>
