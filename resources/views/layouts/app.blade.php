@@ -54,6 +54,9 @@
                     <!-- Left Side Of Navbar -->
                     @auth      
                         <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                 <a class="nav-link" href="{{ route('home') }}">Inicio</a>
+                            </li>
                             @if (Auth::user()->isAdmin())
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="mantenimiento" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,8 +81,11 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="citas">
                                   <a class="dropdown-item" href="{{ route('citas.agenda') }}">Asignar Citas</a>
-                                  <a class="dropdown-item" href="#">Recodatorio de citas</a>
+                                  <a class="dropdown-item" href="{{ route('recordatorio.index') }}">Recodatorio de citas</a>
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                 <a class="nav-link" href="{{ asset('manualayuda/Manual de usuario SAEM.pdf') }}" target="_blank">Ayuda</a>
                             </li>
                         </ul>
                     @endauth

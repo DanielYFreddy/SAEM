@@ -43,7 +43,7 @@ class PacienteRequest extends FormRequest
                     'direccion'   => 'required',
                     'movil'   => 'required|numeric|digits_between:8,11',
                     'telefono'   => 'nullable|numeric|digits_between:8,11',
-                    'email'   => 'nullable|email|unique:paciente,email',
+                    'email'   => 'nullable|email',
                     'estado_civil'   => 'required',
 
                 ];
@@ -59,8 +59,8 @@ class PacienteRequest extends FormRequest
                     'region'   => 'required',
                     'direccion'   => 'required',
                     'movil'   => 'required',
-                    'telefono'   => 'required',
-                    'email'   => 'required',
+                    'telefono'   => 'nullable|numeric|digits_between:8,11',
+                    'email'   => 'nullable|email',
                     'estado_civil'   => 'required',
                 ];
             }

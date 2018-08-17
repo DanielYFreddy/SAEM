@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class DiagnosticoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','admin']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +62,7 @@ class DiagnosticoController extends Controller
             ]
         );
 
-        alert()->success('El diagnostico del paciente ha sido registrado', 'Diagnostico registrado')->persistent('Close');
+        alert()->success('El diagnostico del paciente ha sido registrado', 'Diagnostico registrado')->persistent('Cerrar');
 
         return redirect()->route('diagnosticos.index', $request->paciente_id);
     }
@@ -114,7 +118,7 @@ class DiagnosticoController extends Controller
 
             ]);     
 
-         alert()->success('El diagnostico del paciente ha sido modificado', 'Diagnostico modificado')->persistent('Close');
+         alert()->success('El diagnostico del paciente ha sido modificado', 'Diagnostico modificado')->persistent('Cerrar');
 
         return redirect()->route('diagnosticos.index', $request->paciente_id);
     }

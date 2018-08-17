@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\DB;
 class ReporteController extends Controller
 {
     //
-
+    public function __construct()
+    {
+        $this->middleware(['auth','admin']);
+    }
+    
     public function index($paciente_id)
     {
         //

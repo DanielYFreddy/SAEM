@@ -16,13 +16,13 @@ class CreateDiagnosticoTable extends Migration
         Schema::create('diagnostico', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('paciente_id')->unsigned();
-            $table->string('diagnostico');
-            $table->string('tratamientoFarmacologico');
-            $table->string('evolucion');
-            $table->string('referenciaMedica');
-            $table->string('antecedentes');
-            $table->string('cirugias');
-            $table->string('traumaticos');
+            $table->string('diagnostico')->nullable($value = true);
+            $table->string('tratamientoFarmacologico')->nullable($value = true);
+            $table->string('evolucion')->nullable($value = true);
+            $table->string('referenciaMedica')->nullable($value = true);
+            $table->string('antecedentes')->nullable($value = true);
+            $table->string('cirugias')->nullable($value = true);
+            $table->string('traumaticos')->nullable($value = true);
             
             $table->foreign('paciente_id')->references('id')->on('paciente');
             $table->timestamps();

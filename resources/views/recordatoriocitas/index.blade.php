@@ -1,31 +1,22 @@
+
 @extends('layouts.app')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
-        <div class="col-md-12">
-            <div class="jumbotron jumbotron-fluid">
-              <div class="container">
-                <h1 class="display-4">Bienvenido {{ Auth::user()->name }}</h1>
-                <p class="lead">Desde aquí podrá visualizar la información más importante de sus pacientes y consultas para este día.</p>
-                 <a class="btn btn-primary" href="{{ route('pacientes.create') }}" role="button">+Registrar Paciente</a>
-              </div>
-            </div>
-        </div>
-    </div>
+  
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h3>Consulta para hoy</h3>
+            <h1>Listado de citas para el dia de mañana</h1>
             <div class="card">
-                <div class="card-header">Paciente agendados para hoy {{ date('d-m-Y') }}</div>
+                <div class="card-header">
+                	Listado de citas
+                  @if (!$citas->isEmpty()) 
+                	 <a href="{{ route('recordatorio.send') }}" class="btn btn-success float-right">Enviar notificación</a>
+                  @endif
+                </div>
 
                 <div class="card-body">
-                    @if ($citas->isEmpty())
+ 					@if ($citas->isEmpty())
                         No hay citas registradas para hoy.
                     @else
                         <table class="table table-striped">
@@ -39,13 +30,12 @@
                           <tbody>
                             @foreach ($citas as $cita)
                                 <?php
-                                    $fechaHora = explode(" ", $cita->start);
-                                    
+                                    $fechaHora = explode(" ", $cita->start);                                    
                                 ?>
                                 <tr>
                                   <td>{{$fechaHora[1]}}</td>
                                   <td>{{$cita->title}}</td>
-                                  <td>{{$cita->descripcion}}</td>
+                                  <td>{{$cita->email}}</td>
                                 </tr>
                             @endforeach
                           </tbody>  
@@ -57,3 +47,4 @@
     </div>
 </div>
 @endsection
+
