@@ -30,8 +30,25 @@ class ReporteController extends Controller
 	public function showReporteHistorialClinico($paciente_id)
 	{
 		$paciente = DB::table('paciente')->where('id', $paciente_id)->first();
-		$diagnostico = DB::table('diagnostico')->where('paciente_id', $paciente_id)->first();
-		$view = view('reportes.reporteHistorialClinico')->with('paciente', $paciente)->with('diagnostico', $diagnostico);
+		$diagnosticos = DB::table('diagnostico')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
+		$patologiasPersonales = DB::table('patologia_personal')
+            ->join('patologia', 'patologia_personal.patologia_id', '=', 'patologia.id')
+            ->select('patologia_personal.*', 'patologia.nombre')->where('patologia_personal.paciente_id', '=', $paciente_id)
+            ->get();
+		$patologiasParentezcos = DB::table('patologia_parentezco')
+            ->join('patologia', 'patologia_parentezco.patologia_id', '=', 'patologia.id')
+            ->select('patologia_parentezco.*', 'patologia.nombre')->where('patologia_parentezco.paciente_id', '=', $paciente_id)
+            ->get();
+		$patologiasHeredofamiliares = DB::table('patologia_heredofalimiliar')
+            ->join('patologia', 'patologia_heredofalimiliar.patologia_id', '=', 'patologia.id')
+            ->select('patologia_heredofalimiliar.*', 'patologia.nombre')->where('patologia_heredofalimiliar.paciente_id', '=', $paciente_id)
+            ->get();
+		$noPatologicos = DB::table('no_patologico')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
+		$ginecologicos = DB::table('ginecologico')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
+		$actividadesfisicas = DB::table('actividad_fisica')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
+		$hitorialObservaciones = DB::table('hitorial_observacion')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
+
+		$view = view('reportes.reporteHistorialClinico')->with('paciente', $paciente)->with('diagnosticos', $diagnosticos)->with('patologiasPersonales', $patologiasPersonales)->with('patologiasParentezcos', $patologiasParentezcos)->with('patologiasHeredofamiliares', $patologiasHeredofamiliares)->with('noPatologicos', $noPatologicos)->with('ginecologicos', $ginecologicos)->with('actividadesfisicas', $actividadesfisicas)->with('hitorialObservaciones', $hitorialObservaciones);
 		$pdf = \App::make('dompdf.wrapper');
 		$pdf->loadHTML($view);
 		return $pdf->stream('Reporte de Historial Clinico '.$paciente->nombre);
@@ -39,7 +56,18 @@ class ReporteController extends Controller
 
 	public function showReporteTestPostural($paciente_id)
 	{
-		
+		$paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+
+		$testPosturales = DB::table('testpostural')
+            ->join('movimiento', 'testpostural.movimiento_id', '=', 'movimiento.id')
+            ->join('posicion', 'movimiento.posicion_id', '=', 'posicion.id')
+            ->select('testpostural.*', 'movimiento.nombre', 'posicion.nombre as posicionNombre' )->where('testpostural.paciente_id', '=', $paciente_id)->OrderBy('created_at','DESC')
+            ->get();
+
+		$view = view('reportes.reporteTestPostural')->with('paciente', $paciente)->with('testPosturales', $testPosturales);
+		$pdf = \App::make('dompdf.wrapper');
+		$pdf->loadHTML($view);
+		return $pdf->stream('Reporte Test Postural '.$paciente->nombre);
 	}
 
 	public function showReporteValoracionGoniometrica($paciente_id)
