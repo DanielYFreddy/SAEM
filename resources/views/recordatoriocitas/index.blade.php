@@ -6,10 +6,10 @@
   
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Listado de citas para el dia de mañana</h1>
+            <h1>Listado de Citas para el Día de Mañana</h1>
             <div class="card">
                 <div class="card-header">
-                	Listado de citas
+                	Listado de Citas
                   @if (!$citas->isEmpty()) 
                 	 <a href="{{ route('recordatorio.send') }}" class="btn btn-success float-right">Enviar notificación</a>
                   @endif
