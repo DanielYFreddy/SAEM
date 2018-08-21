@@ -16,19 +16,61 @@
                 <div class="card-body">
                   <div class="col-md-12">
                     @if ($diagnostico !== null)
-                      <h4>Diagnóstico: {{ $diagnostico->diagnostico }}</h4>
+                      <h4>Diagnóstico: 
+                        @if ($diagnostico->diagnostico)
+                          {{ $diagnostico->diagnostico }}
+                        @else
+                          {{ 'N/A' }}
+                        @endif
+                      </h4>
                       <h5>Tratamiento Farmacológico:</h5>
-                      <p>{{ $diagnostico->tratamientoFarmacologico}}</p>
+                      <p>
+                        @if ($diagnostico->tratamientoFarmacologico)
+                          {{ $diagnostico->tratamientoFarmacologico}}
+                        @else
+                          {{ 'N/A' }}
+                        @endif
+                      </p>
                       <h5>Evolución:</h5>
-                      <p>{{ $diagnostico->evolucion}}</p>
+                      <p>
+                        @if ($diagnostico->evolucion)
+                          {{ $diagnostico->evolucion}}
+                        @else
+                          {{ 'N/A' }}
+                        @endif
+                      </p>
                       <h5>Referencia Médica:</h5>
-                      <p>{{ $diagnostico->referenciaMedica}}</p>
+                      <p>
+                        @if ($diagnostico->referenciaMedica)
+                          {{ $diagnostico->referenciaMedica}}
+                        @else
+                          {{ 'N/A' }}
+                        @endif
+                      </p>
                       <h5>Antecedentes:</h5>
-                      <p>{{ $diagnostico->antecedentes}}</p>
+                      <p>
+                        @if ($diagnostico->antecedentes)
+                          {{ $diagnostico->antecedentes}}
+                        @else
+                          {{ 'N/A' }}
+                        @endif
+                      </p>
                       <h5>Antecedentes QX:</h5>
-                      <p>{{ $diagnostico->cirugias}}</p>
+                      <p>
+                        @if ($diagnostico->cirugias)
+                          {{ $diagnostico->cirugias}}
+                        @else
+                          {{ 'N/A' }}
+                        @endif
+                      </p>
                       <h5>Traumáticos:</h5>
-                      <p>{{ $diagnostico->traumaticos}}</p>
+                      <p>
+                        @if ($diagnostico->traumaticos)
+                          {{ $diagnostico->traumaticos}}
+                        @else
+                          {{ 'N/A' }}
+                        @endif
+                      </p>
                     @else
                       <p>No hay registro de un diagnóstico para este paciente</p>
                       <a href="{{ route('diagnosticos.create', $paciente->id) }}" class="btn btn-primary float-left">+Agregar Diagnóstico</a>

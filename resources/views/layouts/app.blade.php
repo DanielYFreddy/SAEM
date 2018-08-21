@@ -87,6 +87,9 @@
                             <li class="nav-item">
                                  <a class="nav-link" href="{{ asset('manualayuda/Manual de usuario SAEM.pdf') }}" target="_blank">Ayuda</a>
                             </li>
+                            <li class="nav-item">
+                                 <a class="nav-link" href="" data-toggle="modal" data-target="#acercaDe">Acerca de</a>
+                            </li>
                         </ul>
                     @endauth
 
@@ -124,6 +127,29 @@
         <main class="py-4">
              @yield('content')
         </main>
+
+        <!-- acerca de -->
+        <div class="modal fade" id="acercaDe" tabindex="-1" role="dialog" aria-labelledby="acercaDeLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="acercaDeLabel">Acerca de SAEM</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h4>Desarrolladores</h4>
+                <p class="font-italic">Daniel Murillo Sánchez: dgerardo94@gmail.com</p>
+                <p class="font-italic"></p>
+                <p class="font-italic">Freddy Soto Murillo: fsoto292010@gmail.com</p>
+              </div>
+              <div class="modal-footer">
+                Copyright © {{date('Y')}} Versión 0.79
+              </div>
+            </div>
+          </div>
+        </div>
 
         @yield('js')
 
