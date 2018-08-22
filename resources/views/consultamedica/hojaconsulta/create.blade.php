@@ -5,7 +5,7 @@
   
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Agregar Diagnóstico</h1>
+            <h1>Agregar Consulta</h1>
             <div class="card">
                 <div class="card-header">
                   Paciente: {{ $paciente->nombre }}
@@ -14,37 +14,27 @@
 
                 <div class="card-body">
                   <div class="col-md-12">
-                    {!! Form::open(['route' => ['seguimiento.store'], 'id' => 'form']) !!}
+                    {!! Form::open(['route' => ['consulta.store'], 'id' => 'form']) !!}
                       <input type="hidden" name="paciente_id" value="{{$paciente->id}}">
                      
                       <div class="form-group">
                         {{ Form::label('motivoConsulta', 'Motivo Consulta') }}
-                        {{ Form::textarea('motivoConsulta',null,['class'=>'form-control', 'rows'=>'3']) }}
-                      </div>
-
-                      <div class="form-group">
-                        {{ Form::label('DXFT', 'DXFT') }}
-                        {{ Form::textarea('DXFT',null,['class'=>'form-control', 'rows'=>'3']) }}
-                      </div>
-
-                      <div class="form-group">
-                        {{ Form::label('observaciones', 'Observaciones') }}
-                        {{ Form::textarea('observaciones',null,['class'=>'form-control', 'rows'=>'3']) }}
-                      </div>
-
-                      <div class="form-group">
-                        {{ Form::label('tratamiento', 'Tratamiento') }}
-                        {{ Form::textarea('tratamiento',null,['class'=>'form-control', 'rows'=>'3']) }}
-                      </div>
-
-                      <div class="form-group">
-                        {{ Form::label('parametros', 'Parametros') }}
-                        {{ Form::textarea('parametros',null,['class'=>'form-control', 'rows'=>'3']) }}
+                        {{ Form::textarea('motivoConsulta',null,['class'=>'form-control', 'rows'=>'3', 'required']) }}
                       </div>
 
                       <div class="form-group">
                         {{ Form::label('evolucion', 'Evolución') }}
                         {{ Form::textarea('evolucion',null,['class'=>'form-control', 'rows'=>'3']) }}
+                      </div>
+
+                      <div class="form-group">
+                        {{ Form::label('evaluacionesFuncionales', 'Evaluaciones Funcionales') }}
+                        {{ Form::textarea('evaluacionesFuncionales',null,['class'=>'form-control', 'rows'=>'3']) }}
+                      </div>
+
+                      <div class="form-group">
+                        {{ Form::label('observaciones', 'Observaciones') }}
+                        {{ Form::textarea('observaciones',null,['class'=>'form-control', 'rows'=>'3']) }}
                       </div>
 
                       <div class="form-group">

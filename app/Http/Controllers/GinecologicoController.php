@@ -80,7 +80,7 @@ class GinecologicoController extends Controller
         }
         
 
-        alert()->success('Lo ginecologico del paciente ha sido registrado', 'Ginecologico registrado')->persistent('Close');
+        alert()->success('Lo ginecologico del paciente ha sido registrado', 'Ginecologico registrado')->persistent('Cerrar');
 
         return redirect()->route('ginecologicos.index', $request->paciente_id);
     }

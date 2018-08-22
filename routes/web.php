@@ -105,9 +105,12 @@ Route::post('/consultamedica/sedente/store', 'TestPosturalController@storeSedent
     //marcha
 Route::get('/consultamedica/paciente/{paciente_id}/testpostural/marcha/','TestPosturalController@createMarcha')->name('marcha.create');
 Route::post('/consultamedica/marcha/store', 'TestPosturalController@storeMarcha')->name('marcha.store');
-    //seguimiento
-Route::get('/consultamedica/paciente/{paciente_id}/seguimiento','SeguimientoController@create')->name('seguimiento.create');
-Route::post('/consultamedica/seguimiento/store', 'SeguimientoController@store')->name('seguimiento.store');
+    //hoja consulta
+Route::get('/consultamedica/paciente/{paciente_id}/consulta','HojaConsultaController@create')->name('consulta.create');
+Route::post('/consultamedica/consulta/store', 'HojaConsultaController@store')->name('consulta.store');
+    //hoja tratamiento
+Route::get('/consultamedica/paciente/{paciente_id}/tratamiento','HojaTratamientoController@create')->name('tratamiento.create');
+Route::post('/consultamedica/tratamiento/store', 'HojaTratamientoController@store')->name('tratamiento.store');
     //goniometrica
 Route::get('/consultamedica/paciente/{paciente_id}/testpostural/goniometrica/','TestPosturalController@createGoniometrica')->name('goniometrica.create');
 Route::post('/consultamedica/goniometrica/store', 'TestPosturalController@storeGoniometrica')->name('goniometrica.store');
@@ -120,7 +123,8 @@ Route::post('/consultamedica/antropometria/store', 'TestPosturalController@store
 
     //reportes
 Route::get('/reportes/paciente/{paciente_id}', 'ReporteController@index')->name('reportes.index');
-Route::get('/reportes/paciente/{paciente_id}/reporte_seguimiento','ReporteController@showReporteSeguimiento')->name('reporte.seguimiento');
+Route::get('/reportes/paciente/{paciente_id}/reporte_consulta','ReporteController@showReporteConsulta')->name('reporte.consulta');
+Route::get('/reportes/paciente/{paciente_id}/reporte_tratamiento','ReporteController@showReporteTratamiento')->name('reporte.tratamiento');
 Route::get('/reportes/paciente/{paciente_id}/reporte_historial_clinico','ReporteController@showReporteHistorialClinico')->name('reporte.historial');
 Route::get('/reportes/paciente/{paciente_id}/reporte_test_postural','ReporteController@showReporteTestPostural')->name('reporte.testPostural');
 Route::get('/reportes/paciente/{paciente_id}/reporte_valoracion_goniometrica','ReporteController@showReporteValoracionGoniometrica')->name('reporte.valoracionGoniometrica');

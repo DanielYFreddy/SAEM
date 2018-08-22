@@ -21,14 +21,24 @@ class ReporteController extends Controller
         return view('reportes.index')->with('paciente',$paciente);
     }
 
-	public function showReporteSeguimiento($paciente_id)
+	public function showReporteConsulta($paciente_id)
 	{
 		$paciente = DB::table('paciente')->where('id', $paciente_id)->first();
-		$seguimientos = DB::table('seguimiento')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
-		$view = view('reportes.reporteseguimiento')->with('paciente', $paciente)->with('seguimientos', $seguimientos);
+		$consultas = DB::table('hoja_consulta')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
+		$view = view('reportes.reporteConsulta')->with('paciente', $paciente)->with('consultas', $consultas);
 		$pdf = \App::make('dompdf.wrapper');
 		$pdf->loadHTML($view);
-		return $pdf->stream('Reporte Seguimiento '.$paciente->nombre);
+		return $pdf->stream('Reporte Consulta '.$paciente->nombre);
+	}
+
+	public function showReporteTratamiento($paciente_id)
+	{
+		$paciente = DB::table('paciente')->where('id', $paciente_id)->first();
+		$tratamientos = DB::table('hoja_tratamiento')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
+		$view = view('reportes.reporteTratamiento')->with('paciente', $paciente)->with('tratamientos', $tratamientos);
+		$pdf = \App::make('dompdf.wrapper');
+		$pdf->loadHTML($view);
+		return $pdf->stream('Reporte Tratamiento '.$paciente->nombre);
 	}
 
 	public function showReporteHistorialClinico($paciente_id)

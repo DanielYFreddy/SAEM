@@ -57,7 +57,7 @@ class ActividadFisicaController extends Controller
             ]
         );
 
-        alert()->success('La actividad fisica del paciente ha sido registrada', 'Actividad Fisica registrada')->persistent('Close');
+        alert()->success('La actividad fisica del paciente ha sido registrada', 'Actividad Fisica registrada')->persistent('Cerrar');
 
         return redirect()->route('actividadfisica.index', $request->paciente_id);
     }

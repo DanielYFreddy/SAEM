@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class SeguimientoController extends Controller
+class HojaTratamientoController extends Controller
 {
+
+    /*
     public function __construct()
     {
         $this->middleware(['auth','admin']);
     }
+
+    */
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -20,7 +25,7 @@ class SeguimientoController extends Controller
     {
         //
         $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
-        return view('consultamedica.seguimiento.create')->with('paciente',$paciente);
+        return view('consultamedica.hojatratamiento.create')->with('paciente',$paciente);
     }
 
     /**
@@ -32,26 +37,21 @@ class SeguimientoController extends Controller
     public function store(Request $request)
     {
         //
-                DB::table('seguimiento')->insert(
+                DB::table('hoja_tratamiento')->insert(
             [
                 'paciente_id' => $request->paciente_id,
-                'motivoConsulta' => $request->motivoConsulta,
                 'DXFT' => $request->DXFT,
+                'objetivos' => $request->objetivos,
+                'parametrosTratamiento' => $request->parametrosTratamiento,
                 'observaciones' => $request->observaciones,
-                'escalaDolor' => $request->escalaDolor,
-                'tratamiento' => $request->tratamiento,
-                'parametros' => $request->parametros,
-                'evolucion' => $request->evolucion,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),  
 
             ]
         );
 
-        alert()->success('El seguimiento registrado', 'Seguimiento registrado')->persistent('Cerrar');
+        alert()->success('El tratamiento ha registrado', 'Tratamiento registrado')->persistent('Cerrar');
 
         return redirect()->route('consultamedica.index', $request->paciente_id);
     }
-
-
 }

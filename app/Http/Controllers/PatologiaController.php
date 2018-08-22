@@ -980,7 +980,7 @@ class PatologiaController extends Controller
         }
             
 
-        alert()->success('Los datos patologicos del paciente han sido registrados', 'Patologias Registradas')->persistent('Close');
+        alert()->success('Los datos patologicos del paciente han sido registrados', 'Patologias Registradas')->persistent('Cerrar');
 
         return redirect()->route('patologias.index', $request->paciente_id);
     }

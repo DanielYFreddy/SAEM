@@ -57,7 +57,7 @@ class NoPatologicoController extends Controller
             ]
         );
 
-        alert()->success('Lo no patologico del paciente ha sido registrado', 'No patologico registrado')->persistent('Close');
+        alert()->success('Lo no patologico del paciente ha sido registrado', 'No patologico registrado')->persistent('Cerrar');
 
         return redirect()->route('nopatologicos.index', $request->paciente_id);
     }

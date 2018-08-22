@@ -63,10 +63,10 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Seguimiento</h5>
+          <h5 class="card-title">Antropometria</h5>
           <br>
           <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
-          <a href="{{ route('seguimiento.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
+          <a href="{{ route('antropometria.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
       </div>
     </div>
@@ -97,10 +97,20 @@
     <div class="col-md-3">
       <div class="card border-primary">
         <div class="card-body">
-          <h5 class="card-title">Antropometria</h5>
+          <h5 class="card-title">Hoja de Consulta</h5>
           <br>
           <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
-          <a href="{{ route('antropometria.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
+          <a href="{{ route('consulta.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card border-primary">
+        <div class="card-body">
+          <h5 class="card-title">Hoja de Tratamiento</h5>
+          <br>
+          <p class="card-text text-center"><i class="fas fa-file-medical fa-5x"></i></p>
+          <a href="{{ route('tratamiento.create', $paciente->id) }}" class="btn btn-primary">Ingresar</a>
         </div>
       </div>
     </div>
