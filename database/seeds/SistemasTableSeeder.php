@@ -14,17 +14,17 @@ class SistemasTableSeeder extends Seeder
     {
         //
         DB::table('sistema')->insert([
-            'nombre' => 'Cardiovascular/pulmonar',
+            'nombre' => 'Cardiovascular/Pulmonar',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('sistema')->insert([
-            'nombre' => 'Renal/hepaticas',
+            'nombre' => 'Renal/Hepática',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('sistema')->insert([
-            'nombre' => 'Inmunologicas/hematologicas',
+            'nombre' => 'Inmunologicas',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);

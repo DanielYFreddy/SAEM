@@ -11,7 +11,7 @@
               <h3>Paciente: {{ $paciente->nombre }} </h3>
                                 
             </div>
-            <h1>Datos Patológicos</h1>
+            <h1>Datos Patológicos Personales</h1>
 
             {!! Form::open(['route' => ['patologias.store'], 'id' => 'form']) !!}
             <input type="hidden" name="paciente_id" value="{{$paciente->id}}">
@@ -20,81 +20,15 @@
 
                 <div class="card">
                   <div class="card-header">
-                    <h5>Cardiovasculár/Pulmonár</h3>
+                    <h5>Cardiovascular/Pulmonar</h3>
                   </div>
                   <div class="card-body">
-                    {{ Form::label('', 'Flebitis/Trombosis') }}
-
+                      @foreach ($cardiovascular_pulmonar as $patologia)
                         <div class="form-check">
-                          {{ Form::checkbox('FlebitisTrombosis[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
+                          {{ Form::checkbox('personales[]', $patologia->id,null,['class'=>'form-check-input','id'=>$patologia->nombre])  }}
+                          {{ Form::label($patologia->nombre, $patologia->nombre,['class'=>'form-check-label']) }}
                         </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('FlebitisTrombosis[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('FlebitisTrombosis[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'HTA',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('HTA[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('HTA[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('HTA[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Enf. Vascular',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('EnfVascular[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('EnfVascular[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('EnfVascular[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Asma/Bronquitis',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('AsmaBronquitis[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('AsmaBronquitis[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('AsmaBronquitis[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
+                      @endforeach
                   </div>
                 </div>
 
@@ -103,140 +37,26 @@
                     <h5>Renal/Hepáticas</h3>
                   </div>
                   <div class="card-body">
-                    
-                    {{ Form::label('', 'DM') }}
-
+                      @foreach ($renal_hepatica as $patologia)
                         <div class="form-check">
-                          {{ Form::checkbox('DM[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
+                          {{ Form::checkbox('personales[]', $patologia->id,null,['class'=>'form-check-input','id'=>$patologia->nombre])  }}
+                          {{ Form::label($patologia->nombre, $patologia->nombre,['class'=>'form-check-label']) }}
                         </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('DM[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('DM[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Hiper/Hipo',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('HiperHipo[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('HiperHipo[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('HiperHipo[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Gota',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('Gota[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Gota[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Gota[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
+                      @endforeach                    
                   </div>
                 </div>
 
                 <div class="card">
                   <div class="card-header">
-                    <h5>Inmunológicas/Hematológicas</h3>
+                    <h5>Inmunológicas</h3>
                   </div>
                   <div class="card-body">
-                    {{ Form::label('', 'AR') }}
-
+                      @foreach ($inmunologicas as $patologia)
                         <div class="form-check">
-                          {{ Form::checkbox('AR[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
+                          {{ Form::checkbox('personales[]', $patologia->id,null,['class'=>'form-check-input','id'=>$patologia->nombre])  }}
+                          {{ Form::label($patologia->nombre, $patologia->nombre,['class'=>'form-check-label']) }}
                         </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('AR[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('AR[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Fibromialgia',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('Fibromialgia[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Fibromialgia[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Fibromialgia[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Osteoartrosis',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('Osteoartrosis[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Osteoartrosis[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Osteoartrosis[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Lupus',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('Lupus[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Lupus[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Lupus[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
+                      @endforeach  
                   </div>
                 </div>
               </div>
@@ -246,81 +66,15 @@
 
                 <div class="card">
                   <div class="card-header">
-                    <h5>Gastrointestinál</h3>
+                    <h5>Gastrointestinal</h3>
                   </div>
                   <div class="card-body">
-                    {{ Form::label('', 'Ulceras') }}
-
+                      @foreach ($gastrointestinal as $patologia)
                         <div class="form-check">
-                          {{ Form::checkbox('Ulceras[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
+                          {{ Form::checkbox('personales[]', $patologia->id,null,['class'=>'form-check-input','id'=>$patologia->nombre])  }}
+                          {{ Form::label($patologia->nombre, $patologia->nombre,['class'=>'form-check-label']) }}
                         </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Ulceras[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Ulceras[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Gastritis',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('Gastritis[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Gastritis[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Gastritis[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Colitis',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('Colitis[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Colitis[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Colitis[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Estreñimiento',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('Estrenimiento[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Estrenimiento[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Estrenimiento[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
+                      @endforeach  
                   </div>
                 </div>
 
@@ -329,79 +83,12 @@
                     <h5>Ortopedia</h3>
                   </div>
                   <div class="card-body">
-                    
-                    {{ Form::label('', 'Lx Cadera') }}
-
+                      @foreach ($ortopedia as $patologia)
                         <div class="form-check">
-                          {{ Form::checkbox('LxCadera[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
+                          {{ Form::checkbox('personales[]', $patologia->id,null,['class'=>'form-check-input','id'=>$patologia->nombre])  }}
+                          {{ Form::label($patologia->nombre, $patologia->nombre,['class'=>'form-check-label']) }}
                         </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('LxCadera[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('LxCadera[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Lx Rodilla',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('LxRodilla[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('LxRodilla[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('LxRodilla[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Lx Hombro',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('LxHombro[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('LxHombro[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('LxHombro[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Espalda',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('Espalda[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Espalda[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Espalda[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
+                      @endforeach 
                   </div>
                 </div>
 
@@ -410,95 +97,29 @@
                     <h5>Otros</h3>
                   </div>
                   <div class="card-body">
-                    {{ Form::label('', 'CA') }}
-
+                      @foreach ($ortopedia as $patologia)
                         <div class="form-check">
-                          {{ Form::checkbox('CA[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
+                          {{ Form::checkbox('personales[]', $patologia->id,null,['class'=>'form-check-input','id'=>$patologia->nombre])  }}
+                          {{ Form::label($patologia->nombre, $patologia->nombre,['class'=>'form-check-label']) }}
                         </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('CA[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
+                      @endforeach 
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="card">
+                <div class="card-header">
+                  Observaciones Patológicas
+                </div>
 
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('CA[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
+                <div class="card-body">
+                  <div class="col-md-12">
 
-                        </div>
+                      <div class="form-group">
+                        {{ Form::label('observaciones', 'Observaciones') }}
+                        {{ Form::textarea('observaciones',null,['class'=>'form-control', 'rows'=>'5', 'id'=>'observaciones']) }}
+                      </div>
 
-                    {{ Form::label('', 'Alergias',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('Alergias[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Alergias[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Alergias[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Ndegenerativas',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('Ndegenerativas[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Ndegenerativas[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('Ndegenerativas[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Trans. Mentales',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('TransMentales[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('TransMentales[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('TransMentales[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
-
-                    {{ Form::label('', 'Trans. Sueño',['class'=>'mt-3']) }}
-
-                        <div class="form-check">
-                          {{ Form::checkbox('TransSueno[]', 'Personales',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Personales', 'Personales',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('TransSueno[]', 'Hfamiliares',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Hfamiliares', 'Hfamiliares',['class'=>'form-check-label']) }}
-
-                        </div>
-                        <div class="form-check">
-                          {{ Form::checkbox('TransSueno[]', 'Parentezco',null,['class'=>'form-check-input']) }}
-                          {{ Form::label('Parentezco', 'Parentezco',['class'=>'form-check-label']) }}
-
-                        </div>
                   </div>
                 </div>
               </div>
@@ -522,24 +143,38 @@
 
       e.preventDefault(); // <--- prevent form from submitting
      
-      swal({
-          title: "Estas seguro de guardar la informacion?",
-          text: "La informacion se asignara al paciente!",
-          type: "warning",
-          confirmButtonColor: "#DD6B55",
-          confirmButtonText: "Si",
-          cancelButtonText: "No",
-          showCancelButton:true,
-        },
-          function(isConfirm) {
-            if (isConfirm) {
-                form.submit(); // <--- submit form programmatically
+      if($('[name="personales[]"]:checked').length == 0 && $('#observaciones').val() == ''){
+          
+            swal({
+                  title: "Atención!",
+                  text: "Por favor marca una opción o introduce información para continuar",
+                  type: "info",
+                }
+                );
                 e.preventDefault();
-            } else {
-                e.preventDefault();
+
           }
-        }
-        );
+          else
+          {
+                swal({
+                  title: "Estas seguro de guardar la informacion?",
+                  text: "La informacion se asignara al paciente!",
+                  type: "warning",
+                  confirmButtonColor: "#DD6B55",
+                  confirmButtonText: "Si",
+                  cancelButtonText: "No",
+                  showCancelButton:true,
+                },
+                  function(isConfirm) {
+                    if (isConfirm) {
+                        form.submit(); // <--- submit form programmatically
+                        e.preventDefault();
+                    } else {
+                        e.preventDefault();
+                  }
+                }
+                );
+          }
 
 
     });

@@ -16,25 +16,37 @@ class PatologiasTableSeeder extends Seeder
                 //cardiovascular/pulmonar
         DB::table('patologia')->insert([
             'sistema_id' => '1',
-            'nombre' => 'Flebitis/trombosis',
+            'nombre' => 'Flebitis',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('patologia')->insert([
             'sistema_id' => '1',
-            'nombre' => 'HTA',
+            'nombre' => 'Trombosis',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('patologia')->insert([
             'sistema_id' => '1',
-            'nombre' => 'Enf. Vascular',
+            'nombre' => 'Hipertensión Arterial',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('patologia')->insert([
             'sistema_id' => '1',
-            'nombre' => 'Asma/bronquitis',
+            'nombre' => 'Venas Varicosas',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'), 
+        ]);
+        DB::table('patologia')->insert([
+            'sistema_id' => '1',
+            'nombre' => 'Asma',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'), 
+        ]);
+        DB::table('patologia')->insert([
+            'sistema_id' => '1',
+            'nombre' => 'Bronquitis',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
@@ -42,13 +54,19 @@ class PatologiasTableSeeder extends Seeder
         //renal/hepaticas
         DB::table('patologia')->insert([
             'sistema_id' => '2',
-            'nombre' => 'DM',
+            'nombre' => 'Diabetes Mellitus',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('patologia')->insert([
             'sistema_id' => '2',
-            'nombre' => 'Hiper/Hipo',
+            'nombre' => 'Hipertiroidismo',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'), 
+        ]);
+        DB::table('patologia')->insert([
+            'sistema_id' => '2',
+            'nombre' => 'Hipotiroidismo',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
@@ -62,7 +80,7 @@ class PatologiasTableSeeder extends Seeder
         //Inmunológicas/ hematológicas
         DB::table('patologia')->insert([
             'sistema_id' => '3',
-            'nombre' => 'AR',
+            'nombre' => 'Artritis Reumatoide',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
@@ -88,7 +106,7 @@ class PatologiasTableSeeder extends Seeder
         //Gastrointestinal
         DB::table('patologia')->insert([
             'sistema_id' => '4',
-            'nombre' => 'Ulceras',
+            'nombre' => 'Úlceras',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
@@ -112,25 +130,43 @@ class PatologiasTableSeeder extends Seeder
         //Ortopedia
         DB::table('patologia')->insert([
             'sistema_id' => '5',
-            'nombre' => 'Lx cadera',
+            'nombre' => 'Hombro',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('patologia')->insert([
             'sistema_id' => '5',
-            'nombre' => 'Lx rodilla',
+            'nombre' => 'Codo',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('patologia')->insert([
             'sistema_id' => '5',
-            'nombre' => 'Lx hombro',
+            'nombre' => 'Muñeca',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('patologia')->insert([
             'sistema_id' => '5',
-            'nombre' => 'Espalda',
+            'nombre' => 'Columna',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'), 
+        ]);
+        DB::table('patologia')->insert([
+            'sistema_id' => '5',
+            'nombre' => 'Cadera',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'), 
+        ]);
+        DB::table('patologia')->insert([
+            'sistema_id' => '5',
+            'nombre' => 'Rodilla',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'), 
+        ]);
+        DB::table('patologia')->insert([
+            'sistema_id' => '5',
+            'nombre' => 'Tobillo',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
@@ -138,7 +174,7 @@ class PatologiasTableSeeder extends Seeder
         //Otros
         DB::table('patologia')->insert([
             'sistema_id' => '6',
-            'nombre' => 'CA',
+            'nombre' => 'Cáncer',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
@@ -150,19 +186,25 @@ class PatologiasTableSeeder extends Seeder
         ]);
         DB::table('patologia')->insert([
             'sistema_id' => '6',
-            'nombre' => 'Ndegenerativas',
+            'nombre' => 'Neurodegenerativas ',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('patologia')->insert([
             'sistema_id' => '6',
-            'nombre' => 'Trans. Mentales',
+            'nombre' => 'Trastornos. Mentales',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
         DB::table('patologia')->insert([
             'sistema_id' => '6',
-            'nombre' => 'Trans. Sueño',
+            'nombre' => 'Trastornos. Sueño',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'), 
+        ]);
+        DB::table('patologia')->insert([
+            'sistema_id' => '6',
+            'nombre' => 'Otros',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'), 
         ]);
