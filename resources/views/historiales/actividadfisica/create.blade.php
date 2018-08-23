@@ -52,6 +52,11 @@
 
                         </div>
                       </div>
+
+                      <div class="form-group">
+                        {{ Form::label('observaciones', 'Observaciones') }}
+                        {{ Form::textarea('observaciones',null,['class'=>'form-control', 'rows'=>'3', 'id'=>'observaciones']) }}
+                      </div>
                      
                       {{ Form::submit('Guardar', ['class'=>'btn btn-primary', 'onclick' => 
                         'confirmar()'

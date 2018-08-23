@@ -13,16 +13,15 @@
             <div class="card-deck mt-4">
               <div class="card">
                 <div class="card-header">
-                  <h3>Patologías Personales</h3>
-                  
+                  <h3>Patologías Personales</h3>                 
                 </div>
                 <div class="card-body">
                   @if(count($patologia_personal)!=0)
-
-                    @foreach ($patologia_personal as $patologia_personal)
-                      <li class="list-group-item">{{ $patologia_personal->nombre }}</li>
-                    @endforeach
-                    
+                    <ul class="list-group">
+                      @foreach ($patologia_personal as $patologia_personal)
+                        <li class="list-group-item">{{ $patologia_personal->nombre }}</li>
+                      @endforeach
+                    </ul>                   
                   @else
                     <p>No hay registro de una patología personal para este paciente</p>
                     
@@ -35,10 +34,18 @@
                   <h3>Observaciones Patológicas</h3>
                 </div>
                 <div class="card-body">
+                  @if(count($observaciones_patologicas)!=0)
 
+                    @foreach ($observaciones_patologicas as $observacion_patologica)
+                      <p>{{ $observacion_patologica->observaciones }}</p>
+                    @endforeach
+                    
+                  @else
+                    <p>No hay registro de una observación patológica para este paciente</p>
+                    
+                  @endif
                 </div>
-              </div>
-              
+              </div>             
             </div>
         </div>
     </div>

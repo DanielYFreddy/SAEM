@@ -49,20 +49,15 @@ class ReporteController extends Controller
             ->join('patologia', 'patologia_personal.patologia_id', '=', 'patologia.id')
             ->select('patologia_personal.*', 'patologia.nombre')->where('patologia_personal.paciente_id', '=', $paciente_id)
             ->get();
-		$patologiasParentezcos = DB::table('patologia_parentezco')
-            ->join('patologia', 'patologia_parentezco.patologia_id', '=', 'patologia.id')
-            ->select('patologia_parentezco.*', 'patologia.nombre')->where('patologia_parentezco.paciente_id', '=', $paciente_id)
-            ->get();
-		$patologiasHeredofamiliares = DB::table('patologia_heredofalimiliar')
-            ->join('patologia', 'patologia_heredofalimiliar.patologia_id', '=', 'patologia.id')
-            ->select('patologia_heredofalimiliar.*', 'patologia.nombre')->where('patologia_heredofalimiliar.paciente_id', '=', $paciente_id)
-            ->get();
+
+ 		$observaciones_patologicas = DB::table('observacion_patologica')->where('paciente_id', $paciente_id)->get();
+
 		$noPatologicos = DB::table('no_patologico')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
 		$ginecologicos = DB::table('ginecologico')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
 		$actividadesfisicas = DB::table('actividad_fisica')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
 		$hitorialObservaciones = DB::table('hitorial_observacion')->where('paciente_id', $paciente_id)->OrderBy('created_at','DESC')->get();
 
-		$view = view('reportes.reporteHistorialClinico')->with('paciente', $paciente)->with('diagnosticos', $diagnosticos)->with('patologiasPersonales', $patologiasPersonales)->with('patologiasParentezcos', $patologiasParentezcos)->with('patologiasHeredofamiliares', $patologiasHeredofamiliares)->with('noPatologicos', $noPatologicos)->with('ginecologicos', $ginecologicos)->with('actividadesfisicas', $actividadesfisicas)->with('hitorialObservaciones', $hitorialObservaciones);
+		$view = view('reportes.reporteHistorialClinico')->with('paciente', $paciente)->with('diagnosticos', $diagnosticos)->with('patologiasPersonales', $patologiasPersonales)->with('observaciones_patologicas', $observaciones_patologicas)->with('noPatologicos', $noPatologicos)->with('ginecologicos', $ginecologicos)->with('actividadesfisicas', $actividadesfisicas)->with('hitorialObservaciones', $hitorialObservaciones);
 		$pdf = \App::make('dompdf.wrapper');
 		$pdf->loadHTML($view);
 		return $pdf->stream('Reporte de Historial Clinico '.$paciente->nombre);

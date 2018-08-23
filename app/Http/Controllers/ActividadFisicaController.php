@@ -51,6 +51,7 @@ class ActividadFisicaController extends Controller
                 'paciente_id' => $request->paciente_id,
                 'nivelActividad' => $request->nivelActividad,
                 'practicaDeporte' => $request->practicaDeporte,
+                'observaciones' => $request->observaciones,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),  
 

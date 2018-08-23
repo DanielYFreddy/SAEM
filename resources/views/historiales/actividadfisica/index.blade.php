@@ -19,6 +19,8 @@
                       <p>{{ $actividadFisica->nivelActividad}}</p>
                       <h5>Practica actividad o deporte:</h5>
                       <p>{{ $actividadFisica->practicaDeporte}}</p>
+                      <h5>Observaciones:</h5>
+                      <p>{{ $actividadFisica->observaciones}}</p>
                     @else
                       <p>No hay registro de una actividad física para este paciente</p>
                       <a href="{{ route('actividadfisica.create', $paciente->id) }}" class="btn btn-primary float-left">+Agregar Actividad Física</a>

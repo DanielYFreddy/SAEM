@@ -396,7 +396,7 @@ class TestPosturalController extends Controller
 
         alert()->success('La valoracion goniometrica del paciente ha sido registrado', 'Valoracion Goniometrica registrada')->persistent('Cerrar');
 
-        return redirect()->route('consultamedica.index', $request->paciente_id);
+        return redirect()->route('goniometrica.create', $request->paciente_id);
     }
 
     public function createManualMuscular($paciente_id)
@@ -442,9 +442,9 @@ class TestPosturalController extends Controller
             );
         }
 
-        alert()->success('La valoracion goniometrica del paciente ha sido registrado', 'Valoracion Goniometrica registrada')->persistent('Cerrar');
+        alert()->success('La valoracion muscular del paciente ha sido registrada', 'Valoracion Muscular Registrada')->persistent('Cerrar');
 
-        return redirect()->route('consultamedica.index', $request->paciente_id);
+        return redirect()->route('manualMuscular.create', $request->paciente_id);
     }
 
     public function createAntropometria($paciente_id)
@@ -781,7 +781,7 @@ class TestPosturalController extends Controller
 
         alert()->success('La antropometria del paciente ha sido registrado', 'Antropometria registrada')->persistent('Cerrar');
 
-        return redirect()->route('consultamedica.index', $request->paciente_id);
+        return redirect()->route('antropometria.create', $request->paciente_id);
     }
     
 

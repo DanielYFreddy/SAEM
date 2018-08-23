@@ -103,8 +103,7 @@
       <thead>
         <tr>
           <th><h4>Patología Personal</h4></th>
-          <th><h4>Patología Parentezco</h4></th>
-          <th><h4>Patología Heredofamiliar</h4></th>
+          <th><h4>Observaciones Patológicas</h4></th>
         </tr>
       </thead>
       <tbody>
@@ -121,23 +120,12 @@
             @endif
           </td>
           <td>
-            @if ($patologiasParentezcos->isEmpty())
-              <p>No existe ninguna patología parentezco para este paciente.</p>
+            @if ($observaciones_patologicas->isEmpty())
+              <p>No existe ninguna observación patológica para este paciente.</p>
             @else
                 
-                @foreach ($patologiasParentezcos as $patologiaParentezco)
-                     {!! $patologiaParentezco->nombre !!}
-                      <br> 
-                @endforeach
-            @endif
-          </td>
-          <td>
-            @if ($patologiasHeredofamiliares->isEmpty())
-              <p>No existe ninguna patología heredofamilar para este paciente.</p>
-            @else
-                
-                @foreach ($patologiasHeredofamiliares as $patologiaHeredofamiliar)
-                     {!! $patologiaHeredofamiliar->nombre !!}
+                @foreach ($observaciones_patologicas as $observacion_patologica)
+                     {!! $observacion_patologica->observaciones !!}
                       <br> 
                 @endforeach
             @endif
@@ -281,6 +269,15 @@
             </th>
             <th>
              {!! $actividadfisica->practicaDeporte !!}
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+              Observaciones
+            </th>
+            <th>
+             {!! $actividadfisica->observaciones !!}
             </th>
           </tr>
 

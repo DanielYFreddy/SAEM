@@ -24,11 +24,11 @@ class PatologiaController extends Controller
             ->select('patologia_personal.*', 'patologia.nombre')->where('patologia_personal.paciente_id', '=', $paciente_id)
             ->get();
 
-        $paciente = DB::table('paciente')->where('id', $paciente_id)->get();
+        $observaciones_patologicas = DB::table('observacion_patologica')->where('paciente_id', $paciente_id)->get();
 
         $paciente = DB::table('paciente')->where('id', $paciente_id)->first();
 
-        return view('historiales.patologias.index')->with('patologia_personal', $patologia_personal)->with('patologia_parentezco', $patologia_parentezco)->with('patologia_heredofalimiliar', $patologia_heredofalimiliar)->with('paciente',$paciente);
+        return view('historiales.patologias.index')->with('patologia_personal', $patologia_personal)->with('observaciones_patologicas', $observaciones_patologicas)->with('paciente',$paciente);
     }
 
     /**
