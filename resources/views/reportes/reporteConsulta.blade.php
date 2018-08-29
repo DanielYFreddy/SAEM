@@ -22,7 +22,7 @@
    @foreach ($consultas as $consulta)
 
       <center>
-          <h1 class="font-weight-bold">Reporte de Seguimiento al Paciente</h1>
+          <h1 class="font-weight-bold">Reporte de Consultas al Paciente</h1>
       </center>
 
       <center>

@@ -97,7 +97,7 @@
                     <h5>Otros</h3>
                   </div>
                   <div class="card-body">
-                      @foreach ($ortopedia as $patologia)
+                      @foreach ($otros as $patologia)
                         <div class="form-check">
                           {{ Form::checkbox('personales[]', $patologia->id,null,['class'=>'form-check-input','id'=>$patologia->nombre])  }}
                           {{ Form::label($patologia->nombre, $patologia->nombre,['class'=>'form-check-label']) }}
