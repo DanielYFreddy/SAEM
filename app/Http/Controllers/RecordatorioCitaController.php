@@ -23,7 +23,7 @@ class RecordatorioCitaController extends Controller
         //
         $citas = DB::table('cita')
             ->join('paciente', 'cita.title', '=', 'paciente.nombre')
-            ->select('cita.start', 'paciente.nombre as title', 'paciente.email as email')
+            ->select('cita.start', 'paciente.nombre as title', 'cita.descripcion as descripcion')
             ->whereDate('start', date('Y-m-d',strtotime(date('Y-m-d'). ' + 1 days')))
             ->where('paciente.email','<>',null)
             ->get();

@@ -35,7 +35,7 @@
                                 <tr>
                                   <td>{{$fechaHora[1]}}</td>
                                   <td>{{$cita->title}}</td>
-                                  <td>{{$cita->email}}</td>
+                                  <td>{{$cita->descripcion}}</td>
                                 </tr>
                             @endforeach
                           </tbody>  
